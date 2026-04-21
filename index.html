@@ -1,0 +1,407 @@
+<!-- ════════════════════════════════════════
+     INDEX.HTML
+════════════════════════════════════════ -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nestly Parenting — Your Trusted Guide Through Parenthood</title>
+  <meta name="description"
+    content="Nestly Parenting — expert advice, heartfelt stories, and practical tools for every stage of the parenting journey." />
+  <meta name="p:domain_verify" content="74a8bf428d5534ad10d6d0be99844ef1"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+
+      <!-- Search (left) -->
+      <div class="nav-search">
+        <div class="search-wrap">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)"
+            aria-label="Search articles" />
+        </div>
+      </div>
+
+      <!-- Brand (center feel) -->
+      <a class="nav-brand" href="index.html">
+        🌿 Nestly <span>Parenting</span>
+      </a>
+
+      <!-- Mobile Toggle -->
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+      <!-- Links (right) -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="articles.html">Blogs</a></li>
+        <li><a href="feeding-tracker.html">Feeding Tracker</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">✦ Your Parenting Companion</span>
+        <h1>Your Trusted Guide <br><em>Through Parenthood</em></h1>
+        <p class="hero-sub">From the first heartbeat to the first steps — we're here with warmth, wisdom, and honest
+          stories that make every parent feel less alone.</p>
+        <div class="hero-ctas">
+          <a href="articles.html" class="btn-hero-primary">Explore Blogs →</a>
+          <a href="#featured" class="btn-hero-ghost">Start Reading</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll dots -->
+    <div class="hero-scroll">
+      <div class="scroll-dot"></div>
+      <div class="scroll-dot"></div>
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+     FEATURED BLOGS
+════════════════════════════════════════ -->
+  <section class="section bg-warm" id="featured">
+    <div class="container">
+      <div class="row align-items-end mb-2">
+        <div class="col-lg-7">
+          <div class="section-eyebrow">Featured This Week</div>
+          <h2 class="section-title">Stories Worth Reading</h2>
+          <div class="divider-rose"></div>
+        </div>
+        <div class="col-lg-5 text-lg-end mb-4 mb-lg-0">
+          <a href="articles.html" class="btn-ghost-rose">View All Articles →</a>
+        </div>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Card 1 (large) — REAL PUBLISHED BLOG POST -->
+        <div class="col-lg-5">
+          <div class="blog-card h-100" style="border: 2px solid var(--rose);">
+            <div class="blog-card-img" style="height:260px;">
+              <img src="https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=700&q=80"
+                alt="Couple preparing for their first baby" loading="lazy" />
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-tag tag-amber">⭐ New · Pregnancy</span>
+              <div class="blog-card-title">How to Prepare for Your First Baby: The Complete, Honest Guide for Couples</div>
+              <div class="blog-card-meta">
+                <span>Attaullah</span>
+                <span>April 20, 2026</span>
+                <span>14 min read</span>
+              </div>
+              <p class="blog-card-excerpt">From the first positive test to bringing your baby home — everything first-time parents in the USA, Canada & UK need to know. Health, finances, relationship, and the emotional truth.</p>
+              <a href="blog/how-couples-prepare-for-first-baby.html" class="btn-read-more">Read Full Guide →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column: 2 stacked -->
+        <div class="col-lg-7">
+          <div class="row g-4">
+
+            <div class="col-sm-6">
+              <div class="blog-card h-100">
+                <div class="blog-card-img">
+                  <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=600&q=80"
+                    alt="Breastfeeding guide" loading="lazy" />
+                </div>
+                <div class="blog-card-body">
+                  <span class="blog-tag tag-sage">Feeding</span>
+                  <div class="blog-card-title">Breastfeeding in the First Week: A Gentle Guide</div>
+                  <div class="blog-card-meta">
+                    <span>Apr 13</span>
+                    <span>7 min</span>
+                  </div>
+                  <p class="blog-card-excerpt">The first week is the hardest. Here's what to expect and how to make it
+                    work for you and your baby.</p>
+                  <a href="articles.html" class="btn-read-more">Read More →</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="blog-card h-100">
+                <div class="blog-card-img">
+                  <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80"
+                    alt="Postpartum self-care" loading="lazy" />
+                </div>
+                <div class="blog-card-body">
+                  <span class="blog-tag tag-amber">Wellness</span>
+                  <div class="blog-card-title">Postpartum Recovery: Taking Care of YOU First</div>
+                  <div class="blog-card-meta">
+                    <span>Apr 12</span>
+                    <span>6 min</span>
+                  </div>
+                  <p class="blog-card-excerpt">You can't pour from an empty cup. Practical self-care tips for new
+                    mothers that actually fit into a busy schedule.</p>
+                  <a href="articles.html" class="btn-read-more">Read More →</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="blog-card" style="flex-direction:row; height:auto;">
+                <div class="blog-card-img" style="height:auto; width:160px; flex-shrink:0;">
+                  <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=400&q=80"
+                    alt="Baby milestones" loading="lazy" style="height:100%; min-height:130px;" />
+                </div>
+                <div class="blog-card-body" style="padding:18px 20px;">
+                  <span class="blog-tag tag-navy">Development</span>
+                  <div class="blog-card-title">Month-by-Month Milestones: What's Normal, What's Not</div>
+                  <div class="blog-card-meta">
+                    <span>Apr 11</span><span>9 min</span>
+                  </div>
+                  <a href="articles.html" class="btn-read-more">Read More →</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+     LATEST FEED
+════════════════════════════════════════ -->
+  <section class="section feed-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="section-eyebrow">Fresh Today</div>
+          <h2 class="section-title">Latest Articles</h2>
+          <div class="divider-rose"></div>
+
+          <div class="feed-item">
+            <img class="feed-thumb" src="https://images.unsplash.com/photo-1543342384-1f1350e27861?w=200&q=70"
+              alt="Baby crying" loading="lazy" />
+            <div class="feed-content">
+              <div class="feed-title"><a href="articles.html">Understanding Why Babies Cry at Night — Decoded</a></div>
+              <div class="feed-meta">Sleep · April 19, 2026 · 4 min read</div>
+            </div>
+          </div>
+
+          <div class="feed-item">
+            <img class="feed-thumb" src="https://images.unsplash.com/photo-1505944270255-72b8c68c6a70?w=200&q=70"
+              alt="Tummy time" loading="lazy" />
+            <div class="feed-content">
+              <div class="feed-title"><a href="articles.html">Tummy Time: How to Start, Why It Matters</a></div>
+              <div class="feed-meta">Development · April 18, 2026 · 3 min read</div>
+            </div>
+          </div>
+
+          <div class="feed-item">
+            <img class="feed-thumb" src="https://images.unsplash.com/photo-1519689680058-324335c77eba?w=200&q=70"
+              alt="Baby formula" loading="lazy" />
+            <div class="feed-content">
+              <div class="feed-title"><a href="articles.html">Formula vs Breastmilk: An Honest, Judgement-Free Guide</a>
+              </div>
+              <div class="feed-meta">Feeding · April 18, 2026 · 6 min read</div>
+            </div>
+          </div>
+
+          <div class="feed-item">
+            <img class="feed-thumb" src="https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=200&q=70"
+              alt="New parent" loading="lazy" />
+            <div class="feed-content">
+              <div class="feed-title"><a href="articles.html">The Partner's Guide: How to Support a New Mother</a></div>
+              <div class="feed-meta">Wellness · April 17, 2026 · 5 min read</div>
+            </div>
+          </div>
+
+          <div class="feed-item">
+            <img class="feed-thumb" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=200&q=70"
+              alt="Vaccination" loading="lazy" />
+            <div class="feed-content">
+              <div class="feed-title"><a href="articles.html">Baby Vaccination Schedule 2026 — Complete Calendar</a>
+              </div>
+              <div class="feed-meta">Health · April 17, 2026 · 8 min read</div>
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <a href="articles.html" class="btn-primary-rose">See All Articles →</a>
+          </div>
+        </div>
+
+        <!-- Sidebar: Tool highlight -->
+        <div class="col-lg-4 offset-lg-1 mt-5 mt-lg-0">
+          <div class="section-eyebrow">Quick Tool</div>
+          <h4 class="section-title" style="font-size:1.3rem;">Parenting Tools</h4>
+          <div class="divider-rose"></div>
+
+          <div class="tool-highlight">
+            <div class="tool-emoji">🍼</div>
+            <h4>Baby Feeding Tracker</h4>
+            <p class="font-ui" style="font-size:0.85rem; color:var(--muted); margin-bottom:20px;">Log every feeding
+              session easily. Saves automatically to your device.</p>
+            <a href="feeding-tracker.html" class="btn-sage d-block text-center">Open Tracker →</a>
+          </div>
+
+          <div class="tool-highlight mt-3" style="opacity:0.6;">
+            <div class="tool-emoji">😴</div>
+            <h4>Sleep Tracker</h4>
+            <p class="font-ui" style="font-size:0.85rem; color:var(--muted); margin-bottom:16px;">Track naps and night
+              sleep patterns.</p>
+            <span class="d-block text-center font-ui" style="font-size:0.8rem; color:var(--muted);">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+     ABOUT STRIP
+════════════════════════════════════════ -->
+  <section class="section-sm bg-warm" id="about">
+    <div class="container">
+      <div class="about-strip">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-8">
+            <div class="section-eyebrow" style="color:var(--rose);">About Nestly</div>
+            <h2 style="font-size:clamp(1.5rem,3vw,2.2rem);">We Write for Parents, By Parents</h2>
+            <p style="margin-top:12px;">Nestly Parenting was born from late-night feeding sessions and the desperate
+              need for honest, warm, practical advice. We publish 4–5 deeply researched articles daily — because
+              parenting doesn't pause, and neither do we.</p>
+          </div>
+          <div class="col-lg-4 text-lg-end">
+            <a href="articles.html" class="btn-hero-ghost" style="border-color:rgba(255,255,255,0.5);">Start Reading
+              →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+     COMMUNITY / COMMENTS
+════════════════════════════════════════ -->
+  <section class="section comments-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-eyebrow">Community</div>
+        <h2 class="section-title">Join the Conversation</h2>
+        <p class="section-sub mx-auto">Every parent's story is worth sharing. Ask questions, share wins, and support
+          each other below.</p>
+      </div>
+
+      <div class="comments-wrapper">
+        <h3>💬 Leave a Comment</h3>
+        <p class="sub">Sign in with GitHub to comment. Your voice matters in this community.</p>
+
+        <!-- Giscus embed -->
+        <script src="https://giscus.app/client.js" data-repo="Attaullahsmit/nestly" data-repo-id="R_kgDOSGz4Tw"
+          data-category="General" data-category-id="DIC_kwDOSGz4T84C7NJh" data-mapping="pathname" data-strict="0"
+          data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
+          data-theme="preferred_color_scheme" data-lang="en" crossorigin="anonymous" async>
+          </script>
+        <!-- Replace the data-* attributes above with your Giscus config from giscus.app -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Brand col -->
+        <div class="col-lg-4">
+          <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+          <p class="footer-tagline">Your trusted companion through every beautiful, messy, and unforgettable chapter of
+            parenthood.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>
+            <a href="https://www.instagram.com/attaullah41215" target="_blank">📸 Instagram</a>
+            <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank">💼 LinkedIn</a>
+            <a href="mailto:attaullah41215@gmail.com">✉️ attaullah41215@gmail.com</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-6 col-lg-2 offset-lg-1">
+          <div class="footer-heading">Explore</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html">All Articles</a></li>
+            <li><a href="feeding-tracker.html">Feeding Tracker</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="col-6 col-lg-2">
+          <div class="footer-heading">Legal</div>
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="disclaimer.html">Disclaimer</a></li>
+          </ul>
+        </div>
+
+        <!-- About col -->
+        <div class="col-lg-3">
+          <div class="footer-heading">About the Author</div>
+          <p style="font-family:var(--font-ui); font-size:0.84rem; color:rgba(255,255,255,0.55); line-height:1.7;">
+            Built by <strong style="color:rgba(255,255,255,0.8);">Attaullah</strong> — a parent, developer, and
+            passionate advocate for modern parenting education.
+          </p>
+        </div>
+
+      </div>
+
+      <hr class="footer-divider" />
+
+      <div class="footer-bottom">
+        <span>© 2026 Nestly Parenting. All rights reserved.</span>
+        <span><a href="privacy-policy.html">Privacy Policy</a> · <a href="disclaimer.html">Disclaimer</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════════════════════════════════════════
+     JS
+════════════════════════════════════════ -->
+  <script src="main.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+
+</html>

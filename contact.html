@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Nestly Parenting — Get in Touch</title>
+  <meta name="description" content="Have a question, topic suggestion, or want to collaborate with Nestly Parenting? We'd love to hear from you." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nestlyparenting.com/contact.html" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-hero {
+      background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-form-wrap {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      box-shadow: 0 4px 32px rgba(44,62,80,0.07);
+    }
+    .form-label-custom {
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      color: var(--navy);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      margin-bottom: 22px;
+    }
+    .form-input:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(232,146,124,0.12);
+    }
+    textarea.form-input { resize: vertical; min-height: 140px; }
+
+    .contact-info-card {
+      background: var(--navy);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 36px 28px;
+    }
+    .contact-info-card h4 { color: #fff; font-family: var(--font-display); margin-bottom: 20px; }
+    .contact-info-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-bottom: 20px;
+      font-family: var(--font-ui); font-size: 0.88rem;
+    }
+    .contact-info-item .icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+    .contact-info-item strong { color: rgba(255,255,255,0.9); display: block; margin-bottom: 2px; }
+    .contact-info-item span  { color: rgba(255,255,255,0.55); }
+    .contact-info-item a { color: var(--rose); }
+
+    .success-msg {
+      background: var(--sage-light);
+      border: 1px solid rgba(122,158,135,0.4);
+      border-radius: var(--radius-sm);
+      padding: 16px 20px;
+      font-family: var(--font-ui);
+      font-size: 0.9rem;
+      color: #3a6647;
+      display: none;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <div class="nav-search">
+      <div class="search-wrap">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" />
+      </div>
+    </div>
+    <a class="nav-brand" href="index.html">🌿 Nestly <span>Parenting</span></a>
+    <button class="nav-toggle" onclick="toggleNav()">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="articles.html">Blogs</a></li>
+      <li><a href="feeding-tracker.html">Feeding Tracker</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="container text-center">
+    <div class="section-eyebrow">Say Hello</div>
+    <h1 style="font-size:clamp(2rem,4vw,3rem); margin-bottom:14px;">Get in Touch</h1>
+    <p class="font-ui" style="color:var(--muted); max-width:480px; margin:0 auto;">Have a question, a topic you'd love us to cover, or just want to share your parenting story? We read every message.</p>
+  </div>
+</section>
+
+<!-- MAIN -->
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+
+      <!-- Form -->
+      <div class="col-lg-7">
+        <div class="contact-form-wrap">
+          <h3 style="font-family:var(--font-display); margin-bottom:8px;">Send Us a Message</h3>
+          <p class="font-ui" style="color:var(--muted); font-size:0.85rem; margin-bottom:28px;">We typically respond within 48 hours.</p>
+
+          <div class="success-msg" id="successMsg">
+            ✅ Thank you! Your message has been sent. We'll get back to you soon.
+          </div>
+
+          <div>
+            <label class="form-label-custom">Your Name *</label>
+            <input type="text" class="form-input" id="contactName" placeholder="e.g. Sarah Johnson" required />
+
+            <label class="form-label-custom">Email Address *</label>
+            <input type="email" class="form-input" id="contactEmail" placeholder="e.g. sarah@email.com" required />
+
+            <label class="form-label-custom">Subject</label>
+            <input type="text" class="form-input" id="contactSubject" placeholder="e.g. Topic suggestion / General question" />
+
+            <label class="form-label-custom">Your Message *</label>
+            <textarea class="form-input" id="contactMessage" placeholder="Tell us what's on your mind…" required></textarea>
+
+            <button class="btn-primary-rose w-100" onclick="handleContactSubmit()" style="padding:14px; font-size:0.9rem;">
+              Send Message →
+            </button>
+            <p class="font-ui text-center mt-3" style="font-size:0.75rem; color:var(--muted);">
+              By submitting this form you agree to our <a href="privacy-policy.html">Privacy Policy</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-lg-5">
+        <div class="contact-info-card mb-4">
+          <h4>Contact Information</h4>
+
+          <div class="contact-info-item">
+            <span class="icon">✉️</span>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:attaullah41215@gmail.com">attaullah41215@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <span class="icon">📘</span>
+            <div>
+              <strong>Facebook</strong>
+              <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">Nestly Parenting on Facebook</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <span class="icon">📸</span>
+            <div>
+              <strong>Instagram</strong>
+              <a href="https://www.instagram.com/attaullah41215" target="_blank">@attaullah41215</a>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <span class="icon">💼</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank">Muhammad Attaullah</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- What to contact for -->
+        <div style="background:var(--blush); border-radius:var(--radius); padding:28px;">
+          <h5 style="font-family:var(--font-display); margin-bottom:16px;">What Can You Contact Us About?</h5>
+          <ul class="checklist">
+            <li>Topic suggestions for new articles</li>
+            <li>Questions about parenting content</li>
+            <li>Corrections or updates to our articles</li>
+            <li>Collaboration or guest post enquiries</li>
+            <li>Press or media enquiries</li>
+            <li>General feedback and suggestions</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+        <p class="footer-tagline">Your trusted companion through every chapter of parenthood.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>
+          <a href="https://www.instagram.com/attaullah41215" target="_blank">📸 Instagram</a>
+          <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank">💼 LinkedIn</a>
+          <a href="mailto:attaullah41215@gmail.com">✉️ attaullah41215@gmail.com</a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-heading">Explore</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">All Articles</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Legal</div>
+        <ul class="footer-links">
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">About</div>
+        <p style="font-family:var(--font-ui); font-size:0.84rem; color:rgba(255,255,255,0.55); line-height:1.7;">
+          Built by <strong style="color:rgba(255,255,255,0.8);">Attaullah</strong> — a passionate advocate for honest parenting education.
+        </p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2026 Nestly Parenting. All rights reserved.</span>
+      <span><a href="privacy-policy.html">Privacy Policy</a> · <a href="disclaimer.html">Disclaimer</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  function handleContactSubmit() {
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+    if (!name || !email || !message) {
+      alert('Please fill in your name, email, and message.');
+      return;
+    }
+    // Show success (in production, replace with a real form backend like Formspree or Netlify Forms)
+    document.getElementById('successMsg').style.display = 'block';
+    document.getElementById('contactName').value = '';
+    document.getElementById('contactEmail').value = '';
+    document.getElementById('contactSubject').value = '';
+    document.getElementById('contactMessage').value = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

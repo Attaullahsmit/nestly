@@ -1,0 +1,130 @@
+<!-- ════════════════════════════════════════
+     Feeding Tracker.HTML
+════════════════════════════════════════ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nestly Parenting — Feeding Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <div class="nav-search">
+      <div class="search-wrap">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" aria-label="Search" />
+      </div>
+    </div>
+
+    <a class="nav-brand" href="index.html">🌿 Nestly <span>Parenting</span></a>
+
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="articles.html">Blogs</a></li>
+      <li><a href="feeding-tracker.html" class="active">Feeding Tracker</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════
+     MAIN
+════════════════════════════════════════ -->
+<section class="section">
+  <div class="container" style="max-width: 640px;">
+
+    <!-- Hero -->
+    <div class="tracker-page-hero">
+      <p class="font-ui" style="opacity:0.7; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Parenting Tool</p>
+      <h3>🍼 Baby Feeding Tracker</h3>
+      <p>Log every feeding session. Data is saved privately on your device.</p>
+    </div>
+
+    <!-- Input Card -->
+    <div class="tool-highlight mb-4" style="text-align:left; padding:28px;">
+      <label class="font-ui" style="font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:10px;">
+        Feeding Time
+      </label>
+      <input id="timeInput" type="text" class="form-control mb-3" placeholder="e.g. 8:30 AM — or use the button below" />
+      <div class="d-flex gap-2">
+        <button class="btn-outline-sage w-50" onclick="useCurrentTime()">🕐 Current Time</button>
+        <button class="btn-sage w-50" onclick="addLog()">➕ Add Entry</button>
+      </div>
+    </div>
+
+    <!-- Log header -->
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <span class="font-ui" style="font-weight:700; font-size:0.9rem; color:var(--navy);">Session Log</span>
+      <span id="logBadge" class="font-ui" style="background:var(--sage-light); color:var(--sage); font-size:0.75rem; font-weight:700; padding:4px 14px; border-radius:100px;">0 entries</span>
+    </div>
+
+    <!-- Log List -->
+    <div id="logs"></div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+        <p class="footer-tagline">Your trusted companion through every chapter of parenthood.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>
+          <a href="https://www.instagram.com/attaullah41215" target="_blank">📸 Instagram</a>
+          <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank">💼 LinkedIn</a>
+          <a href="mailto:attaullah41215@gmail.com">✉️ attaullah41215@gmail.com</a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-heading">Explore</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">All Articles</a></li>
+          <li><a href="feeding-tracker.html">Feeding Tracker</a></li>
+          <li><a href="index.html#about">About</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 offset-lg-2">
+        <div class="footer-heading">About the Author</div>
+        <p style="font-family:var(--font-ui); font-size:0.84rem; color:rgba(255,255,255,0.55); line-height:1.7;">
+          Built by <strong style="color:rgba(255,255,255,0.8);">Attaullah</strong> — a parent, developer, and passionate advocate for modern parenting education.
+        </p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2026 Nestly Parenting. All rights reserved.</span>
+      <span>Made with ❤️ for parents everywhere</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/feeding-tracker.js"></script>
+</body>
+</html>

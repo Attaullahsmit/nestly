@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Nestly Parenting — Who We Are & Why We Write</title>
+  <meta name="description" content="Meet Attaullah, the founder of Nestly Parenting — a content platform built to give first-time parents in the USA, Canada, and UK honest, warm, and practical guidance." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nestlyparenting.com/about.html" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .about-hero {
+      background: linear-gradient(135deg, var(--blush) 0%, var(--cream) 100%);
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .founder-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 44px;
+      box-shadow: 0 4px 32px rgba(44,62,80,0.07);
+    }
+    .founder-avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose), var(--amber));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 2.8rem; color: #fff;
+      margin: 0 auto 24px;
+      flex-shrink: 0;
+    }
+    .mission-card {
+      background: var(--navy);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 40px;
+    }
+    .mission-card h3 { color: #fff; font-family: var(--font-display); margin-bottom: 16px; }
+    .mission-card p  { color: rgba(255,255,255,0.78); font-size: 0.95rem; margin-bottom: 0; }
+
+    .value-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      height: 100%;
+    }
+    .value-icon { font-size: 2rem; margin-bottom: 12px; }
+    .value-card h5 { font-family: var(--font-display); margin-bottom: 8px; }
+    .value-card p  { font-family: var(--font-ui); font-size: 0.85rem; color: var(--muted); margin: 0; }
+
+    .disclaimer-notice {
+      background: var(--amber-light);
+      border: 1px solid rgba(212,149,106,0.3);
+      border-radius: var(--radius-sm);
+      padding: 20px 24px;
+    }
+    .disclaimer-notice p { font-family: var(--font-ui); font-size: 0.85rem; color: #7a4a1a; margin: 0; }
+
+    .stat-row { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px 0; margin: 52px 0; }
+    .stat-item { text-align: center; }
+    .stat-item .num { font-family: var(--font-display); font-size: 2.4rem; color: var(--rose); }
+    .stat-item .lbl { font-family: var(--font-ui); font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <div class="nav-search">
+      <div class="search-wrap">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" />
+      </div>
+    </div>
+    <a class="nav-brand" href="index.html">🌿 Nestly <span>Parenting</span></a>
+    <button class="nav-toggle" onclick="toggleNav()">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="articles.html">Blogs</a></li>
+      <li><a href="feeding-tracker.html">Feeding Tracker</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-7">
+        <div class="section-eyebrow">Our Story</div>
+        <h1 style="font-size:clamp(2rem,4vw,3rem); margin-bottom:16px;">
+          Built for Parents,<br><em>By Someone Who Cares</em>
+        </h1>
+        <p class="font-ui" style="color:var(--muted); font-size:1rem; max-width:520px; margin:0 auto;">
+          Nestly Parenting exists because becoming a parent is one of the most overwhelming experiences a person can face — and you deserve honest, warm guidance, not just generic advice.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Founder Card -->
+      <div class="col-lg-4">
+        <div class="founder-card text-center">
+          <div class="founder-avatar">A</div>
+          <h3 style="font-size:1.4rem; margin-bottom:4px;">Attaullah</h3>
+          <p class="font-ui" style="color:var(--rose); font-size:0.82rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; margin-bottom:16px;">Founder & Lead Writer</p>
+          <p class="font-ui" style="color:var(--muted); font-size:0.88rem; line-height:1.7;">
+            A researcher, writer, and passionate advocate for modern parenting education. Attaullah founded Nestly Parenting with one simple belief: new parents deserve access to clear, honest, and empathetic information — without the overwhelm, the judgment, or the sponsored misinformation.
+          </p>
+          <hr style="border-color:var(--border); margin:20px 0;" />
+          <div class="footer-social" style="align-items:center; justify-content:center;">
+            <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>
+            <a href="https://www.instagram.com/attaullah41215" target="_blank">📸 Instagram</a>
+            <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank">💼 LinkedIn</a>
+            <a href="mailto:attaullah41215@gmail.com">✉️ Email</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story -->
+      <div class="col-lg-8">
+        <div class="section-eyebrow">The Story Behind Nestly</div>
+        <h2 style="font-size:2rem; margin-bottom:20px;">Why We Started</h2>
+
+        <p style="font-family:var(--font-body); font-size:1.05rem; line-height:1.9; color:var(--slate);">
+          When you search for parenting advice online, you're met with two extremes: overly clinical medical jargon that feels cold and distant, or social-media-polished content that makes parenthood look effortless and perfect. Neither actually helps a parent who is scared, exhausted, and just trying to do their best.
+        </p>
+
+        <p style="font-family:var(--font-body); font-size:1.05rem; line-height:1.9; color:var(--slate);">
+          Nestly Parenting was built to fill the gap in between. We publish 4–5 articles a week covering everything from the first positive pregnancy test to the sleepless nights of the newborn period — written with warmth, grounded in evidence, and always honest about the parts that are hard.
+        </p>
+
+        <p style="font-family:var(--font-body); font-size:1.05rem; line-height:1.9; color:var(--slate);">
+          Our audience is primarily first-time parents in the <strong>United States, Canada, and the United Kingdom</strong> — three countries with very different healthcare systems, very different parental leave policies, and very similar fears when that positive test appears. We write for all of them.
+        </p>
+
+        <!-- Mission card -->
+        <div class="mission-card mt-4">
+          <h3>Our Mission</h3>
+          <p>To make new parenthood feel less lonely. To give every first-time parent — regardless of income, background, or support network — access to the kind of honest, practical, and emotionally intelligent guidance that used to only exist if you were lucky enough to have the right people around you.</p>
+        </div>
+
+        <!-- Medical disclaimer -->
+        <div class="disclaimer-notice mt-4">
+          <p>
+            <strong>⚕️ A note on our content:</strong> Nestly Parenting is an educational resource, not a medical provider. Our articles are thoroughly researched and draw from reputable sources including the NHS (UK), American Academy of Pediatrics (US), and Health Canada. However, they are not a substitute for professional medical advice. Always consult your GP, OB-GYN, midwife, or paediatrician with specific health concerns.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stat-row">
+      <div class="row g-4">
+        <div class="col-6 col-md-3 stat-item">
+          <div class="num">4–5</div>
+          <div class="lbl">Articles per week</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="num">3</div>
+          <div class="lbl">Countries covered</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="num">100%</div>
+          <div class="lbl">Free to read</div>
+        </div>
+        <div class="col-6 col-md-3 stat-item">
+          <div class="num">0</div>
+          <div class="lbl">Sponsored posts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="section-eyebrow">What We Stand For</div>
+    <h2 class="section-title" style="margin-bottom:32px;">Our Core Values</h2>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h5>Honesty First</h5>
+          <p>We don't sugarcoat parenthood. If something is hard, we say it's hard. Our readers trust us because we tell the truth.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="value-card">
+          <div class="value-icon">🔬</div>
+          <h5>Evidence-Based</h5>
+          <p>Every article is researched using reputable sources — NHS, AAP, Health Canada, peer-reviewed studies. We cite our sources.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="value-card">
+          <div class="value-icon">💛</div>
+          <h5>Non-Judgmental</h5>
+          <p>Breastfeed or formula. Natural birth or c-section. Stay home or return to work. We support parents, not agendas.</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="value-card">
+          <div class="value-icon">🌍</div>
+          <h5>Inclusive</h5>
+          <p>We write for mothers, fathers, partners, single parents, and every family structure. Parenthood belongs to everyone.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-5 pt-3">
+      <a href="articles.html" class="btn-primary-rose me-3">Read Our Articles →</a>
+      <a href="contact.html" class="btn-ghost-rose">Get in Touch</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════
+     COMMENTS
+════════════════════════════════════════ -->
+<section class="section comments-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="section-eyebrow">Community</div>
+      <h2 class="section-title">Join the Conversation</h2>
+      <p class="section-sub mx-auto">Have a question or something to share? Leave a comment below.</p>
+    </div>
+    <div class="comments-wrapper">
+      <h3>💬 Leave a Comment</h3>
+      <p class="sub">Sign in with GitHub to comment. Your voice matters in this community.</p>
+      <script src="https://giscus.app/client.js"
+        data-repo="Attaullahsmit/nestly"
+        data-repo-id="R_kgDOSGz4Tw"
+        data-category="General"
+        data-category-id="DIC_kwDOSGz4T84C7NJh"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+        <p class="footer-tagline">Your trusted companion through every chapter of parenthood.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>
+          <a href="https://www.instagram.com/attaullah41215" target="_blank">📸 Instagram</a>
+          <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank">💼 LinkedIn</a>
+          <a href="mailto:attaullah41215@gmail.com">✉️ attaullah41215@gmail.com</a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-heading">Explore</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="articles.html">All Articles</a></li>
+          <li><a href="feeding-tracker.html">Feeding Tracker</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Legal</div>
+        <ul class="footer-links">
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">About the Author</div>
+        <p style="font-family:var(--font-ui); font-size:0.84rem; color:rgba(255,255,255,0.55); line-height:1.7;">
+          Built by <strong style="color:rgba(255,255,255,0.8);">Attaullah</strong> — a passionate advocate for honest, practical parenting education.
+        </p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2026 Nestly Parenting. All rights reserved.</span>
+      <span><a href="privacy-policy.html">Privacy Policy</a> · <a href="disclaimer.html">Disclaimer</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
