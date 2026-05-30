@@ -1,0 +1,15 @@
+# ════════════════════════════════════════
+#   robots.txt — Nestly Parenting
+#   https://warm-longma-ae6f86.netlify.app/
+# ════════════════════════════════════════
+
+# Allow all search engine crawlers
+User-agent: *
+Allow: /
+
+# Block access to any admin or private paths (add more if needed)
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://warm-longma-ae6f86.netlify.app/sitemap.xml
