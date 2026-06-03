@@ -49,11 +49,19 @@
 <!-- ════════════════════════════════════════
      ARTICLES HERO
 ════════════════════════════════════════ -->
-<section class="articles-hero">
-  <div class="container">
+<section class="articles-hero" style="padding:0;overflow:hidden;">
+  <!-- ARTICLES PAGE HERO BANNER -->
+  <div style="position:relative;width:100%;max-height:380px;overflow:hidden;">
+    <img src="assets/images/nestly-articles-banner.jpg"
+      alt="Diverse women's hands joined together in solidarity — Nestly Parenting honest pregnancy and parenting advice for first-time parents worldwide covering pregnancy health, loss support, and parenthood"
+      style="width:100%;height:380px;object-fit:cover;object-position:center 40%;display:block;"
+      fetchpriority="high" />
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(10,5,20,0.45) 0%,rgba(10,5,20,0.0) 60%);"></div>
+  </div>
+  <div class="container" style="padding-top:36px;">
     <div class="section-eyebrow">The Blog</div>
     <h1>All Articles &amp; Guides</h1>
-    <p class="font-ui" style="color:var(--muted); max-width:480px; margin-bottom:24px;">Honest, warm, and practical parenting content — published fresh every day.</p>
+    <p class="font-ui" style="color:var(--muted); max-width:480px; margin-bottom:24px;">Honest pregnancy and parenting advice for first-time parents worldwide — published fresh every week.</p>
 
     <!-- Search -->
     <div class="articles-search-wrap">
@@ -83,7 +91,7 @@
 
     <!-- Result count -->
     <div class="font-ui mb-4" style="font-size:0.82rem; color:var(--muted);">
-      Showing <span id="resultCount">3</span> articles
+      Showing <span id="resultCount">4</span> articles
     </div>
 
     <!-- No results -->
@@ -95,15 +103,33 @@
     <!-- Grid -->
     <div class="row g-4" id="articlesGrid">
 
-      <!-- Blog 3 — NEW: Olivia's Miscarriage Story -->
-      <div class="col-md-6 col-lg-4 article-item" data-title="Real First Pregnancy Miscarriage Story Olivia Emotional Impact Healing" data-cat="wellness">
+      <!-- Blog 4 — NEW: First Trimester Miscarriage Guide -->
+      <div class="col-md-6 col-lg-4 article-item" data-title="Why Do Miscarriages Happen First Trimester Pregnancy Loss Causes Warning Signs Papaya" data-cat="health">
         <div class="blog-card h-100" style="border: 2px solid var(--rose); position:relative;">
           <div style="position:absolute;top:12px;left:12px;z-index:2;">
             <span class="blog-tag tag-rose" style="font-size:0.68rem;">🤍 New</span>
           </div>
           <div class="blog-card-img">
+            <img src="assets/images/miscarriage-guide-card.png"
+              alt="Two hands passing a flower — why do miscarriages happen, first trimester pregnancy loss complete guide"
+              loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag tag-rose">Pregnancy Loss</span>
+            <div class="blog-card-title">Why Do Miscarriages Happen? First Trimester Pregnancy Loss — Complete Guide</div>
+            <div class="blog-card-meta"><span>May 2, 2026</span><span>10 min read</span></div>
+            <p class="blog-card-excerpt">80% of losses happen before week 12. The real causes, warning signs, and whether papaya is truly dangerous — backed by WHO, ACOG &amp; NHS.</p>
+            <a href="blog/first-trimester-miscarriage-guide.html" class="btn-read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog 3 — Olivia's Miscarriage Story -->
+      <div class="col-md-6 col-lg-4 article-item" data-title="Real First Pregnancy Miscarriage Story Olivia Emotional Impact Healing" data-cat="wellness">
+        <div class="blog-card h-100">
+          <div class="blog-card-img">
             <img src="assets/images/miscarriage-grief-mother-pregnancy-loss-blog.jpg"
-              alt="Grieving mother imagining baby in dreamlike golden light — real first pregnancy miscarriage story"
+              alt="Grieving mother imagining holding her baby in golden dreamlike light — real first pregnancy miscarriage story by Olivia"
               loading="lazy" />
           </div>
           <div class="blog-card-body">
