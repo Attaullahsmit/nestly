@@ -6,10 +6,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nestly Parenting — All Articles</title>
-  <meta name="description" content="Browse all parenting articles on Nestly — sleep, feeding, development, wellness, and more." />
+  <title>All Articles & Guides — Nestly Parenting | Pregnancy, Loss & Parenthood</title>
+  <meta name="description" content="Browse all Nestly Parenting articles — honest guides on miscarriage, pregnancy loss, preconception health, and preparing for your first baby. Written with compassion and backed by research." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Attaullah" />
+  <link rel="canonical" href="https://warm-longma-ae6f86.netlify.app/articles.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Nestly Parenting" />
+  <meta property="og:url" content="https://warm-longma-ae6f86.netlify.app/articles.html" />
+  <meta property="og:title" content="All Articles & Guides — Nestly Parenting" />
+  <meta property="og:description" content="Honest guides on miscarriage, pregnancy loss, preconception health, and preparing for your first baby. Written with compassion, backed by research." />
+  <meta property="og:image" content="https://warm-longma-ae6f86.netlify.app/assets/images/nestly-articles-banner.jpg" />
+  <meta property="og:image:alt" content="Diverse hands joined together — Nestly Parenting articles and guides on pregnancy health, loss support and parenthood" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="All Articles & Guides — Nestly Parenting" />
+  <meta name="twitter:description" content="Honest guides on miscarriage, pregnancy loss, preconception health, and preparing for your first baby." />
+  <meta name="twitter:image" content="https://warm-longma-ae6f86.netlify.app/assets/images/nestly-articles-banner.jpg" />
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "All Articles & Guides — Nestly Parenting",
+    "description": "Honest guides on miscarriage, pregnancy loss, preconception health, and preparing for your first baby.",
+    "url": "https://warm-longma-ae6f86.netlify.app/articles.html",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nestly Parenting",
+      "url": "https://warm-longma-ae6f86.netlify.app/"
+    }
+  }
+  </script>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
+
+  <!-- 2-column card layout override -->
+  <style>
+    #articlesGrid .col-md-6.col-lg-4 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+    @media (max-width: 767px) {
+      #articlesGrid .col-md-6.col-lg-4 {
+        width: 100%;
+      }
+    }
+    .blog-card { border-radius: 16px; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+    .blog-card-img img { height: 220px; width: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+    .blog-card:hover .blog-card-img img { transform: scale(1.03); }
+    .blog-card-body { padding: 24px; }
+    .blog-card-title { font-size: 1.05rem; font-weight: 700; line-height: 1.4; margin: 10px 0 8px; }
+    .blog-card-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 10px; display: flex; gap: 12px; }
+    .blog-card-excerpt { font-size: 0.87rem; line-height: 1.65; color: var(--muted); margin-bottom: 16px; }
+    .btn-read-more { font-size: 0.82rem; font-weight: 600; color: var(--rose); text-decoration: none; letter-spacing: 0.02em; }
+    .btn-read-more:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
@@ -91,7 +149,7 @@
 
     <!-- Result count -->
     <div class="font-ui mb-4" style="font-size:0.82rem; color:var(--muted);">
-      Showing <span id="resultCount">4</span> articles
+      Showing <span id="resultCount">5</span> articles
     </div>
 
     <!-- No results -->
@@ -103,12 +161,30 @@
     <!-- Grid -->
     <div class="row g-4" id="articlesGrid">
 
-      <!-- Blog 4 — NEW: First Trimester Miscarriage Guide -->
-      <div class="col-md-6 col-lg-4 article-item" data-title="Why Do Miscarriages Happen First Trimester Pregnancy Loss Causes Warning Signs Papaya" data-cat="health">
+      <!-- Blog 5 — NEW: Did I Cause My Miscarriage -->
+      <div class="col-md-6 col-lg-4 article-item" data-title="Did I Cause My Miscarriage Guilt Self Blame Grief Healing Miscarriage" data-cat="wellness">
         <div class="blog-card h-100" style="border: 2px solid var(--rose); position:relative;">
           <div style="position:absolute;top:12px;left:12px;z-index:2;">
             <span class="blog-tag tag-rose" style="font-size:0.68rem;">🤍 New</span>
           </div>
+          <div class="blog-card-img">
+            <img src="assets/images/did-i-cause-my-miscarriage-2am-guilt-hero.jpg"
+              alt="A woman sits alone at a dark window at night — the silent weight of miscarriage guilt and self-blame"
+              loading="lazy" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag tag-rose">Pregnancy Loss</span>
+            <div class="blog-card-title">Did I Cause My Miscarriage? The Truth Every Grieving Woman Deserves to Hear</div>
+            <div class="blog-card-meta"><span>May 10, 2026</span><span>15 min read</span></div>
+            <p class="blog-card-excerpt">The guilt. The replaying. The 2am question that won't leave you alone. The honest, compassionate answer — backed by science, written with love.</p>
+            <a href="blog/did-i-cause-my-miscarriage.html" class="btn-read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog 4 — First Trimester Miscarriage Guide -->
+      <div class="col-md-6 col-lg-4 article-item" data-title="Why Do Miscarriages Happen First Trimester Pregnancy Loss Causes Warning Signs Papaya" data-cat="health">
+        <div class="blog-card h-100">
           <div class="blog-card-img">
             <img src="assets/images/miscarriage-guide-card.png"
               alt="Two hands passing a flower — why do miscarriages happen, first trimester pregnancy loss complete guide"

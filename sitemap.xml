@@ -7,8 +7,8 @@
   ══════════════════════════════════════ -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
@@ -17,8 +17,8 @@
   ══════════════════════════════════════ -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/articles.html</loc>
-    <lastmod>2026-05-03</lastmod>
-    <changefreq>daily</changefreq>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
@@ -111,6 +111,18 @@
       <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/miscarriage-candle-hero.png</image:loc>
       <image:title>Why Do Miscarriages Happen? First Trimester Pregnancy Loss — Complete Guide</image:title>
       <image:caption>Candle lit beside a pregnant woman silhouette with handwritten note — hidden causes of miscarriage guide backed by WHO, ACOG and NHS</image:caption>
+    </image:image>
+  </url>
+  <!-- Blog 5 — Did I Cause My Miscarriage -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/did-i-cause-my-miscarriage.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/did-i-cause-my-miscarriage-2am-guilt-hero.jpg</image:loc>
+      <image:title>Did I Cause My Miscarriage? The Truth Every Grieving Woman Deserves to Hear</image:title>
+      <image:caption>A woman sits alone at a dark window at night — the silent weight of miscarriage guilt, self-blame and grief after pregnancy loss</image:caption>
     </image:image>
   </url>
 
