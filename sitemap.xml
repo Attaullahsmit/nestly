@@ -138,4 +138,17 @@
     </image:image>
   </url>
 
+  <!-- Blog 7 — 10 First-Time Parent Mistakes -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/new-parent-mistakes.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/new-parent-mistakes-hero.jpg</image:loc>
+      <image:title>10 First-Time Parent Mistakes I Made (And Why They're Totally Normal)</image:title>
+      <image:caption>An exhausted but present first-time parent cradling their newborn in a warm, gently imperfect home — a burp cloth over one shoulder, soft morning light, the quiet reality of new parenthood</image:caption>
+    </image:image>
+  </url>
+
 </urlset>
