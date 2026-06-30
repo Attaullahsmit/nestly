@@ -7,7 +7,7 @@
   ══════════════════════════════════════ -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,7 +17,7 @@
   ══════════════════════════════════════ -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/articles.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -61,7 +61,72 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 1 — Miscarriage Story (Olivia) — NEWEST -->
+  <!-- Blog 8 — How to Split Baby Duties Without Building Resentment — NEWEST -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/how-to-split-baby-duties-without-building-resentment.html</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/split-baby-duties-hero.jpg</image:loc>
+      <image:title>How to Split Baby Duties Without Building Resentment — Mental Load, Default Parent, Invisible Labor</image:title>
+      <image:caption>A parent alone at a kitchen table late at night, laptop open and coffee cold — the invisible weight of keeping a family running while one partner carries everything</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 7 — 10 First-Time Parent Mistakes -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/new-parent-mistakes.html</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/new-parent-mistakes-hero.jpg</image:loc>
+      <image:title>10 First-Time Parent Mistakes I Made (And Why They're Totally Normal)</image:title>
+      <image:caption>An exhausted but present first-time parent cradling their newborn in a warm, gently imperfect home — a burp cloth over one shoulder, soft morning light, the quiet reality of new parenthood</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 6 — Emily/Clara Story -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/they-asked-when-id-try-again-emily-clara.html</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/emily-miscarriage-grief-diner-winter-hero-banner.jpg</image:loc>
+      <image:title>They Asked When I'd Try Again — But I Was Still Learning How to Breathe | Miscarriage Grief Story</image:title>
+      <image:caption>A woman alone in a diner booth in winter, watching a father and child through the window — the invisible weight of miscarriage grief while ordinary life continues around her</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 5 — Did I Cause My Miscarriage -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/did-i-cause-my-miscarriage.html</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/did-i-cause-my-miscarriage-2am-guilt-hero_webp_jpg.jpg</image:loc>
+      <image:title>Did I Cause My Miscarriage? The Truth Every Grieving Woman Deserves to Hear</image:title>
+      <image:caption>A woman sits alone at a dark window at night — the silent weight of miscarriage guilt, self-blame and grief after pregnancy loss</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 4 — First Trimester Miscarriage Guide -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/first-trimester-miscarriage-guide.html</loc>
+    <lastmod>2026-05-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/miscarriage-candle-hero.jpg</image:loc>
+      <image:title>Why Do Miscarriages Happen? First Trimester Pregnancy Loss — Complete Guide</image:title>
+      <image:caption>Candle lit beside a pregnant woman silhouette with handwritten note — hidden causes of miscarriage guide backed by WHO, ACOG and NHS</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 3 — Miscarriage Story (Olivia) -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/first-pregnancy-miscarriage-story-olivia.html</loc>
     <lastmod>2026-05-03</lastmod>
@@ -87,7 +152,7 @@
     </image:image>
   </url>
 
-  <!-- Blog 3 — How to Prepare for First Baby -->
+  <!-- Blog 1 — How to Prepare for First Baby -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/how-couples-prepare-for-first-baby.html</loc>
     <lastmod>2026-04-20</lastmod>
@@ -97,57 +162,6 @@
       <image:loc>https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200</image:loc>
       <image:title>How to Prepare for Your First Baby — The Complete Honest Guide for Couples</image:title>
       <image:caption>Couple looking at a positive pregnancy test — preparing for their first baby together, covering health, finances, nursery and relationship</image:caption>
-    </image:image>
-  </url>
-
-
-  <!-- Blog 4 — First Trimester Miscarriage Guide -->
-  <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/first-trimester-miscarriage-guide.html</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/miscarriage-candle-hero.jpg</image:loc>
-      <image:title>Why Do Miscarriages Happen? First Trimester Pregnancy Loss — Complete Guide</image:title>
-      <image:caption>Candle lit beside a pregnant woman silhouette with handwritten note — hidden causes of miscarriage guide backed by WHO, ACOG and NHS</image:caption>
-    </image:image>
-  </url>
-  <!-- Blog 5 — Did I Cause My Miscarriage -->
-  <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/did-i-cause-my-miscarriage.html</loc>
-    <lastmod>2026-05-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/did-i-cause-my-miscarriage-2am-guilt-hero_webp_jpg.jpg</image:loc>
-      <image:title>Did I Cause My Miscarriage? The Truth Every Grieving Woman Deserves to Hear</image:title>
-      <image:caption>A woman sits alone at a dark window at night — the silent weight of miscarriage guilt, self-blame and grief after pregnancy loss</image:caption>
-    </image:image>
-  </url>
-  <!-- Blog 6 — Emily/Clara Story -->
-  <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/they-asked-when-id-try-again-emily-clara.html</loc>
-    <lastmod>2026-05-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/emily-miscarriage-grief-diner-winter-hero-banner.jpg</image:loc>
-      <image:title>They Asked When I'd Try Again — But I Was Still Learning How to Breathe | Miscarriage Grief Story</image:title>
-      <image:caption>A woman alone in a diner booth in winter, watching a father and child through the window — the invisible weight of miscarriage grief while ordinary life continues around her</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Blog 7 — 10 First-Time Parent Mistakes -->
-  <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/new-parent-mistakes.html</loc>
-    <lastmod>2026-06-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/new-parent-mistakes-hero.jpg</image:loc>
-      <image:title>10 First-Time Parent Mistakes I Made (And Why They're Totally Normal)</image:title>
-      <image:caption>An exhausted but present first-time parent cradling their newborn in a warm, gently imperfect home — a burp cloth over one shoulder, soft morning light, the quiet reality of new parenthood</image:caption>
     </image:image>
   </url>
 
