@@ -7,7 +7,7 @@
   ══════════════════════════════════════ -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,7 +17,7 @@
   ══════════════════════════════════════ -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/articles.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -61,10 +61,23 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 8 — How to Split Baby Duties Without Building Resentment — NEWEST -->
+  <!-- Blog 9 — The Work That Disappears When It's Done Right — NEWEST -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/the-work-that-disappears-when-its-done-right.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/hero-invisible-labor-kitchen-morning.webp</image:loc>
+      <image:title>The Work That Disappears When It's Done Right — Invisible Labor, Mental Load, Anticipatory Care</image:title>
+      <image:caption>A South Asian woman stands alone at a kitchen counter watching coffee brew — the invisible labor that keeps a household running, visible only when it stops</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 8 — How to Split Baby Duties Without Building Resentment -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/how-to-split-baby-duties-without-building-resentment.html</loc>
-    <lastmod>2026-06-24</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -77,7 +90,7 @@
   <!-- Blog 7 — 10 First-Time Parent Mistakes -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/new-parent-mistakes.html</loc>
-    <lastmod>2026-06-15</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -90,7 +103,7 @@
   <!-- Blog 6 — Emily/Clara Story -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/they-asked-when-id-try-again-emily-clara.html</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -103,7 +116,7 @@
   <!-- Blog 5 — Did I Cause My Miscarriage -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/did-i-cause-my-miscarriage.html</loc>
-    <lastmod>2026-05-10</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -113,23 +126,10 @@
     </image:image>
   </url>
 
-  <!-- Blog 4 — First Trimester Miscarriage Guide -->
-  <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/first-trimester-miscarriage-guide.html</loc>
-    <lastmod>2026-05-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-    <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/miscarriage-candle-hero.jpg</image:loc>
-      <image:title>Why Do Miscarriages Happen? First Trimester Pregnancy Loss — Complete Guide</image:title>
-      <image:caption>Candle lit beside a pregnant woman silhouette with handwritten note — hidden causes of miscarriage guide backed by WHO, ACOG and NHS</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Blog 3 — Miscarriage Story (Olivia) -->
+  <!-- Blog 4 — Miscarriage Story (Olivia) -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/first-pregnancy-miscarriage-story-olivia.html</loc>
-    <lastmod>2026-05-03</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -139,10 +139,23 @@
     </image:image>
   </url>
 
+  <!-- Blog 3 — First Trimester Miscarriage Guide -->
+  <url>
+    <loc>https://warm-longma-ae6f86.netlify.app/blog/first-trimester-miscarriage-guide.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/miscarriage-candle-hero.jpg</image:loc>
+      <image:title>Why Do Miscarriages Happen? First Trimester Pregnancy Loss — Complete Guide</image:title>
+      <image:caption>Candle lit beside a pregnant woman silhouette with handwritten note — hidden causes of miscarriage guide backed by WHO, ACOG and NHS</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blog 2 — What to Avoid Before Pregnancy -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/what-to-avoid-before-pregnancy.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
     <image:image>
@@ -155,7 +168,7 @@
   <!-- Blog 1 — How to Prepare for First Baby -->
   <url>
     <loc>https://warm-longma-ae6f86.netlify.app/blog/how-couples-prepare-for-first-baby.html</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
     <image:image>
