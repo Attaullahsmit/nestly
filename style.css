@@ -4,7 +4,12 @@
    ============================================================ */
 
 /* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap');
+/* Moved to a <link rel="preconnect"> + <link rel="stylesheet"> pair in each
+   page's <head>, before this stylesheet. A CSS @import here was blocking
+   font discovery until after style.css itself finished loading, causing a
+   visible fallback-font flash (Georgia/Lora system fallback) on every page,
+   most noticeable on large display type like hero titles. See any page's
+   <head> for the corrected loading pattern. */
 
 /* ── CSS Variables ── */
 :root {
@@ -784,8 +789,20 @@ p { color: var(--slate); }
   margin-bottom: 28px;
   box-shadow: 0 8px 28px rgba(122,158,135,0.3);
 }
-.tracker-page-hero h3 { font-family: var(--font-display); font-size: 1.7rem; margin-bottom: 6px; }
+.tracker-page-hero h1 { font-family: var(--font-display); font-size: 1.7rem; font-style: normal; line-height: 1.2; margin-bottom: 6px; }
 .tracker-page-hero p  { opacity: 0.85; font-size: 0.9rem; }
+
+/* Visually hidden but available to assistive tech — used for the
+   polite live-region announcer and other screen-reader-only text. */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .form-control {
   border-radius: 10px !important;
@@ -803,6 +820,66 @@ p { color: var(--slate); }
   box-shadow: 0 0 0 3px rgba(122,158,135,0.15) !important;
 }
 
+/* Last-fed / today's-total summary card */
+.feed-summary {
+  display: flex;
+  align-items: center;
+  background: var(--sage-light);
+  border-radius: var(--radius-sm);
+  padding: 16px 22px;
+  margin-bottom: 22px;
+  gap: 22px;
+}
+.summary-stat { display: flex; flex-direction: column; gap: 2px; }
+.summary-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+.summary-value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--navy);
+}
+.summary-divider { width: 1px; align-self: stretch; background: rgba(122,158,135,0.3); }
+
+/* Feeding type quick-select */
+.type-chip-row { display: flex; gap: 8px; margin: 14px 0 4px; }
+.type-chip {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--slate);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 16px;
+  min-height: 40px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.type-chip:hover { border-color: var(--sage); }
+.type-chip.active {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #fff;
+}
+
+/* Day grouping */
+.log-day-heading {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 22px 0 10px;
+}
+.log-day-heading:first-child { margin-top: 0; }
+
 .log-item {
   background: #fff;
   border: 1px solid var(--border);
@@ -811,6 +888,7 @@ p { color: var(--slate); }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   margin-bottom: 10px;
   box-shadow: 0 2px 10px rgba(44,62,80,0.05);
   animation: fadeUp 0.3s ease both;
@@ -820,34 +898,37 @@ p { color: var(--slate); }
   to   { opacity:1; transform:translateY(0); }
 }
 
-.log-index {
-  width: 26px; height: 26px;
+.log-item-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+
+.log-type-chip {
+  width: 34px; height: 34px;
   border-radius: 50%;
   background: var(--sage-light);
-  color: var(--sage);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  margin-right: 12px;
+  font-size: 1rem;
   flex-shrink: 0;
 }
 
-.log-text { font-family: var(--font-ui); font-size: 0.9rem; color: var(--navy); font-weight: 500; }
+.log-text { font-family: var(--font-ui); font-size: 0.9rem; color: var(--navy); font-weight: 600; display: block; }
+.log-type-label { font-family: var(--font-ui); font-size: 0.78rem; color: var(--muted); display: block; }
 
 .btn-log-del {
   background: transparent;
   border: 1.5px solid #fecaca;
   color: #ef4444;
   border-radius: 8px;
-  padding: 4px 12px;
+  padding: 10px 16px;
+  min-height: 44px;
+  min-width: 44px;
   font-family: var(--font-ui);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
   transition: all var(--transition);
+  flex-shrink: 0;
 }
 .btn-log-del:hover { background: #fee2e2; }
+.btn-log-del:focus-visible { outline: 2px solid #ef4444; outline-offset: 2px; }
 
 .log-empty {
   text-align: center;
@@ -856,6 +937,51 @@ p { color: var(--slate); }
   font-family: var(--font-ui);
 }
 .log-empty .e-icon { font-size: 3rem; opacity: 0.3; margin-bottom: 10px; }
+
+/* Undo toast */
+.undo-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 12px);
+  background: var(--navy);
+  color: #fff;
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px 12px 20px;
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 1200;
+}
+.undo-toast.show { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.undo-toast button {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  padding: 8px 14px;
+  min-height: 36px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+.undo-toast button:hover { background: rgba(255,255,255,0.25); }
+
+/* Respect users who've asked for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; }
+  .hero-content { animation: none; }
+  .log-item { animation: none; }
+  .undo-toast { transition: none; }
+  html { scroll-behavior: auto; }
+}
 
 /* ──────────────────────────────────────────
    BUTTONS (shared)
@@ -962,4 +1088,59 @@ p { color: var(--slate); }
   .hero-ctas { flex-direction: column; }
   .btn-hero-primary, .btn-hero-ghost { text-align: center; }
   .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ──────────────────────────────────────────
+   AUTHOR BIO — sitewide fix
+   This component (aside.author-bio, .bio-label, .bio-name) is used
+   in the markup of every real article on the site but had no CSS
+   definition anywhere — not here, not inline on any article page.
+   It rendered as unstyled default text on every article, not just
+   new ones. Fixing it once, here, so every article benefits.
+────────────────────────────────────────── */
+.author-bio {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 40px 0;
+}
+.author-bio .bio-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--amber));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  color: #fff;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.bio-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 4px;
+}
+.bio-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.author-bio p:not(.bio-label) {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--slate);
+  line-height: 1.65;
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .author-bio { flex-direction: column; }
 }

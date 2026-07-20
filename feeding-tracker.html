@@ -8,9 +8,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nestly Parenting — Feeding Tracker</title>
+  <title>Baby Feeding Tracker — Log Feeds Instantly | Nestly Parenting</title>
+  <meta name="description" content="A free, private baby feeding tracker. Log every feeding in one tap, see time since your last feed, and keep your data on your own device — no sign-up, no ads." />
+  <link rel="canonical" href="https://nestlyparenting.com/feeding-tracker.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Baby Feeding Tracker | Nestly Parenting" />
+  <meta property="og:description" content="Log every feeding in one tap. Free, private, and built for exhausted parents." />
+  <meta property="og:url" content="https://nestlyparenting.com/feeding-tracker.html" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Nestly Parenting Baby Feeding Tracker",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any (web browser)",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "A free, private baby feeding tracker that saves data locally on your device."
+  }
+  </script>
 </head>
 <body>
 
@@ -30,7 +53,7 @@
 
     <a class="nav-brand" href="index.html">🌿 Nestly <span>Parenting</span></a>
 
-    <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <line x1="3" y1="6"  x2="21" y2="6"/>
         <line x1="3" y1="12" x2="21" y2="12"/>
@@ -56,30 +79,50 @@
     <!-- Hero -->
     <div class="tracker-page-hero">
       <p class="font-ui" style="opacity:0.7; font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;">Parenting Tool</p>
-      <h3>🍼 Baby Feeding Tracker</h3>
-      <p>Log every feeding session. Data is saved privately on your device.</p>
+      <h1>🍼 Baby Feeding Tracker</h1>
+      <p>Log every feeding in one tap. Your data stays private, saved only on this device.</p>
     </div>
+
+    <!-- Last fed / today's total -->
+    <div id="feedSummary" class="feed-summary" hidden></div>
 
     <!-- Input Card -->
     <div class="tool-highlight mb-4" style="text-align:left; padding:28px;">
-      <label class="font-ui" style="font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:10px;">
+      <label for="timeInput" class="font-ui" style="font-size:0.78rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:10px;">
         Feeding Time
       </label>
-      <input id="timeInput" type="text" class="form-control mb-3" placeholder="e.g. 8:30 AM — or use the button below" />
-      <div class="d-flex gap-2">
-        <button class="btn-outline-sage w-50" onclick="useCurrentTime()">🕐 Current Time</button>
-        <button class="btn-sage w-50" onclick="addLog()">➕ Add Entry</button>
+      <input id="timeInput" type="time" class="form-control mb-3" aria-describedby="timeHint" />
+      <p id="timeHint" class="font-ui sr-only">Choose a time, or use the Current Time button below.</p>
+
+      <div class="type-chip-row" role="group" aria-label="Feeding type (optional)">
+        <button type="button" class="type-chip" data-type="breast" aria-pressed="false">🤱 Breast</button>
+        <button type="button" class="type-chip" data-type="bottle" aria-pressed="false">🍼 Bottle</button>
+        <button type="button" class="type-chip" data-type="solid" aria-pressed="false">🥄 Solid</button>
+      </div>
+
+      <div class="d-flex gap-2" style="margin-top:14px;">
+        <button id="btnCurrentTime" class="btn-outline-sage w-50" type="button">🕐 Current Time</button>
+        <button id="btnAddEntry" class="btn-sage w-50" type="button">➕ Add Entry</button>
       </div>
     </div>
 
     <!-- Log header -->
     <div class="d-flex align-items-center justify-content-between mb-3">
       <span class="font-ui" style="font-weight:700; font-size:0.9rem; color:var(--navy);">Session Log</span>
-      <span id="logBadge" class="font-ui" style="background:var(--sage-light); color:var(--sage); font-size:0.75rem; font-weight:700; padding:4px 14px; border-radius:100px;">0 entries</span>
+      <span id="logBadge" class="font-ui" aria-live="polite" style="background:var(--sage-light); color:var(--sage); font-size:0.75rem; font-weight:700; padding:4px 14px; border-radius:100px;">0 entries</span>
     </div>
 
     <!-- Log List -->
-    <div id="logs"></div>
+    <div id="logs" role="log" aria-live="polite" aria-relevant="additions removals"></div>
+
+    <!-- Screen-reader-only status announcer for actions (add/remove/errors) -->
+    <div id="srAnnounce" class="sr-only" role="status" aria-live="polite"></div>
+
+    <!-- Undo toast -->
+    <div id="undoToast" class="undo-toast" role="status" aria-live="polite" hidden>
+      <span>Entry removed</span>
+      <button id="undoBtn" type="button">Undo</button>
+    </div>
 
   </div>
 </section>
@@ -94,9 +137,9 @@
         <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
         <p class="footer-tagline">Your trusted companion through every chapter of parenthood.</p>
         <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>
-          <a href="https://www.instagram.com/attaullah41215" target="_blank">📸 Instagram</a>
-          <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank">💼 LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank" rel="noopener noreferrer">📘 Facebook</a>
+          <a href="https://www.instagram.com/attaullah41215" target="_blank" rel="noopener noreferrer">📸 Instagram</a>
+          <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
           <a href="mailto:attaullah41215@gmail.com">✉️ attaullah41215@gmail.com</a>
         </div>
       </div>
@@ -132,7 +175,7 @@
   </div>
 </footer>
 
-<script src="main.js"></script>
-<script src="feeding-tracker.js"></script>
+<script src="main.js" defer></script>
+<script src="feeding-tracker.js" defer></script>
 </body>
 </html>

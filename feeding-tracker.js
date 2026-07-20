@@ -1,17 +1,134 @@
 // ============================================================
 // NESTLY PARENTING — feeding-tracker.js
-// Baby feeding log: add, delete, persist to localStorage
+// Baby feeding log: add, delete (with undo), persist to localStorage
+//
+// Data model: each entry is an object, not a plain string, so
+// entries can be sorted, grouped by day, and used to compute
+// "time since last feed" — none of which was possible when
+// entries were stored as formatted strings.
+//   { id: string, iso: string (full ISO timestamp), type: 'breast'|'bottle'|'solid'|null }
 // ============================================================
 
-let logs = JSON.parse(localStorage.getItem('feedingLogs')) || [];
+const STORAGE_KEY = 'feedingLogs';
+let logs = loadLogs();
+let selectedType = null;       // currently selected feeding type chip
+let pendingDelete = null;      // { entry, index, timer } — supports undo
+let undoTimeout = null;
 
+/** Safe read from localStorage. Never lets a corrupted value break the page. */
+function loadLogs() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (!Array.isArray(parsed)) return [];
+    // Migrate legacy plain-string entries ("Feeding at 8:30 AM") from the
+    // previous data model so nobody's existing log data is lost.
+    return parsed.map(migrateEntry).filter(Boolean);
+  } catch (err) {
+    console.error('Could not read feeding logs, starting fresh:', err);
+    return [];
+  }
+}
+
+function migrateEntry(entry) {
+  if (entry && typeof entry === 'object' && entry.iso) return entry;
+  if (typeof entry === 'string') {
+    // Legacy format: "Feeding at 8:30 AM" — no reliable date, so anchor
+    // it to today rather than silently discarding the user's data.
+    return { id: cryptoId(), iso: new Date().toISOString(), type: null, legacyLabel: entry };
+  }
+  return null;
+}
+
+function cryptoId() {
+  return (Date.now().toString(36) + Math.random().toString(36).slice(2, 8));
+}
+
+/** Safe write to localStorage. */
 function save() {
-  localStorage.setItem('feedingLogs', JSON.stringify(logs));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(logs));
+  } catch (err) {
+    console.error('Could not save feeding log:', err);
+    announce('Could not save — your device storage may be full.');
+  }
+}
+
+/** Politely announce a message to screen readers without stealing focus. */
+function announce(message) {
+  const region = document.getElementById('srAnnounce');
+  if (region) region.textContent = message;
 }
 
 function updateBadge() {
   const badge = document.getElementById('logBadge');
   if (badge) badge.textContent = logs.length + (logs.length === 1 ? ' entry' : ' entries');
+}
+
+function formatTime(iso) {
+  return new Date(iso).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+}
+
+function formatRelative(iso) {
+  const diffMs = Date.now() - new Date(iso).getTime();
+  const mins = Math.round(diffMs / 60000);
+  if (mins < 1) return 'just now';
+  if (mins < 60) return mins + (mins === 1 ? ' min ago' : ' mins ago');
+  const hrs = Math.floor(mins / 60);
+  const remMins = mins % 60;
+  return hrs + 'h' + (remMins ? ' ' + remMins + 'm' : '') + ' ago';
+}
+
+function dayLabel(iso) {
+  const d = new Date(iso);
+  const today = new Date();
+  const yesterday = new Date();
+  yesterday.setDate(today.getDate() - 1);
+  const sameDay = (a, b) => a.toDateString() === b.toDateString();
+  if (sameDay(d, today)) return 'Today';
+  if (sameDay(d, yesterday)) return 'Yesterday';
+  return d.toLocaleDateString([], { weekday: 'long', month: 'short', day: 'numeric' });
+}
+
+const TYPE_META = {
+  breast: { label: 'Breast', icon: '🤱' },
+  bottle: { label: 'Bottle', icon: '🍼' },
+  solid:  { label: 'Solid',  icon: '🥄' }
+};
+
+/** Updates the "last fed / today's total" summary above the log. */
+function renderSummary() {
+  const el = document.getElementById('feedSummary');
+  if (!el) return;
+
+  if (logs.length === 0) {
+    el.innerHTML = '';
+    el.hidden = true;
+    return;
+  }
+  el.hidden = false;
+
+  const sorted = [...logs].sort((a, b) => new Date(b.iso) - new Date(a.iso));
+  const last = sorted[0];
+  const todayCount = sorted.filter(l => dayLabel(l.iso) === 'Today').length;
+
+  el.innerHTML = `
+    <div class="summary-stat">
+      <span class="summary-label">Last feed</span>
+      <span class="summary-value">${escapeHtml(formatRelative(last.iso))}</span>
+    </div>
+    <div class="summary-divider" aria-hidden="true"></div>
+    <div class="summary-stat">
+      <span class="summary-label">Today</span>
+      <span class="summary-value">${todayCount} ${todayCount === 1 ? 'feed' : 'feeds'}</span>
+    </div>
+  `;
+}
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
 }
 
 function render() {
@@ -20,55 +137,171 @@ function render() {
   container.innerHTML = '';
 
   if (logs.length === 0) {
-    container.innerHTML = `
-      <div class="log-empty">
-        <div class="e-icon">🍼</div>
-        <p class="font-ui">No sessions logged yet.<br>Add your first entry above!</p>
-      </div>`;
+    const empty = document.createElement('div');
+    empty.className = 'log-empty';
+    empty.innerHTML = `<div class="e-icon" aria-hidden="true">🍼</div>`;
+    const p = document.createElement('p');
+    p.className = 'font-ui';
+    p.textContent = 'No sessions logged yet.';
+    const p2 = document.createElement('p');
+    p2.className = 'font-ui';
+    p2.style.marginTop = '2px';
+    p2.textContent = 'Add your first entry above.';
+    empty.appendChild(p);
+    empty.appendChild(p2);
+    container.appendChild(empty);
     updateBadge();
+    renderSummary();
     return;
   }
 
-  logs.forEach(function (log, i) {
+  const sorted = [...logs].sort((a, b) => new Date(b.iso) - new Date(a.iso));
+
+  let lastDay = null;
+  sorted.forEach(function (entry) {
+    const label = dayLabel(entry.iso);
+    if (label !== lastDay) {
+      const heading = document.createElement('div');
+      heading.className = 'log-day-heading';
+      heading.textContent = label;
+      container.appendChild(heading);
+      lastDay = label;
+    }
+
     const div = document.createElement('div');
     div.className = 'log-item';
-    div.innerHTML = `
-      <div class="d-flex align-items-center">
-        <div class="log-index">${i + 1}</div>
-        <span class="log-text">${log}</span>
-      </div>
-      <button class="btn-log-del" onclick="del(${i})">Remove</button>
-    `;
+    div.dataset.id = entry.id;
+
+    const left = document.createElement('div');
+    left.className = 'log-item-left';
+
+    if (entry.type && TYPE_META[entry.type]) {
+      const chip = document.createElement('span');
+      chip.className = 'log-type-chip log-type-' + entry.type;
+      chip.setAttribute('aria-hidden', 'true');
+      chip.textContent = TYPE_META[entry.type].icon;
+      left.appendChild(chip);
+    }
+
+    const textWrap = document.createElement('div');
+    const timeEl = document.createElement('span');
+    timeEl.className = 'log-text';
+    timeEl.textContent = (entry.legacyLabel || formatTime(entry.iso));
+    textWrap.appendChild(timeEl);
+
+    if (entry.type && TYPE_META[entry.type]) {
+      const typeLabel = document.createElement('span');
+      typeLabel.className = 'log-type-label';
+      typeLabel.textContent = TYPE_META[entry.type].label;
+      textWrap.appendChild(typeLabel);
+    }
+
+    left.appendChild(textWrap);
+    div.appendChild(left);
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn-log-del';
+    btn.dataset.deleteId = entry.id;
+    btn.setAttribute('aria-label', 'Remove feeding logged at ' + formatTime(entry.iso));
+    btn.textContent = 'Remove';
+    div.appendChild(btn);
+
     container.appendChild(div);
   });
 
   updateBadge();
+  renderSummary();
 }
 
 function addLog() {
   const input = document.getElementById('timeInput');
-  const val = input.value.trim();
-  if (!val) { input.focus(); return; }
-  logs.unshift('Feeding at ' + val);
+  if (!input || !input.value) {
+    if (input) { input.focus(); announce('Please choose a feeding time first.'); }
+    return;
+  }
+
+  // input type="time" gives us "HH:MM" in 24h format — combine with today's date.
+  const [h, m] = input.value.split(':').map(Number);
+  const iso = new Date();
+  iso.setHours(h, m, 0, 0);
+
+  const entry = { id: cryptoId(), iso: iso.toISOString(), type: selectedType };
+  logs.push(entry);
   save();
   render();
+  announce('Feeding logged at ' + formatTime(entry.iso) + (selectedType ? ', ' + TYPE_META[selectedType].label : '') + '.');
+
   input.value = '';
+  clearTypeSelection();
 }
 
-function del(i) {
-  logs.splice(i, 1);
+function deleteLog(id) {
+  const index = logs.findIndex(l => l.id === id);
+  if (index === -1) return;
+
+  const [removed] = logs.splice(index, 1);
   save();
   render();
+  announce('Feeding entry removed.');
+  showUndo(removed);
+}
+
+function showUndo(removedEntry) {
+  clearTimeout(undoTimeout);
+  const toast = document.getElementById('undoToast');
+  if (!toast) return;
+  pendingDelete = removedEntry;
+  toast.hidden = false;
+  toast.classList.add('show');
+
+  undoTimeout = setTimeout(function () {
+    toast.classList.remove('show');
+    toast.hidden = true;
+    pendingDelete = null;
+  }, 5500);
+}
+
+function undoDelete() {
+  if (!pendingDelete) return;
+  clearTimeout(undoTimeout);
+  logs.push(pendingDelete);
+  save();
+  render();
+  announce('Feeding entry restored.');
+  pendingDelete = null;
+  const toast = document.getElementById('undoToast');
+  if (toast) { toast.classList.remove('show'); toast.hidden = true; }
+}
+
+function setType(type) {
+  selectedType = (selectedType === type) ? null : type;
+  document.querySelectorAll('.type-chip').forEach(function (chip) {
+    const isActive = chip.dataset.type === selectedType;
+    chip.classList.toggle('active', isActive);
+    chip.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
+function clearTypeSelection() {
+  selectedType = null;
+  document.querySelectorAll('.type-chip').forEach(function (chip) {
+    chip.classList.remove('active');
+    chip.setAttribute('aria-pressed', 'false');
+  });
 }
 
 function useCurrentTime() {
-  const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const now = new Date();
+  const hh = String(now.getHours()).padStart(2, '0');
+  const mm = String(now.getMinutes()).padStart(2, '0');
   const input = document.getElementById('timeInput');
-  input.value = now;
-  input.focus();
+  if (input) {
+    input.value = hh + ':' + mm;
+    input.focus();
+  }
 }
 
-// Enter key support
 document.addEventListener('DOMContentLoaded', function () {
   const input = document.getElementById('timeInput');
   if (input) {
@@ -76,5 +309,28 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.key === 'Enter') addLog();
     });
   }
+
+  const addBtn = document.getElementById('btnAddEntry');
+  if (addBtn) addBtn.addEventListener('click', addLog);
+
+  const currentTimeBtn = document.getElementById('btnCurrentTime');
+  if (currentTimeBtn) currentTimeBtn.addEventListener('click', useCurrentTime);
+
+  document.querySelectorAll('.type-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () { setType(chip.dataset.type); });
+  });
+
+  // Event delegation for dynamically rendered "Remove" buttons.
+  const logsContainer = document.getElementById('logs');
+  if (logsContainer) {
+    logsContainer.addEventListener('click', function (e) {
+      const btn = e.target.closest('[data-delete-id]');
+      if (btn) deleteLog(btn.dataset.deleteId);
+    });
+  }
+
+  const undoBtn = document.getElementById('undoBtn');
+  if (undoBtn) undoBtn.addEventListener('click', undoDelete);
+
   render();
 });

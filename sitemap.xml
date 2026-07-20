@@ -6,7 +6,7 @@
        HOME
   ══════════════════════════════════════ -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/</loc>
+    <loc>https://nestlyparenting.com/</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -16,42 +16,42 @@
        MAIN PAGES
   ══════════════════════════════════════ -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/articles.html</loc>
+    <loc>https://nestlyparenting.com/articles.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/about.html</loc>
+    <loc>https://nestlyparenting.com/about.html</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/contact.html</loc>
+    <loc>https://nestlyparenting.com/contact.html</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/feeding-tracker.html</loc>
+    <loc>https://nestlyparenting.com/feeding-tracker.html</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/privacy-policy.html</loc>
+    <loc>https://nestlyparenting.com/privacy-policy.html</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/disclaimer.html</loc>
+    <loc>https://nestlyparenting.com/disclaimer.html</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -61,14 +61,27 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
+  <!-- Blog 10 — The Baby That Wasn't His — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/the-baby-that-wasnt-his.html</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/hero-clinic-folder-kitchen-table.webp</image:loc>
+      <image:title>The Baby That Wasn't His</image:title>
+      <image:caption>Clinic paperwork in a folder on a kitchen table beside coffee and a wedding photo — a quiet moment before a marriage-changing discovery</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blog 9 — The Work That Disappears When It's Done Right — NEWEST -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/the-work-that-disappears-when-its-done-right.html</loc>
+    <loc>https://nestlyparenting.com/blog/the-work-that-disappears-when-its-done-right.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/hero-invisible-labor-kitchen-morning.webp</image:loc>
+      <image:loc>https://nestlyparenting.com/assets/images/hero-invisible-labor-kitchen-morning.webp</image:loc>
       <image:title>The Work That Disappears When It's Done Right — Invisible Labor, Mental Load, Anticipatory Care</image:title>
       <image:caption>A South Asian woman stands alone at a kitchen counter watching coffee brew — the invisible labor that keeps a household running, visible only when it stops</image:caption>
     </image:image>
@@ -76,12 +89,12 @@
 
   <!-- Blog 8 — How to Split Baby Duties Without Building Resentment -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/how-to-split-baby-duties-without-building-resentment.html</loc>
+    <loc>https://nestlyparenting.com/blog/how-to-split-baby-duties-without-building-resentment.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/split-baby-duties-hero.jpg</image:loc>
+      <image:loc>https://nestlyparenting.com/assets/images/split-baby-duties-hero.jpg</image:loc>
       <image:title>How to Split Baby Duties Without Building Resentment — Mental Load, Default Parent, Invisible Labor</image:title>
       <image:caption>A parent alone at a kitchen table late at night, laptop open and coffee cold — the invisible weight of keeping a family running while one partner carries everything</image:caption>
     </image:image>
@@ -89,12 +102,12 @@
 
   <!-- Blog 7 — 10 First-Time Parent Mistakes -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/new-parent-mistakes.html</loc>
+    <loc>https://nestlyparenting.com/blog/new-parent-mistakes.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/new-parent-mistakes-hero.jpg</image:loc>
+      <image:loc>https://nestlyparenting.com/assets/images/new-parent-mistakes-hero.jpg</image:loc>
       <image:title>10 First-Time Parent Mistakes I Made (And Why They're Totally Normal)</image:title>
       <image:caption>An exhausted but present first-time parent cradling their newborn in a warm, gently imperfect home — a burp cloth over one shoulder, soft morning light, the quiet reality of new parenthood</image:caption>
     </image:image>
@@ -102,12 +115,12 @@
 
   <!-- Blog 6 — Emily/Clara Story -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/they-asked-when-id-try-again-emily-clara.html</loc>
+    <loc>https://nestlyparenting.com/blog/they-asked-when-id-try-again-emily-clara.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/emily-miscarriage-grief-diner-winter-hero-banner.jpg</image:loc>
+      <image:loc>https://nestlyparenting.com/assets/images/emily-miscarriage-grief-diner-winter-hero-banner.jpg</image:loc>
       <image:title>They Asked When I'd Try Again — But I Was Still Learning How to Breathe | Miscarriage Grief Story</image:title>
       <image:caption>A woman alone in a diner booth in winter, watching a father and child through the window — the invisible weight of miscarriage grief while ordinary life continues around her</image:caption>
     </image:image>
@@ -115,12 +128,12 @@
 
   <!-- Blog 5 — Did I Cause My Miscarriage -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/did-i-cause-my-miscarriage.html</loc>
+    <loc>https://nestlyparenting.com/blog/did-i-cause-my-miscarriage.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/did-i-cause-my-miscarriage-2am-guilt-hero_webp_jpg.jpg</image:loc>
+      <image:loc>https://nestlyparenting.com/assets/images/did-i-cause-my-miscarriage-2am-guilt-hero_webp_jpg.jpg</image:loc>
       <image:title>Did I Cause My Miscarriage? The Truth Every Grieving Woman Deserves to Hear</image:title>
       <image:caption>A woman sits alone at a dark window at night — the silent weight of miscarriage guilt, self-blame and grief after pregnancy loss</image:caption>
     </image:image>
@@ -128,12 +141,12 @@
 
   <!-- Blog 4 — Miscarriage Story (Olivia) -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/first-pregnancy-miscarriage-story-olivia.html</loc>
+    <loc>https://nestlyparenting.com/blog/first-pregnancy-miscarriage-story-olivia.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/miscarriage-grief-mother-pregnancy-loss-blog.jpg</image:loc>
+      <image:loc>https://nestlyparenting.com/assets/images/miscarriage-grief-mother-pregnancy-loss-blog.jpg</image:loc>
       <image:title>Real First Pregnancy Miscarriage Story — Olivia's Journey Through Grief and Healing</image:title>
       <image:caption>A grieving mother imagining holding her baby — a real first pregnancy miscarriage story about loss, grief and healing after pregnancy loss</image:caption>
     </image:image>
@@ -141,12 +154,12 @@
 
   <!-- Blog 3 — First Trimester Miscarriage Guide -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/first-trimester-miscarriage-guide.html</loc>
+    <loc>https://nestlyparenting.com/blog/first-trimester-miscarriage-guide.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://warm-longma-ae6f86.netlify.app/assets/images/miscarriage-candle-hero.jpg</image:loc>
+      <image:loc>https://nestlyparenting.com/assets/images/miscarriage-candle-hero.jpg</image:loc>
       <image:title>Why Do Miscarriages Happen? First Trimester Pregnancy Loss — Complete Guide</image:title>
       <image:caption>Candle lit beside a pregnant woman silhouette with handwritten note — hidden causes of miscarriage guide backed by WHO, ACOG and NHS</image:caption>
     </image:image>
@@ -154,7 +167,7 @@
 
   <!-- Blog 2 — What to Avoid Before Pregnancy -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/what-to-avoid-before-pregnancy.html</loc>
+    <loc>https://nestlyparenting.com/blog/what-to-avoid-before-pregnancy.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
@@ -167,7 +180,7 @@
 
   <!-- Blog 1 — How to Prepare for First Baby -->
   <url>
-    <loc>https://warm-longma-ae6f86.netlify.app/blog/how-couples-prepare-for-first-baby.html</loc>
+    <loc>https://nestlyparenting.com/blog/how-couples-prepare-for-first-baby.html</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
