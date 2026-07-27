@@ -1,6 +1,0 @@
-# Force /index.html to the site root
-/index.html  /  301!
-
-# Force any other .html URL to redirect permanently to its clean (extensionless) equivalent
-# Example: /articles.html -> /articles
-/:splat.html  /:splat  301!
