@@ -7,7 +7,7 @@
   ══════════════════════════════════════ -->
   <url>
     <loc>https://nestlyparenting.com/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -17,7 +17,7 @@
   ══════════════════════════════════════ -->
   <url>
     <loc>https://nestlyparenting.com/articles.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -61,7 +61,20 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 10 — The Baby That Wasn't His — NEWEST -->
+  <!-- Blog 11 — The Morning Nothing Went Wrong — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/the-morning-nothing-went-wrong.html</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/the-morning-nothing-went-wrong-hero.webp</image:loc>
+      <image:title>The Morning Nothing Went Wrong — Mental Load, Transactive Memory, Invisible Labor</image:title>
+      <image:caption>A mother on the phone in a sunlit kitchen, coffee in hand, backpack and shoes already by the door — the quiet morning that hid fifteen years of unwritten household knowledge</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 10 — The Baby That Wasn't His -->
   <url>
     <loc>https://nestlyparenting.com/blog/the-baby-that-wasnt-his.html</loc>
     <lastmod>2026-07-17</lastmod>
@@ -74,7 +87,7 @@
     </image:image>
   </url>
 
-  <!-- Blog 9 — The Work That Disappears When It's Done Right — NEWEST -->
+  <!-- Blog 9 — The Work That Disappears When It's Done Right -->
   <url>
     <loc>https://nestlyparenting.com/blog/the-work-that-disappears-when-its-done-right.html</loc>
     <lastmod>2026-06-29</lastmod>
