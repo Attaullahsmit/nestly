@@ -16,42 +16,42 @@
        MAIN PAGES
   ══════════════════════════════════════ -->
   <url>
-    <loc>https://nestlyparenting.com/articles.html</loc>
+    <loc>https://nestlyparenting.com/articles</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://nestlyparenting.com/about.html</loc>
+    <loc>https://nestlyparenting.com/about</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://nestlyparenting.com/contact.html</loc>
+    <loc>https://nestlyparenting.com/contact</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
-    <loc>https://nestlyparenting.com/feeding-tracker.html</loc>
+    <loc>https://nestlyparenting.com/feeding-tracker</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://nestlyparenting.com/privacy-policy.html</loc>
+    <loc>https://nestlyparenting.com/privacy-policy</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://nestlyparenting.com/disclaimer.html</loc>
+    <loc>https://nestlyparenting.com/disclaimer</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -63,7 +63,7 @@
 
   <!-- Blog 11 — The Morning Nothing Went Wrong — NEWEST -->
   <url>
-    <loc>https://nestlyparenting.com/blog/the-morning-nothing-went-wrong.html</loc>
+    <loc>https://nestlyparenting.com/blog/the-morning-nothing-went-wrong</loc>
     <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -76,7 +76,7 @@
 
   <!-- Blog 10 — The Baby That Wasn't His -->
   <url>
-    <loc>https://nestlyparenting.com/blog/the-baby-that-wasnt-his.html</loc>
+    <loc>https://nestlyparenting.com/blog/the-baby-that-wasnt-his</loc>
     <lastmod>2026-07-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -89,7 +89,7 @@
 
   <!-- Blog 9 — The Work That Disappears When It's Done Right -->
   <url>
-    <loc>https://nestlyparenting.com/blog/the-work-that-disappears-when-its-done-right.html</loc>
+    <loc>https://nestlyparenting.com/blog/the-work-that-disappears-when-its-done-right</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -102,7 +102,7 @@
 
   <!-- Blog 8 — How to Split Baby Duties Without Building Resentment -->
   <url>
-    <loc>https://nestlyparenting.com/blog/how-to-split-baby-duties-without-building-resentment.html</loc>
+    <loc>https://nestlyparenting.com/blog/how-to-split-baby-duties-without-building-resentment</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -115,7 +115,7 @@
 
   <!-- Blog 7 — 10 First-Time Parent Mistakes -->
   <url>
-    <loc>https://nestlyparenting.com/blog/new-parent-mistakes.html</loc>
+    <loc>https://nestlyparenting.com/blog/new-parent-mistakes</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -128,7 +128,7 @@
 
   <!-- Blog 6 — Emily/Clara Story -->
   <url>
-    <loc>https://nestlyparenting.com/blog/they-asked-when-id-try-again-emily-clara.html</loc>
+    <loc>https://nestlyparenting.com/blog/they-asked-when-id-try-again-emily-clara</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -141,7 +141,7 @@
 
   <!-- Blog 5 — Did I Cause My Miscarriage -->
   <url>
-    <loc>https://nestlyparenting.com/blog/did-i-cause-my-miscarriage.html</loc>
+    <loc>https://nestlyparenting.com/blog/did-i-cause-my-miscarriage</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -154,7 +154,7 @@
 
   <!-- Blog 4 — Miscarriage Story (Olivia) -->
   <url>
-    <loc>https://nestlyparenting.com/blog/first-pregnancy-miscarriage-story-olivia.html</loc>
+    <loc>https://nestlyparenting.com/blog/first-pregnancy-miscarriage-story-olivia</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -167,7 +167,7 @@
 
   <!-- Blog 3 — First Trimester Miscarriage Guide -->
   <url>
-    <loc>https://nestlyparenting.com/blog/first-trimester-miscarriage-guide.html</loc>
+    <loc>https://nestlyparenting.com/blog/first-trimester-miscarriage-guide</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
@@ -180,7 +180,7 @@
 
   <!-- Blog 2 — What to Avoid Before Pregnancy -->
   <url>
-    <loc>https://nestlyparenting.com/blog/what-to-avoid-before-pregnancy.html</loc>
+    <loc>https://nestlyparenting.com/blog/what-to-avoid-before-pregnancy</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
@@ -193,7 +193,7 @@
 
   <!-- Blog 1 — How to Prepare for First Baby -->
   <url>
-    <loc>https://nestlyparenting.com/blog/how-couples-prepare-for-first-baby.html</loc>
+    <loc>https://nestlyparenting.com/blog/how-couples-prepare-for-first-baby</loc>
     <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
