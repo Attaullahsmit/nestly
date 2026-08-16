@@ -152,6 +152,7 @@ function render() {
     container.appendChild(empty);
     updateBadge();
     renderSummary();
+    renderWeeklyTrend();
     return;
   }
 
@@ -196,6 +197,20 @@ function render() {
       textWrap.appendChild(typeLabel);
     }
 
+    // Optional details, shown only when present — same textContent-only
+    // approach used throughout this file, never innerHTML with entry data.
+    const detailBits = [];
+    if (entry.amount) detailBits.push(entry.amount + ' ' + entry.amountUnit);
+    if (entry.duration) detailBits.push(entry.duration + ' min');
+    if (entry.side) detailBits.push(entry.side.charAt(0).toUpperCase() + entry.side.slice(1));
+    if (entry.note) detailBits.push(entry.note);
+    if (detailBits.length) {
+      const detailEl = document.createElement('span');
+      detailEl.className = 'log-detail-label';
+      detailEl.textContent = detailBits.join(' · ');
+      textWrap.appendChild(detailEl);
+    }
+
     left.appendChild(textWrap);
     div.appendChild(left);
 
@@ -212,6 +227,111 @@ function render() {
 
   updateBadge();
   renderSummary();
+  renderWeeklyTrend();
+}
+
+/**
+ * Weekly pattern view — passive insight only, no new input required from the
+ * parent. Shows feed count per day for the last 7 days (including today).
+ *
+ * Accessibility: a bar chart's relative heights convey nothing to a screen
+ * reader, so the visual bars are aria-hidden and a full text equivalent is
+ * provided via aria-label on the container (e.g. "Monday: 6 feeds, Tuesday: 8
+ * feeds..."). This follows the same evidence-based pattern used elsewhere on
+ * this page (announce() for the log itself) rather than leaving chart data
+ * inaccessible to screen reader users.
+ */
+function renderWeeklyTrend() {
+  const container = document.getElementById('weeklyTrend');
+  if (!container) return;
+
+  if (logs.length === 0) {
+    container.innerHTML = '';
+    container.hidden = true;
+    return;
+  }
+
+  // Build the last 7 calendar days (oldest to newest, today last).
+  const days = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    d.setHours(0, 0, 0, 0);
+    days.push(d);
+  }
+
+  const counts = days.map(day => {
+    return logs.filter(l => {
+      const entryDate = new Date(l.iso);
+      return entryDate.toDateString() === day.toDateString();
+    }).length;
+  });
+
+  const hasAnyDataThisWeek = counts.some(c => c > 0);
+  if (!hasAnyDataThisWeek) {
+    container.innerHTML = '';
+    container.hidden = true;
+    return;
+  }
+
+  container.hidden = false;
+  const maxCount = Math.max(...counts, 1);
+
+  const dayLabels = days.map(d => d.toLocaleDateString([], { weekday: 'short' }));
+  const fullDayLabels = days.map(d => d.toLocaleDateString([], { weekday: 'long' }));
+  const today = new Date();
+
+  // Full text equivalent for screen readers — the actual accessible content.
+  const textSummary = fullDayLabels
+    .map((label, i) => `${label}: ${counts[i]} ${counts[i] === 1 ? 'feed' : 'feeds'}`)
+    .join(', ');
+
+  container.setAttribute('role', 'img');
+  container.setAttribute('aria-label', 'This week\'s feeding pattern. ' + textSummary);
+
+  container.innerHTML = '';
+
+  const heading = document.createElement('div');
+  heading.className = 'weekly-trend-heading';
+  heading.setAttribute('aria-hidden', 'true');
+  heading.textContent = 'This Week';
+  container.appendChild(heading);
+
+  const barsWrap = document.createElement('div');
+  barsWrap.className = 'weekly-trend-bars';
+  barsWrap.setAttribute('aria-hidden', 'true'); // decorative; full data is in the container's aria-label above
+
+  days.forEach((day, i) => {
+    const col = document.createElement('div');
+    col.className = 'weekly-trend-col';
+
+    const barTrack = document.createElement('div');
+    barTrack.className = 'weekly-trend-bar-track';
+
+    const bar = document.createElement('div');
+    bar.className = 'weekly-trend-bar';
+    const heightPct = Math.round((counts[i] / maxCount) * 100);
+    bar.style.height = Math.max(heightPct, counts[i] > 0 ? 8 : 0) + '%';
+    if (day.toDateString() === today.toDateString()) {
+      bar.classList.add('weekly-trend-bar-today');
+    }
+    barTrack.appendChild(bar);
+
+    const count = document.createElement('div');
+    count.className = 'weekly-trend-count';
+    count.textContent = counts[i] > 0 ? String(counts[i]) : '';
+
+    const label = document.createElement('div');
+    label.className = 'weekly-trend-label';
+    label.textContent = dayLabels[i];
+
+    col.appendChild(count);
+    col.appendChild(barTrack);
+    col.appendChild(label);
+    barsWrap.appendChild(col);
+  });
+
+  container.appendChild(barsWrap);
 }
 
 function addLog() {
@@ -227,10 +347,44 @@ function addLog() {
   iso.setHours(h, m, 0, 0);
 
   const entry = { id: cryptoId(), iso: iso.toISOString(), type: selectedType };
+
+  // Optional detail fields — only attached if the parent actually filled
+  // them in. Omitting all of them keeps the original 1-tap flow intact.
+  if (selectedType === 'bottle') {
+    const amountInput = document.getElementById('amountInput');
+    const amountUnit = document.getElementById('amountUnit');
+    const amountVal = amountInput ? parseFloat(amountInput.value) : NaN;
+    if (!isNaN(amountVal) && amountVal > 0) {
+      entry.amount = amountVal;
+      entry.amountUnit = amountUnit ? amountUnit.value : 'oz';
+    }
+  } else if (selectedType === 'breast') {
+    const durationInput = document.getElementById('durationInput');
+    const durationVal = durationInput ? parseInt(durationInput.value, 10) : NaN;
+    if (!isNaN(durationVal) && durationVal > 0) {
+      entry.duration = durationVal;
+    }
+    if (selectedSide === 'left' || selectedSide === 'right') {
+      entry.side = selectedSide;
+      try { localStorage.setItem(LAST_SIDE_KEY, selectedSide); } catch (err) { /* non-fatal */ }
+    }
+  } else if (selectedType === 'solid') {
+    const noteInput = document.getElementById('noteInput');
+    const noteVal = noteInput ? noteInput.value.trim() : '';
+    if (noteVal) entry.note = noteVal.slice(0, 80);
+  }
+
   logs.push(entry);
   save();
   render();
-  announce('Feeding logged at ' + formatTime(entry.iso) + (selectedType ? ', ' + TYPE_META[selectedType].label : '') + '.');
+  const detailParts = [];
+  if (entry.amount) detailParts.push(entry.amount + ' ' + entry.amountUnit);
+  if (entry.duration) detailParts.push(entry.duration + ' min');
+  if (entry.side) detailParts.push(entry.side + ' side');
+  if (entry.note) detailParts.push(entry.note);
+  const detailText = detailParts.length ? ', ' + detailParts.join(', ') : '';
+
+  announce('Feeding logged at ' + formatTime(entry.iso) + (selectedType ? ', ' + TYPE_META[selectedType].label : '') + detailText + '.');
 
   input.value = '';
   clearTypeSelection();
@@ -274,6 +428,54 @@ function undoDelete() {
   if (toast) { toast.classList.remove('show'); toast.hidden = true; }
 }
 
+const LAST_SIDE_KEY = 'feedingLastSide';
+let selectedSide = null;
+
+function updateOptionalFieldsVisibility() {
+  const bottleFields = document.getElementById('bottleFields');
+  const breastFields = document.getElementById('breastFields');
+  const solidFields = document.getElementById('solidFields');
+  if (bottleFields) bottleFields.hidden = selectedType !== 'bottle';
+  if (breastFields) breastFields.hidden = selectedType !== 'breast';
+  if (solidFields) solidFields.hidden = selectedType !== 'solid';
+
+  if (selectedType === 'breast') {
+    suggestLastSide();
+  }
+}
+
+/** Defaults the side toggle to whichever side was NOT used last time,
+ *  and shows a small hint so the parent knows why it's pre-selected. */
+function suggestLastSide() {
+  let lastSide = null;
+  try {
+    lastSide = localStorage.getItem(LAST_SIDE_KEY);
+  } catch (err) {
+    lastSide = null;
+  }
+  const suggested = lastSide === 'left' ? 'right' : lastSide === 'right' ? 'left' : null;
+  const hint = document.getElementById('lastSideHint');
+
+  if (suggested) {
+    setSide(suggested, /* silent */ true);
+    if (hint) {
+      hint.textContent = 'Last feed was ' + lastSide + ' — suggesting ' + suggested + '.';
+      hint.hidden = false;
+    }
+  } else if (hint) {
+    hint.hidden = true;
+  }
+}
+
+function setSide(side, silent) {
+  selectedSide = (selectedSide === side && !silent) ? null : side;
+  document.querySelectorAll('.side-chip').forEach(function (chip) {
+    const isActive = chip.dataset.side === selectedSide;
+    chip.classList.toggle('active', isActive);
+    chip.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
 function setType(type) {
   selectedType = (selectedType === type) ? null : type;
   document.querySelectorAll('.type-chip').forEach(function (chip) {
@@ -281,14 +483,26 @@ function setType(type) {
     chip.classList.toggle('active', isActive);
     chip.setAttribute('aria-pressed', String(isActive));
   });
+  updateOptionalFieldsVisibility();
 }
 
 function clearTypeSelection() {
   selectedType = null;
+  selectedSide = null;
   document.querySelectorAll('.type-chip').forEach(function (chip) {
     chip.classList.remove('active');
     chip.setAttribute('aria-pressed', 'false');
   });
+  updateOptionalFieldsVisibility();
+
+  // Clear the optional field inputs themselves after a successful log,
+  // same "leave it clean for the next entry" behavior as the time input.
+  const amountInput = document.getElementById('amountInput');
+  const durationInput = document.getElementById('durationInput');
+  const noteInput = document.getElementById('noteInput');
+  if (amountInput) amountInput.value = '';
+  if (durationInput) durationInput.value = '';
+  if (noteInput) noteInput.value = '';
 }
 
 function useCurrentTime() {
@@ -318,6 +532,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelectorAll('.type-chip').forEach(function (chip) {
     chip.addEventListener('click', function () { setType(chip.dataset.type); });
+  });
+
+  document.querySelectorAll('.side-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () { setSide(chip.dataset.side, false); });
   });
 
   // Event delegation for dynamically rendered "Remove" buttons.

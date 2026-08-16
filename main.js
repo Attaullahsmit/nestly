@@ -24,19 +24,19 @@ document.addEventListener('click', function (e) {
 
 /**
  * Nav search: pressing Enter on the navbar search
- * redirects to articles.html with a pre-filled query
+ * redirects to /articles with a pre-filled query
  *
- * Uses a root-relative path ("/articles.html") rather than a plain
+ * Uses a root-relative path ("/articles") rather than a plain
  * relative one, because this script is shared across pages at two
  * different folder depths (site root, and /blog/). A plain relative
- * "articles.html" resolves to the wrong location (blog/articles.html,
+ * "articles" would resolve to the wrong location (blog/articles,
  * which does not exist) when triggered from any article page.
  */
 function handleNavSearch(event) {
   if (event.key === 'Enter') {
     const query = document.getElementById('navSearch').value.trim();
     if (query) {
-      window.location.href = '/articles.html?q=' + encodeURIComponent(query);
+      window.location.href = '/articles?q=' + encodeURIComponent(query);
     }
   }
 }

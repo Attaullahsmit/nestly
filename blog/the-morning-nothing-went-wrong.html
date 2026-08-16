@@ -10,6 +10,11 @@
   <meta name="author" content="Attaullah" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://nestlyparenting.com/blog/the-morning-nothing-went-wrong" />
+  <link rel="icon" type="image/x-icon" href="/assets/branding/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/branding/icon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/icon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/icon-192.png" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="The Morning Nothing Went Wrong" />
@@ -32,444 +37,17 @@
   <meta name="twitter:image" content="https://nestlyparenting.com/assets/images/the-morning-nothing-went-wrong-hero.webp" />
   <meta name="twitter:image:alt" content="A mother on the phone in a sunlit kitchen, coffee in hand, backpack and shoes already by the door" />
 
-  <!-- Bootstrap 5.3.8 — latest stable release, verified July 2026 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Fonts, loaded via <link> (not CSS @import) for correct load-order -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lora:ital,wght@0,400;0,500;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
 
-  <!-- All page styling is inline below — no external stylesheet is used on this page. -->
+  <!-- Article-specific styling only. Shared chrome (navbar, footer, blog cards,
+       author bio) is inherited from ../style.css, matching every other article. -->
   <style>
-:root {
-  --cream:       #fdf8f3;
-  --warm-white:  #fffcf8;
-  --blush:       #f9ede4;
-  --rose:        #e8927c;
-  --rose-dark:   #c96a50;
-  --rose-light:  #fceee9;
-  --sage:        #7a9e87;
-  --sage-light:  #eaf2ec;
-  --amber:       #d4956a;
-  --amber-light: #fdf0e6;
-  --navy:        #2c3e50;
-  --slate:       #4a5568;
-  --muted:       #7b8794;
-  --border:      #ede8e2;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'Lora', Georgia, serif;
-  --font-ui:      'Nunito Sans', sans-serif;
-  --radius:    18px;
-  --radius-sm: 10px;
-  --radius-lg: 28px;
-  --transition: 0.25s ease;
-}
-/* ── Base ── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--font-body);
-  background-color: var(--cream);
-  color: var(--navy);
-  line-height: 1.75;
-  font-size: 1rem;
-}
-
-img { max-width: 100%; display: block; }
-
-a {
-  color: var(--rose);
-  text-decoration: none;
-  transition: color var(--transition);
-}
-a:hover { color: var(--rose-dark); }
-
-/* ── Typography ── */
-h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.25; }
-h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); }
-h2 { font-size: clamp(1.7rem, 3.5vw, 2.6rem); }
-h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
-h4 { font-size: 1.15rem; }
-
-p { color: var(--slate); }
-
-.font-ui { font-family: var(--font-ui); }
-
-/* ──────────────────────────────────────────
-   NAVBAR
-────────────────────────────────────────── */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 2px 20px rgba(44,62,80,0.07);
-  padding: 0;
-}
-
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
-  gap: 20px;
-}
-
-/* Brand */
-.nav-brand {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--navy) !important;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-.nav-brand span { color: var(--rose); }
-
-/* Nav Links */
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  list-style: none;
-  margin: 0; padding: 0;
-}
-
-.nav-links a {
-  font-family: var(--font-ui);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--slate);
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: all var(--transition);
-  text-decoration: none;
-}
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--rose);
-  background: var(--rose-light);
-}
-
-/* Search Bar */
-.nav-search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.search-wrap {
-  display: flex;
-  align-items: center;
-  background: rgba(255,255,255,0.8);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  padding: 6px 16px 6px 12px;
-  gap: 8px;
-  transition: all var(--transition);
-}
-.search-wrap:focus-within {
-  border-color: var(--rose);
-  box-shadow: 0 0 0 3px rgba(232,146,124,0.15);
-}
-.search-wrap svg { color: var(--rose); flex-shrink: 0; }
-.search-wrap input {
-  border: none;
-  background: transparent;
-  outline: none;
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  color: var(--navy);
-  width: 160px;
-}
-.search-wrap input::placeholder { color: var(--muted); }
-
-/* Hamburger */
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px;
-  color: var(--navy);
-}
-
-/* Mobile Nav */
-@media (max-width: 768px) {
-  .nav-toggle { display: block; }
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0; right: 0;
-    background: var(--warm-white);
-    border-bottom: 1px solid var(--border);
-    padding: 12px 20px 20px;
-    gap: 4px;
-  }
-  .nav-links.open { display: flex; }
-  .search-wrap input { width: 110px; }
-}
-
-/* ──────────────────────────────────────────
-   BLOG CARDS (Featured)
-────────────────────────────────────────── */
-.blog-card {
-  background: var(--warm-white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.blog-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 48px rgba(44,62,80,0.12);
-}
-
-.blog-card-img {
-  position: relative;
-  overflow: hidden;
-  height: 210px;
-}
-.blog-card-img img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.blog-card:hover .blog-card-img img { transform: scale(1.06); }
-
-.blog-card-body {
-  padding: 22px 22px 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.blog-tag {
-  display: inline-block;
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 4px 11px;
-  border-radius: 100px;
-  margin-bottom: 10px;
-}
-.tag-rose   { background: var(--rose-light);  color: var(--rose-dark); }
-.tag-sage   { background: var(--sage-light);  color: #4a7a5a; }
-.tag-amber  { background: var(--amber-light); color: #9a5f2a; }
-.tag-navy   { background: #e8ecf0; color: var(--navy); }
-
-.blog-card-title {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 8px;
-  line-height: 1.35;
-  flex: 1;
-}
-
-.blog-card-excerpt {
-  font-family: var(--font-ui);
-  font-size: 0.83rem;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 16px;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.blog-card-meta {
-  font-family: var(--font-ui);
-  font-size: 0.75rem;
-  color: var(--muted);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-}
-.blog-card-meta span::before { content: '•'; margin-right: 10px; }
-.blog-card-meta span:first-child::before { content: ''; margin-right: 0; }
-
-.btn-read-more {
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--rose);
-  background: var(--rose-light);
-  border: none;
-  border-radius: 100px;
-  padding: 8px 18px;
-  cursor: pointer;
-  align-self: flex-start;
-  transition: all var(--transition);
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  display: inline-block;
-}
-.btn-read-more:hover {
-  background: var(--rose);
-  color: #fff;
-  transform: translateX(3px);
-}
-
-/* ──────────────────────────────────────────
-   FOOTER
-────────────────────────────────────────── */
-.site-footer {
-  background: var(--navy);
-  color: rgba(255,255,255,0.75);
-  padding: 64px 0 28px;
-}
-
-.footer-brand-name {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 10px;
-}
-.footer-brand-name span { color: var(--rose); }
-
-.footer-tagline {
-  font-family: var(--font-ui);
-  font-size: 0.84rem;
-  color: rgba(255,255,255,0.5);
-  max-width: 220px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.footer-heading {
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--rose);
-  margin-bottom: 16px;
-}
-
-.footer-links { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin-bottom: 10px; }
-.footer-links a {
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.62);
-  text-decoration: none;
-  transition: color var(--transition);
-}
-.footer-links a:hover { color: var(--rose); }
-
-.footer-social {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 0;
-}
-.footer-social a {
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.62);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: color var(--transition);
-}
-.footer-social a:hover { color: var(--rose); }
-
-.footer-divider {
-  border-color: rgba(255,255,255,0.1);
-  margin: 40px 0 20px;
-}
-
-.footer-bottom {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.35);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.footer-bottom a { color: rgba(255,255,255,0.45); }
-.footer-bottom a:hover { color: var(--rose); }
-
-/* ──────────────────────────────────────────
-   AUTHOR BIO — sitewide fix
-   This component (aside.author-bio, .bio-label, .bio-name) is used
-   in the markup of every real article on the site but had no CSS
-   definition anywhere — not here, not inline on any article page.
-   It rendered as unstyled default text on every article, not just
-   new ones. Fixing it once, here, so every article benefits.
-────────────────────────────────────────── */
-.author-bio {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  background: var(--warm-white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  margin: 40px 0;
-}
-.author-bio .bio-avatar {
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--rose), var(--amber));
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-display);
-  color: #fff;
-  font-size: 1.3rem;
-  flex-shrink: 0;
-}
-.bio-label {
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  display: block;
-  margin-bottom: 4px;
-}
-.bio-name {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--navy);
-  margin-bottom: 6px;
-}
-.author-bio p:not(.bio-label) {
-  font-family: var(--font-ui);
-  font-size: 0.9rem;
-  color: var(--slate);
-  line-height: 1.65;
-  margin: 0;
-}
-@media (max-width: 600px) {
-  .author-bio { flex-direction: column; }
-}
-
-
 /* ── Article-specific (matches "the-baby-that-wasnt-his" production pattern) ── */
 .blog-hero {
   position: relative;
@@ -483,7 +61,7 @@ p { color: var(--slate); }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center 8%;
   opacity: 0.80;
 }
 .blog-hero-overlay {
@@ -509,9 +87,11 @@ p { color: var(--slate); }
   background: linear-gradient(135deg, var(--rose), var(--amber));
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 0.85rem; color: #fff; font-family: var(--font-ui); flex-shrink: 0;
+  overflow: hidden;
 }
+.meta-avi img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
 .meta-sep { opacity: 0.30; }
-.article-wrap { max-width: 820px; margin: 0 auto; padding: 68px 24px 88px; }
+.article-wrap { max-width: 960px; margin: 0 auto; padding: 68px 24px 88px; }
 .article-wrap p {
   font-family: var(--font-body); font-size: 1.05rem; line-height: 1.94; color: var(--slate); margin-bottom: 22px;
 }
@@ -711,7 +291,7 @@ p { color: var(--slate); }
         <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" aria-label="Search articles" />
       </div>
     </div>
-    <a class="nav-brand" href="../index.html">🌿 Nestly <span>Parenting</span></a>
+    <a class="nav-brand" href="../index.html"><img src="/assets/branding/header-logo-desktop-186x56.png" alt="Nestly Parenting" class="nav-logo" width="186" height="56" /></a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
@@ -751,7 +331,7 @@ p { color: var(--slate); }
 
       <div class="meta-strip">
         <div style="display:flex;align-items:center;gap:9px;">
-          <div class="meta-avi">A</div>
+          <div class="meta-avi"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
           <strong style="color:#fff;">Attaullah</strong>
         </div>
         <span class="meta-sep">|</span>
@@ -764,7 +344,7 @@ p { color: var(--slate); }
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-xl-8">
+    <div class="col-12">
       <div class="article-wrap">
 <p>Lily's shoes were already by the door. Her lunch was packed the night before, the way it always was now, and when I came downstairs there was coffee made and Sarah was reading something on her phone with the particular stillness of a person who has already checked everything twice.</p>
 <p>Nobody was rushing. Nobody was raising their voice. Denise arrived at 7:40 the way she always did, and by 7:52 Lily was buckled in and gone, and I remember standing in the kitchen with my coffee thinking, not for the first time, <em>this is what it's supposed to look like.</em></p>
@@ -836,7 +416,7 @@ p { color: var(--slate); }
 </ul>
 </div>
 <aside class="author-bio" aria-label="About the author">
-  <div class="bio-avatar">A</div>
+  <div class="bio-avatar"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
   <div>
     <span class="bio-label">About the Author</span>
     <div class="bio-name">Attaullah</div>
@@ -852,6 +432,22 @@ p { color: var(--slate); }
 <li>Catalano Weeks, A., &amp; Ruppanner, L. (2025). A typology of US parents' mental loads: Core and episodic cognitive labor. <em>Journal of Marriage and Family, 87</em>(3), 966–989.</li>
 <li>Weeks, A. C., Kowalewska, H., &amp; Ruppanner, L. (2025). Take a load off? Not for mothers: Gender, cognitive labor, and the limits of time and money. <em>Socius: Sociological Research for a Dynamic World, 11</em>, 1–17.</li>
 </ol></section>
+
+<div class="toc-box" style="margin:40px 0;">
+  <h6>📋 Table of Contents</h6>
+  <ol>
+    <li><a href="#s1">What We Thought We'd Solved</a></li>
+    <li><a href="#s2">A Question I Didn't Have</a></li>
+    <li><a href="#s3">A Kid I Teach</a></li>
+    <li><a href="#s4">What Was on the Shared Drive</a></li>
+    <li><a href="#s5">What Neither of Us Said Cleanly</a></li>
+    <li><a href="#s6">What I Worked Out Later, Alone</a></li>
+    <li><a href="#s7">What's Different Now</a></li>
+    <li><a href="#signs">Signs to Watch For</a></li>
+    <li><a href="#faq">Frequently Asked Questions</a></li>
+  </ol>
+</div>
+
 <section class="faq-section" id="faq"><h2 class="section-title" style="margin-bottom:24px;">Frequently Asked Questions</h2><div class="faq-list">
 <div class="faq-item"><h3>What is "mental load" in a relationship?</h3>
 <p>Mental load is the invisible planning and tracking work behind a household — noticing what's needed, remembering it, deciding how to handle it — separate from doing the physical task itself. Research shows it tends to concentrate on one partner even in households where physical chores are split evenly, which is part of why it's easy to miss until something forces it into view.</p></div>
@@ -902,42 +498,46 @@ p { color: var(--slate); }
   </div>
 </section>
 
-      </div>
-    </div>
-    <div class="col-xl-4 d-none d-xl-block pt-5">
-      <div class="toc-sticky pt-4 mt-2">
-        <div class="toc-box">
-          <h6>📋 Table of Contents</h6>
-          <ol>
-            <li><a href="#s1">What We Thought We'd Solved</a></li>
-            <li><a href="#s2">A Question I Didn't Have</a></li>
-            <li><a href="#s3">A Kid I Teach</a></li>
-            <li><a href="#s4">What Was on the Shared Drive</a></li>
-            <li><a href="#s5">What Neither of Us Said Cleanly</a></li>
-            <li><a href="#s6">What I Worked Out Later, Alone</a></li>
-            <li><a href="#s7">What's Different Now</a></li>
-            <li><a href="#signs">Signs to Watch For</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-          </ol>
-        </div>
-        <div class="share-box">
-          <p>Found this affecting?</p>
-          <strong>Share it 💛</strong>
-          <div style="display:flex;flex-direction:column;gap:9px;">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://nestlyparenting.com/blog/the-morning-nothing-went-wrong.html" target="_blank" rel="noopener" class="btn-primary-rose" style="font-size:0.80rem;text-align:center;padding:10px 16px !important;">📘 Share on Facebook</a>
-            <a href="https://wa.me/?text=The+Morning+Nothing+Went+Wrong+%E2%80%94+https://nestlyparenting.com/blog/the-morning-nothing-went-wrong.html" target="_blank" rel="noopener" class="btn-ghost-rose" style="font-size:0.80rem;text-align:center;padding:10px 16px !important;">💬 Share on WhatsApp</a>
-          </div>
-        </div>
+<div class="share-box" style="margin:48px 0 0; text-align:center;">
+  <p>Found this affecting?</p>
+  <strong>Share it 💛</strong>
+  <div style="display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:12px;">
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://nestlyparenting.com/blog/the-morning-nothing-went-wrong.html" target="_blank" rel="noopener" class="btn-primary-rose" style="font-size:0.80rem;text-align:center;padding:10px 16px !important;">📘 Share on Facebook</a>
+    <a href="https://wa.me/?text=The+Morning+Nothing+Went+Wrong+%E2%80%94+https://nestlyparenting.com/blog/the-morning-nothing-went-wrong.html" target="_blank" rel="noopener" class="btn-ghost-rose" style="font-size:0.80rem;text-align:center;padding:10px 16px !important;">💬 Share on WhatsApp</a>
+  </div>
+</div>
       </div>
     </div>
 
   </div>
 </div>
+
+<!-- Comments / Giscus -->
+<div class="container" style="margin-top:24px;margin-bottom:64px;max-width:820px;">
+  <h3 style="font-family:var(--font-display);font-size:1.6rem;margin-bottom:8px;">💬 Join the Conversation</h3>
+  <p style="font-family:var(--font-ui);color:var(--muted);font-size:0.86rem;margin-bottom:26px;">Does this resonate with your own experience of carrying the household's invisible weight? Share your story below.</p>
+  <script src="https://giscus.app/client.js"
+    data-repo="Attaullahsmit/nestly"
+    data-repo-id="R_kgDOSGz4Tw"
+    data-category="General"
+    data-category-id="DIC_kwDOSGz4T84C7NJh"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    crossorigin="anonymous"
+    async>
+  </script>
+</div>
+
 <footer class="site-footer">
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-4">
-        <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+        <div class="footer-brand-name"><img src="/assets/branding/footer-logo-90px.png" alt="Nestly Parenting" width="90" height="27" /></div>
         <p class="footer-tagline">Your trusted companion through every beautiful, messy, and unforgettable chapter of parenthood.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank" rel="noopener">📘 Facebook</a>
@@ -996,7 +596,7 @@ document.addEventListener('click', function (e) {
 function handleNavSearch(event) {
   if (event.key === 'Enter') {
     const query = document.getElementById('navSearch').value.trim();
-    if (query) { window.location.href = '/articles.html?q=' + encodeURIComponent(query); }
+    if (query) { window.location.href = '/articles?q=' + encodeURIComponent(query); }
   }
 }
 </script>

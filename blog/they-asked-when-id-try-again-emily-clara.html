@@ -12,6 +12,11 @@
 <meta name="author" content="Attaullah" />
 <link rel="canonical" href="https://nestlyparenting.com/blog/they-asked-when-id-try-again-emily-clara" />
 
+  <link rel="icon" type="image/x-icon" href="/assets/branding/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/branding/icon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/icon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/icon-192.png" />
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:site_name" content="Nestly Parenting" />
@@ -100,7 +105,18 @@
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+<!-- Bootstrap + global stylesheet MUST load before this page's local <style>
+     block below. They were previously placed right before </head> — AFTER
+     this block — which meant global rules loaded LAST and silently won the
+     cascade over every class name this page shares with the global sheet
+     (.hero, .hero-content, .hero-overlay, .hero-eyebrow, .hero-sub). That's
+     the actual root cause of the hero text bleeding flush to the screen
+     edge: the global .hero-content's `padding: 60px 0` (zero horizontal
+     padding) was overriding this page's own `padding: 0 6vw 60px`. -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../style.css" />
 
 <style>
   :root {
@@ -120,25 +136,67 @@
 
   #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, var(--rose), var(--gold)); z-index: 999; transition: width 0.1s linear; }
 
-  .hero { position: relative; width: 100%; height: 100vh; min-height: 600px; overflow: hidden; display: flex; align-items: flex-end; padding-top: 72px; }
-  .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: brightness(0.62); }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,18,16,0.1) 0%, rgba(26,18,16,0.0) 35%, rgba(26,18,16,0.7) 80%, rgba(26,18,16,0.95) 100%); }
-  .hero-content { position: relative; z-index: 2; width: 100%; padding: 0 6vw 60px; max-width: 900px; animation: fadeUp 1.2s ease forwards; opacity: 0; transform: translateY(30px); }
+  /* ── HERO — renamed to the collision-free .blog-hero pattern used
+     sitewide. Even with the load-order fix above, these names (.hero,
+     .hero-overlay, .hero-content, .hero-eyebrow, .hero-sub, .hero-scroll)
+     still exist in the global stylesheet for the homepage hero — leaving
+     the old names in place would mean any future edit that re-orders the
+     stylesheets again silently breaks this page a second time. ── */
+  /* min-height raised from 600px: this article's content block (4 tags,
+     two-line title, 3-line subtitle) measures ~724px tall, which matched
+     or exceeded the old 600px minimum. With no minimum-vs-content gap left,
+     align-items: flex-end had no space to push the content into, so the
+     block rendered flush from the very top of the hero instead of hugging
+     the bottom (over the darkest part of the gradient) — landing directly
+     on the photo's subject instead of clear background. Raised so the
+     container is comfortably taller than the content again. */
+  .blog-hero { position: relative; width: 100%; min-height: 860px; overflow: hidden; display: flex; align-items: flex-end; background: #1a1210; }
+  .blog-hero-img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center 35%; opacity: 0.85;
+    /* Previously also had `filter: brightness(0.62)` stacked on top of the
+       gradient overlay below — two darkening mechanisms compounding each
+       other. Removed; opacity + overlay alone is the sitewide recipe. */
+  }
+  .blog-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(26,18,16,0.1) 0%, rgba(26,18,16,0.0) 35%, rgba(26,18,16,0.7) 80%, rgba(26,18,16,0.95) 100%); }
+  .blog-hero-inner { position: relative; z-index: 2; padding: 60px 0 56px; width: 100%; animation: fadeUp 1.2s ease forwards; opacity: 0; transform: translateY(30px); }
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-  .hero-eyebrow { font-family: 'Lato', sans-serif; font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
-  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 300; line-height: 1.15; color: #fff; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .bc {
+    font-family: var(--font-ui); font-size: 0.75rem; color: rgba(255,255,255,0.50);
+    display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 18px;
+  }
+  .bc a { color: rgba(255,255,255,0.50); text-decoration: none; }
+  .bc a:hover { color: var(--rose); }
+  .bc span { color: rgba(255,255,255,0.82); }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 600; line-height: 1.15; color: #fff; margin-bottom: 20px; letter-spacing: -0.01em; max-width: 745px; text-wrap: balance; }
   .hero-title em { font-style: italic; color: #f5d9c8; }
-  .hero-sub { font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.75); max-width: 560px; margin-bottom: 32px; line-height: 1.7; }
-  .hero-scroll { display: inline-flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.55); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; animation: bounce 2s infinite; }
-  .hero-scroll svg { width: 18px; height: 18px; }
+  .article-hero-sub { font-family: 'Lato', sans-serif; font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.75); max-width: 560px; margin-bottom: 8px; line-height: 1.7; }
+  .meta-strip {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    font-family: 'Lato', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 24px;
+  }
+  .meta-avi {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--amber));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; color: #fff; font-family: var(--font-ui); flex-shrink: 0;
+    overflow: hidden;
+  }
+  .meta-avi img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+  .meta-sep { opacity: 0.40; }
+  .article-scroll-cue { display: inline-flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.55); font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; animation: bounce 2s infinite; }
+  .article-scroll-cue svg { width: 18px; height: 18px; }
   @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+  @media (max-width: 768px) {
+    /* Same fix as desktop: mobile content (~626px tall on a 390px-wide
+       screen) already exceeded the old 440px minimum, so flex-end had
+       nothing to push against here either. */
+    .blog-hero { min-height: 720px; }
+    .blog-hero-inner { padding: 36px 0 40px; }
+  }
 
-  .article-wrap { max-width: 720px; margin: 0 auto; padding: 80px 5vw 120px; }
+  .article-wrap { max-width: 960px; margin: 0 auto; padding: 80px 5vw 120px; }
 
-  .meta-row { display: flex; align-items: center; gap: 20px; margin-bottom: 60px; padding-bottom: 28px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
-  .meta-tag { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); background: rgba(196,131,122,0.1); padding: 5px 14px; border-radius: 20px; }
-  .meta-date { font-size: 0.8rem; color: var(--muted); font-weight: 300; }
-  .meta-read { font-size: 0.8rem; color: var(--muted); margin-left: auto; font-weight: 300; }
 
   .opener-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 300; font-style: italic; line-height: 1.45; color: var(--deep); text-align: center; padding: 48px 0 20px; position: relative; margin-bottom: 12px; }
   .opener-quote::before { content: '\201C'; position: absolute; top: 0; left: 50%; transform: translateX(-50%); font-size: 6rem; color: var(--rose); opacity: 0.18; line-height: 1; font-family: 'Cormorant Garamond', serif; }
@@ -223,11 +281,8 @@
     .support-intro { padding: 20px 22px; }
     .resource-box { padding: 24px 22px; }
     .closing-card { padding: 40px 24px; }
-    .meta-read { display: none; }
   }
 </style>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
@@ -242,7 +297,7 @@
         <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" aria-label="Search" />
       </div>
     </div>
-    <a class="nav-brand" href="../index.html">🌿 Nestly <span>Parenting</span></a>
+    <a class="nav-brand" href="../index.html"><img src="/assets/branding/header-logo-desktop-186x56.png" alt="Nestly Parenting" class="nav-logo" width="186" height="56" /></a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -256,35 +311,52 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero" aria-label="Hero image">
+<section class="blog-hero" aria-label="Hero image">
   <img
+    class="blog-hero-img"
     src="../assets/images/emily-miscarriage-grief-diner-winter-hero-banner.jpg"
     alt="A young woman in a black coat sits alone in a classic American diner booth with two untouched coffee mugs on the table, staring out the winter window at a father laughing in the snow with his young daughter in a yellow coat — the invisible weight of miscarriage grief while ordinary life continues around her"
     fetchpriority="high"
     loading="eager"
   />
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">Pregnancy Loss · Invisible Grief · Real Story · Healing After Miscarriage</span>
-    <h1 class="hero-title"><em>"They Asked When I'd Try Again —<br>But I Was Still Learning How to Breathe"</em></h1>
-    <p class="hero-sub">She kept her baby's name in her pocket for six months. She had never said it out loud. Not once. This is the story of Emily, Clara, April 14th, and the grief the world never saw.</p>
-    <span class="hero-scroll">
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-      Read her story
-    </span>
+  <div class="blog-hero-overlay"></div>
+  <div class="blog-hero-inner">
+    <div class="container">
+      <nav class="bc" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="../articles.html">Blogs</a>
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>They Asked When I'd Try Again</span>
+      </nav>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+        <span class="blog-tag tag-rose">Pregnancy Loss</span>
+        <span class="blog-tag tag-amber">Invisible Grief</span>
+        <span class="blog-tag tag-rose">Real Story</span>
+        <span class="blog-tag tag-amber">Healing After Miscarriage</span>
+      </div>
+      <h1 class="hero-title"><em>"They Asked When I'd Try Again — But I Was Still Learning How to Breathe"</em></h1>
+      <p class="article-hero-sub">She kept her baby's name in her pocket for six months. She had never said it out loud. Not once. This is the story of Emily, Clara, April 14th, and the grief the world never saw.</p>
+      <div class="meta-strip">
+        <div style="display:flex;align-items:center;gap:9px;">
+          <div class="meta-avi"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+          <strong style="color:#fff;">Attaullah</strong>
+        </div>
+        <span class="meta-sep">|</span>
+        <span>May 20, 2026</span>
+        <span class="meta-sep">|</span>
+        <span>18 min read</span>
+      </div>
+      <span class="article-scroll-cue">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        Read her story
+      </span>
+    </div>
   </div>
 </section>
 
 <!-- ARTICLE -->
 <article class="article-wrap">
-
-  <div class="meta-row reveal">
-    <span class="meta-tag">Pregnancy Loss</span>
-    <span class="meta-tag">Invisible Grief</span>
-    <span class="meta-tag">Healing After Loss</span>
-    <span class="meta-date">Published: May 20, 2026 · By Attaullah, Nestly Parenting</span>
-    <span class="meta-read">18 min read</span>
-  </div>
 
   <blockquote class="opener-quote reveal">
     She kept her baby's name in her pocket for six months.
@@ -694,9 +766,12 @@
 
   <!-- AUTHOR BIO -->
   <aside class="author-bio reveal" aria-label="About the author">
-    <span class="bio-label">About the Author</span>
-    <div class="bio-name">Attaullah</div>
-    <p>Attaullah is a parenting and family-content writer for Nestly, where he focuses on pregnancy, parenthood, emotional wellbeing, and pregnancy loss. His work combines careful research with real stories and lived experiences shared by parents, helping readers find practical guidance, reassurance, and support during major life transitions.</p>
+    <div class="bio-avatar"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+    <div>
+      <span class="bio-label">About the Author</span>
+      <div class="bio-name">Attaullah</div>
+      <p>Attaullah is a parenting and family-content writer for Nestly, where he focuses on pregnancy, parenthood, emotional wellbeing, and pregnancy loss. His work combines careful research with real stories and lived experiences shared by parents, helping readers find practical guidance, reassurance, and support during major life transitions.</p>
+    </div>
   </aside>
 
   <!-- RELATED ARTICLES -->
@@ -781,7 +856,7 @@
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-4">
-        <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+        <div class="footer-brand-name"><img src="/assets/branding/footer-logo-90px.png" alt="Nestly Parenting" width="90" height="27" /></div>
         <p class="footer-tagline">Your trusted companion through every beautiful, messy, and unforgettable chapter of parenthood.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>

@@ -116,6 +116,11 @@ p { color: var(--slate); }
   flex-shrink: 0;
 }
 .nav-brand span { color: var(--rose); }
+.nav-logo {
+  height: 56px;
+  width: auto;
+  display: block;
+}
 
 /* Nav Links */
 .nav-links {
@@ -189,6 +194,7 @@ p { color: var(--slate); }
 /* Mobile Nav */
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
+  .nav-logo { height: 48px; }
   .nav-links {
     display: none;
     flex-direction: column;
@@ -637,6 +643,13 @@ p { color: var(--slate); }
   margin-bottom: 10px;
 }
 .footer-brand-name span { color: var(--rose); }
+.footer-brand-name img {
+  /* The logo's natural tones (muted olive/sage) measure ~2:1 contrast
+     against this footer's --navy background — well below the 3:1 minimum
+     for graphics. This forces the footer instance only to white/monochrome
+     for proper visibility; the header logo (.nav-logo) is untouched. */
+  filter: brightness(0) invert(1);
+}
 
 .footer-tagline {
   font-family: var(--font-ui);
@@ -1085,6 +1098,7 @@ p { color: var(--slate); }
 }
 
 @media (max-width: 480px) {
+  .nav-logo { height: 42px; }
   .hero-ctas { flex-direction: column; }
   .btn-hero-primary, .btn-hero-ghost { text-align: center; }
   .footer-bottom { flex-direction: column; text-align: center; }
@@ -1117,6 +1131,13 @@ p { color: var(--slate); }
   color: #fff;
   font-size: 1.3rem;
   flex-shrink: 0;
+  overflow: hidden;
+}
+.author-bio .bio-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 .bio-label {
   font-family: var(--font-ui);

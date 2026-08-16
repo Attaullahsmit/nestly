@@ -12,6 +12,11 @@
 <meta name="author" content="Attaullah" />
 <link rel="canonical" href="https://nestlyparenting.com/blog/did-i-cause-my-miscarriage" />
 
+  <link rel="icon" type="image/x-icon" href="/assets/branding/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/branding/icon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/icon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/icon-192.png" />
 <!-- Open Graph -->
 <meta property="og:title" content="Did I Cause My Miscarriage? The Truth Every Grieving Parent Deserves to Hear" />
 <meta property="og:description" content="The guilt. The replaying. The 2am question that won't leave you alone. The honest, compassionate answer — backed by science, written with love." />
@@ -93,6 +98,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 
+<!-- Bootstrap + global stylesheet MUST load before this page's local <style>
+     block. Same load-order bug found in they-asked-when-id-try-again: these
+     links were previously right before </head>, AFTER the local styles,
+     so the global sheet's .hero/.hero-content/etc rules silently won the
+     cascade over this page's own. -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../style.css" />
+
 <style>
   :root {
     --cream: #faf7f2;
@@ -129,29 +142,32 @@
     transition: width 0.1s linear;
   }
 
-  /* HERO */
-  .hero {
+  /* ── HERO — renamed to the collision-free .blog-hero pattern used
+     sitewide, same fix applied to they-asked-when-id-try-again.html. ── */
+  .blog-hero {
     position: relative;
     width: 100%;
-    height: 100vh;
     min-height: 600px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
-    padding-top: 72px;
+    background: #1a1210;
   }
 
-  .hero img {
+  .blog-hero-img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 30%;
-    filter: brightness(0.68);
+    opacity: 0.85;
+    /* Previously also had `filter: brightness(0.68)` stacked on top of the
+       gradient overlay below — removed, same double-darkening bug found
+       in the last two files. */
   }
 
-  .hero-overlay {
+  .blog-hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -163,12 +179,11 @@
     );
   }
 
-  .hero-content {
+  .blog-hero-inner {
     position: relative;
     z-index: 2;
     width: 100%;
-    padding: 0 6vw 60px;
-    max-width: 900px;
+    padding: 60px 0 56px;
     animation: fadeUp 1.2s ease forwards;
     opacity: 0;
     transform: translateY(30px);
@@ -176,15 +191,13 @@
 
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-  .hero-eyebrow {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: block;
+  .bc {
+    font-family: var(--font-ui); font-size: 0.75rem; color: rgba(255,255,255,0.50);
+    display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 18px;
   }
+  .bc a { color: rgba(255,255,255,0.50); text-decoration: none; }
+  .bc a:hover { color: var(--rose); }
+  .bc span { color: rgba(255,255,255,0.82); }
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
@@ -194,21 +207,36 @@
     color: #fff;
     margin-bottom: 20px;
     letter-spacing: -0.01em;
+    max-width: 900px;
   }
 
   .hero-title em { font-style: italic; color: #f5d9c8; }
 
-  .hero-sub {
+  .article-hero-sub {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
     font-weight: 300;
     color: rgba(255,255,255,0.75);
     max-width: 540px;
-    margin-bottom: 32px;
+    margin-bottom: 8px;
     line-height: 1.7;
   }
 
-  .hero-scroll {
+  .meta-strip {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    font-family: 'Lato', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 24px;
+  }
+  .meta-avi {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--amber));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; color: #fff; font-family: var(--font-ui); flex-shrink: 0;
+    overflow: hidden;
+  }
+  .meta-avi img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+  .meta-sep { opacity: 0.40; }
+
+  .article-scroll-cue {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -219,7 +247,7 @@
     animation: bounce 2s infinite;
   }
 
-  .hero-scroll svg { width: 18px; height: 18px; }
+  .article-scroll-cue svg { width: 18px; height: 18px; }
 
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
@@ -228,34 +256,10 @@
 
   /* ARTICLE WRAPPER */
   .article-wrap {
-    max-width: 720px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 80px 5vw 120px;
   }
-
-  /* META ROW */
-  .meta-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 60px;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--line);
-    flex-wrap: wrap;
-  }
-
-  .meta-tag {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--rose);
-    background: rgba(196,131,122,0.1);
-    padding: 5px 14px;
-    border-radius: 20px;
-  }
-
-  .meta-date { font-size: 0.8rem; color: var(--muted); font-weight: 300; }
-  .meta-read { font-size: 0.8rem; color: var(--muted); margin-left: auto; font-weight: 300; }
 
   /* OPENER QUOTE */
   .opener-quote {
@@ -699,17 +703,19 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .blog-hero { min-height: 440px; }
+    .blog-hero-inner { padding: 36px 0 40px; }
+  }
+
   @media (max-width: 600px) {
     .article-wrap { padding: 60px 6vw 80px; }
     .callout { padding: 24px 22px; }
     .info-box { padding: 24px 22px; }
     .mindful-box { padding: 24px 22px; }
     .closing-card { padding: 40px 24px; }
-    .meta-read { display: none; }
   }
 </style>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
@@ -725,7 +731,7 @@
         <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" aria-label="Search" />
       </div>
     </div>
-    <a class="nav-brand" href="../index.html">🌿 Nestly <span>Parenting</span></a>
+    <a class="nav-brand" href="../index.html"><img src="/assets/branding/header-logo-desktop-186x56.png" alt="Nestly Parenting" class="nav-logo" width="186" height="56" /></a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -741,34 +747,50 @@
 <article>
 
 <!-- HERO -->
-<div class="hero">
+<div class="blog-hero">
   <img
+    class="blog-hero-img"
     src="../assets/images/did-i-cause-my-miscarriage-2am-guilt-hero_webp_jpg.jpg"
     alt="A woman sits alone at a dark table near a rain-streaked window at night, her untouched mug of tea beside her — the silent weight of miscarriage guilt at 2am"
     fetchpriority="high"
     width="1920" height="1080" />
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">Pregnancy Loss · Miscarriage Guilt · Healing After Loss</span>
-    <h1 class="hero-title">Did I Cause My <em>Miscarriage?</em></h1>
-    <p class="hero-sub">The guilt. The replaying. The 2am question that won't leave you alone. The honest, compassionate answer — backed by science, written with love.</p>
-    <span class="hero-scroll">
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-      Read the truth
-    </span>
+  <div class="blog-hero-overlay"></div>
+  <div class="blog-hero-inner">
+    <div class="container">
+      <nav class="bc" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="../articles.html">Blogs</a>
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Did I Cause My Miscarriage?</span>
+      </nav>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+        <span class="blog-tag tag-rose">Pregnancy Loss</span>
+        <span class="blog-tag tag-amber">Miscarriage Guilt</span>
+        <span class="blog-tag tag-rose">Healing After Loss</span>
+      </div>
+      <h1 class="hero-title">Did I Cause My <em>Miscarriage?</em></h1>
+      <p class="article-hero-sub">The guilt. The replaying. The 2am question that won't leave you alone. The honest, compassionate answer — backed by science, written with love.</p>
+      <div class="meta-strip">
+        <div style="display:flex;align-items:center;gap:9px;">
+          <div class="meta-avi"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+          <strong style="color:#fff;">Attaullah</strong>
+        </div>
+        <span class="meta-sep">|</span>
+        <span>May 10, 2026</span>
+        <span class="meta-sep">|</span>
+        <span>15 min read</span>
+      </div>
+      <span class="article-scroll-cue">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+        Read the truth
+      </span>
+    </div>
   </div>
 </div>
 
 <!-- ARTICLE BODY -->
 <div class="article-wrap">
-
-  <!-- META ROW -->
-  <div class="meta-row">
-    <span class="meta-tag">Pregnancy Loss</span>
-    <span class="meta-tag">Miscarriage Guilt</span>
-    <span class="meta-date">Published: May 10, 2026 · By Attaullah, Nestly Parenting</span>
-    <span class="meta-read">15 min read</span>
-  </div>
 
   <!-- OPENER QUOTE -->
   <div class="opener-quote reveal">
@@ -1141,9 +1163,12 @@
 
   <!-- AUTHOR BIO -->
   <aside class="author-bio reveal" aria-label="About the author">
-    <span class="bio-label">About the Author</span>
-    <div class="bio-name">Attaullah</div>
-    <p>Attaullah is a parenting and family-content writer for Nestly, where he focuses on pregnancy, parenthood, emotional wellbeing, and pregnancy loss. His work combines careful research with real stories and lived experiences shared by parents, helping readers find practical guidance, reassurance, and support during major life transitions.</p>
+    <div class="bio-avatar"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+    <div>
+      <span class="bio-label">About the Author</span>
+      <div class="bio-name">Attaullah</div>
+      <p>Attaullah is a parenting and family-content writer for Nestly, where he focuses on pregnancy, parenthood, emotional wellbeing, and pregnancy loss. His work combines careful research with real stories and lived experiences shared by parents, helping readers find practical guidance, reassurance, and support during major life transitions.</p>
+    </div>
   </aside>
 
   <!-- RELATED ARTICLES -->
@@ -1220,7 +1245,7 @@
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-4">
-        <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+        <div class="footer-brand-name"><img src="/assets/branding/footer-logo-90px.png" alt="Nestly Parenting" width="90" height="27" /></div>
         <p class="footer-tagline">Your trusted companion through every beautiful, messy, and unforgettable chapter of parenthood.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>

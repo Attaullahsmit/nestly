@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fourth Check — Did I Already Feed the Baby?</title>
+<meta name="description" content="Did I already feed the baby? A story about the memory failure sleep-deprived new parents live through every night — and the psychology behind it.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://nestlyparenting.com/blog/the-fourth-check">
+<link rel="icon" type="image/x-icon" href="/assets/branding/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/icon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/branding/icon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/icon-180.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/icon-192.png" />
+
+<!-- Open Graph: JPG crop, per visual bible Track A / social-compatibility rule -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Fourth Check — Did I Already Feed the Baby?">
+<meta property="og:description" content="Did I already feed the baby? A story about the memory failure sleep-deprived new parents live through every night.">
+<meta property="og:image" content="https://nestlyparenting.com/assets/images/the-fourth-check-hero-crib-bottle-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://nestlyparenting.com/blog/the-fourth-check">
+<meta property="og:site_name" content="Nestly Parenting">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://nestlyparenting.com/assets/images/the-fourth-check-hero-crib-bottle-og.jpg">
+
+<!-- Schema.org: primaryImageOfPage points to the WebP, per Google's Discover documentation -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The Fourth Check",
+  "description": "Did I already feed the baby? A story about the memory failure sleep-deprived new parents live through every night — and the psychology behind it.",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://nestlyparenting.com/assets/images/the-fourth-check-hero-crib-bottle.webp",
+    "width": 1600,
+    "height": 900
+  },
+  "primaryImageOfPage": "https://nestlyparenting.com/assets/images/the-fourth-check-hero-crib-bottle.webp",
+  "author": {
+    "@type": "Person",
+    "name": "Attaullah",
+    "url": "https://nestlyparenting.com/about"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nestly Parenting",
+    "url": "https://nestlyparenting.com"
+  },
+  "datePublished": "2026-07-30",
+  "dateModified": "2026-07-30"
+}
+</script>
+<!-- Note: no "genre" field here — verified via research that Google does not
+     document or support "genre" as a recognized Article property. The fiction/
+     nonfiction distinction is communicated through the visible disclaimer text
+     on the page itself, which is the mechanism that actually works. -->
+<!-- Note: no FAQPage schema below — FAQ rich results were deprecated by Google in May 2026.
+     The "Parents Also Wonder" section still exists for semantic coverage and AI Overview
+     citability, just without structured-data markup that no longer does anything. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;1,7..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../style.css" />
+
+<style>
+  :root {
+    --ink: #10131A;
+    --paper: #F6F1E7;
+    --amber: #C98A4B;
+    --amber-deep: #9C6530;
+    --ink-blue: #3A5A78;
+    --muted: #7A7469;
+    --paper-border: #E4DBC8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--ink);
+    font-family: 'Literata', Georgia, serif;
+  }
+
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Hero — copied verbatim from the-morning-nothing-went-wrong.html,
+     the site's reference article. Same class names, same rules, no
+     local reinvention. This guarantees zero drift and zero collision
+     with anything in the global stylesheet. ── */
+.blog-hero {
+  position: relative;
+  min-height: 580px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: #1a1008;
+}
+.blog-hero-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 8%;
+  opacity: 0.80;
+}
+.blog-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(18,12,6,0.20) 0%,
+    rgba(18,12,6,0.90) 100%);
+}
+.blog-hero-inner { position: relative; z-index: 2; padding: 60px 0 56px; width: 100%; }
+.bc {
+  font-family: var(--font-ui); font-size: 0.75rem; color: rgba(255,255,255,0.50);
+  display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 18px;
+}
+.bc a { color: rgba(255,255,255,0.50); text-decoration: none; }
+.bc a:hover { color: var(--rose); }
+.bc span { color: rgba(255,255,255,0.82); }
+.meta-strip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  font-family: var(--font-ui); font-size: 0.8rem; color: rgba(255,255,255,0.60); margin-bottom: 22px;
+}
+.meta-avi {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--rose), var(--amber));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 0.85rem; color: #fff; font-family: var(--font-ui); flex-shrink: 0;
+  overflow: hidden;
+}
+.meta-avi img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+.meta-sep { opacity: 0.30; }
+@media (max-width: 768px) {
+  .blog-hero { min-height: 440px; }
+  .blog-hero-inner { padding: 36px 0 40px; }
+}
+
+  /* Body */
+  .content {
+    background: var(--paper);
+    padding: 48px 0 80px;
+  }
+  .dek {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--ink-blue);
+    border-left: 3px solid var(--amber);
+    padding-left: 18px;
+    margin: 0 0 44px;
+    font-style: italic;
+  }
+  article p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    margin: 0 0 24px;
+    color: #201C15;
+  }
+  article em { color: var(--amber-deep); font-style: italic; }
+  h2.section-title {
+    font-family: 'Literata', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--muted);
+    text-align: center;
+    letter-spacing: 0.02em;
+    margin: 56px 0 32px;
+    position: relative;
+  }
+  h2.section-title::before,
+  h2.section-title::after {
+    content: "";
+    display: inline-block;
+    width: 32px;
+    height: 1px;
+    background: var(--paper-border);
+    vertical-align: middle;
+    margin: 0 12px;
+  }
+
+  /* Inline image — index card motif, styled as a taped card */
+  figure.inline-image {
+    margin: 40px 0;
+    padding: 0;
+  }
+  figure.inline-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    box-shadow: 0 12px 28px rgba(16,19,26,0.18);
+  }
+  figure.inline-image figcaption {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .disclaimer {
+    margin-top: 56px;
+    padding: 20px 24px;
+    background: #EFE6D4;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #4A4436;
+  }
+
+  /* FAQ — index-card signature element */
+  .faq {
+    margin-top: 64px;
+  }
+  .faq h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+  .faq-card {
+    position: relative;
+    background: #FFFDF8;
+    border: 1px solid var(--paper-border);
+    border-radius: 3px;
+    padding: 20px 22px 22px;
+    margin-bottom: 16px;
+  }
+  .faq-card::before {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: 24px;
+    width: 36px;
+    height: 12px;
+    background: rgba(201,138,75,0.35);
+    transform: rotate(-2deg);
+  }
+  .faq-q {
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin-bottom: 8px;
+    color: var(--ink-blue);
+  }
+  .faq-a {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #3B372E;
+  }
+
+  /* .author-box removed — the avatar-including author bio component
+     (.author-bio / .bio-avatar / .bio-label / .bio-name) is already
+     defined once, globally, in style.css so every article shares the
+     exact same author-card look. Using a local text-only override here
+     is what dropped the avatar on this page. See the markup below. */
+
+  .social-note {
+    margin-top: 40px;
+    padding: 16px 18px;
+    background: #E9E1CE;
+    border-radius: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: #5A5548;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <div class="nav-search">
+      <div class="search-wrap">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" aria-label="Search" />
+      </div>
+    </div>
+    <a class="nav-brand" href="../index.html"><img src="/assets/branding/header-logo-desktop-186x56.png" alt="Nestly Parenting" class="nav-logo" width="186" height="56" /></a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../articles.html">Blogs</a></li>
+      <li><a href="../feeding-tracker.html">Feeding Tracker</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!--
+  IMAGE SLOT 1 — HERO
+  File: the-fourth-check-hero-crib-bottle.webp (1600x900)
+  Final approved asset, generated via Visual Bible Track A, Hero 1 prompt.
+  Located at /assets/images/the-fourth-check-hero-crib-bottle.webp
+-->
+<div class="blog-hero">
+  <img class="blog-hero-img" src="../assets/images/the-fourth-check-hero-crib-bottle.webp"
+       alt="A parent's hand holding an empty bottle beside a dark crib rail at night."
+       width="1600" height="900" fetchpriority="high" decoding="async" />
+  <div class="blog-hero-overlay"></div>
+  <div class="blog-hero-inner">
+    <div class="container">
+      <nav class="bc" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="../articles.html">Blogs</a>
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>The Fourth Check</span>
+      </nav>
+
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px;">
+        <span class="blog-tag tag-rose">Fiction</span>
+        <span class="blog-tag tag-amber">Nestly Parenting</span>
+      </div>
+
+      <h1 style="color:#fff;max-width:780px;margin-bottom:24px;text-shadow:0 2px 22px rgba(0,0,0,0.40);font-size:clamp(1.8rem,4.5vw,3.1rem);">
+        The Fourth Check
+        <em style="color:#f7c3b0;display:block;margin-top:4px;">A short story about the night you can't remember if you already fed the baby</em>
+      </h1>
+
+      <div class="meta-strip">
+        <div style="display:flex;align-items:center;gap:9px;">
+          <div class="meta-avi"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+          <strong style="color:#fff;">Attaullah</strong>
+        </div>
+        <span class="meta-sep">|</span>
+        <span>July 30, 2026</span>
+        <span class="meta-sep">|</span>
+        <span>📖 11 min read</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="wrap">
+
+    <p class="dek">Somewhere tonight, a new parent is standing at a crib doing math that won't hold still: twenty minutes ago, or two hours and twenty. It's one of the strangest, least-talked-about parts of early parenthood — not simply exhaustion, but a specific kind of memory failure with its own name in psychology research. This story imagines one version of that moment, built on real science about sleep deprivation, memory, and why parents reach for feeding trackers in the first place.</p>
+
+    <article>
+      <p>Three-forty in the morning, and Priya is doing math she's done a thousand times, except the numbers won't hold still.</p>
+
+      <p>Twenty minutes. Or two hours and twenty. The two answers sit in her with identical weight — the flannel under her arm, the exact way Zara's fist had opened against her collarbone before she drifted off — and there is nothing in her that can tell them apart. Not a gap. Not a blank. Two full memories, occupying the same twenty square feet of bedroom, refusing to sort themselves by time.</p>
+
+      <p>She is holding an empty bottle. She does not know if she is about to use it, or if she just did.</p>
+
+      <h2 class="section-title">Twelve Years</h2>
+
+      <p>Twelve years on a NICU floor will teach you exactly one thing about memory, and it isn't to trust it. Priya has trained forty-one new grads, every one of them arriving in August wide-eyed and overconfident, and she has broken every one of them of the same belief within a month: that being careful is a feeling you can rely on. It isn't. She reads a label out loud before she reads a syringe not because she doubts herself in the moment, but because she has watched, over and over, what the version of herself doubts <em>later</em> — at hour eleven of a double, at three in the morning, when confidence and correctness have nothing to do with each other anymore. <em>You don't get to be smarter at 4 a.m.,</em> she tells them. <em>Nobody does. The system doesn't need you smart. It needs you to check.</em></p>
+
+      <p>She has never given a baby who wasn't hers a dose that wasn't theirs. Twelve years.</p>
+
+      <p>She has been standing at this crib for what might be ninety seconds and might be four minutes, holding a bottle, in a dark room, unable to answer the one question her entire professional life has been built around answering for other people's children.</p>
+
+      <h2 class="section-title">The Word For It</h2>
+
+      <p>She doesn't tell Marcus that night. She doesn't tell him for three more nights, actually, because telling him means admitting there was a version of the previous week where she genuinely considered feeding Zara again just to be safe — an eleven-day-old stomach, already tender, already unpredictable, taking a second feed because her mother couldn't hold two numbers apart in her head. She knows exactly what that's called, professionally. She's given the in-service on it. <em>Repetition error.</em> She just never once, not in twelve years of saying the phrase out loud to other people, imagined saying it about herself, at home, about her own daughter.</p>
+
+      <p>What she does instead, at 2 p.m. the next day, milk-drunk baby dead weight against her sternum, one hand angled at the only tilt that won't wake her: she looks it up. Not because she thinks something's wrong with her. Because she can't leave a mechanism alone once she suspects there's a name for it.</p>
+
+      <p>There is. 1998. A journal she's never had reason to open before. Two kinds of error, and the paper's plain enough about which populations get studied for it — not new mothers. Older adults, mostly, and pill bottles. Nobody ran this exact test on a woman eleven days postpartum standing over a crib at 4 a.m. But the shape of the failure is identical enough that she reads the abstract twice, feeling something she doesn't have a clean word for. Not relief, exactly. Recognition wearing relief's clothes.</p>
+
+      <h2 class="section-title">The Card</h2>
+
+      <p>Marcus is the one who fixes it, which she'll resent slightly and love enormously for roughly the same nine months.</p>
+
+      <p>Not an app — she'd tried two of those in the first forty-eight hours and deleted both, one for making her compare Zara's numbers to some curve of babies who weren't hers, the other for putting a screen between her and an actual sleeping face at 3 a.m., which felt like exactly the wrong trade. What he tapes to the headboard instead is an index card on a string, four columns, his handwriting getting worse by the week. Time. Side. Ounces. One letter — S or A — for what she did after.</p>
+
+      <!--
+        IMAGE SLOT 2 — INLINE
+        File: the-fourth-check-index-card-headboard.webp (1600x900)
+        Final approved asset, generated via Visual Bible Track A, Hero 2 prompt.
+        Located at /assets/images/the-fourth-check-index-card-headboard.webp
+      -->
+      <figure class="inline-image">
+        <img src="../assets/images/the-fourth-check-index-card-headboard.webp"
+             alt="A handwritten feeding log taped to a headboard on a string."
+             width="1600" height="900" loading="lazy">
+        <figcaption>The card, four columns.</figcaption>
+      </figure>
+
+      <p>It ends the crib-side problem almost immediately. It does not end the thing underneath it. Some nights she catches herself rereading the card longer than she needs to — not checking the information, which she already believes, but checking anyway, the way you'll re-sign a chart you know you already signed, because checking has quietly become its own small ritual, separate from whatever doubt it was built to answer.</p>
+
+      <p>"I think I've turned my nightstand into a chart," she tells Deb, another NICU nurse, half-joking, month three. "And some nights I don't know if I'm checking it because I don't trust my brain, or because checking is the only part of any of this that still feels like something I'm good at."</p>
+
+      <p>Deb doesn't laugh. "That's not a joke," she says. "That's literally what we tell them a double-check is <em>for</em>. It's not just catching the error. It's what your hands do when the rest of you doesn't know what to do."</p>
+
+      <h2 class="section-title">What It Costs</h2>
+
+      <p>Here's the part she likes less, once she starts paying attention to it the way she pays attention to everything now, like a kind of penance for the eleven days she couldn't.</p>
+
+      <p>By week six she notices she's stopped trying to <em>feel</em> whether Zara's hungry before checking when the last feed was. The card isn't wrong. It's that some quieter form of knowing has started deferring to it before she's even aware of the handoff. Lying awake one night, she wonders whether she's raising a very well-logged baby alongside a slightly less trusted set of instincts, and whether that's a fair trade, and whether anyone actually asked her to make it, or whether she just backed into it, the way you back into most things at eleven days postpartum.</p>
+
+      <p>She asks the pediatrician at the two-month visit, bracing to be told she's overthinking it, which — fair, often is.</p>
+
+      <p>She isn't told that. "It's not nothing," the pediatrician says. "But most parents I see who track nothing at all aren't more instinctively bonded. They're just anxious in a way that doesn't leave a paper trail. I'd rather you borrow a card for a few months than not trust yourself for a few months. It comes back. It's not a muscle that gives out from six weeks of help."</p>
+
+      <p>Priya doesn't fully believe her. She writes it on the card anyway, in the one corner that isn't a time or a letter. <em>Instinct comes back. — Dr. R.</em></p>
+
+      <h2 class="section-title">The Night It Mattered</h2>
+
+      <p>The night it actually matters, Zara is eleven weeks old, running 100.9, and there's no negotiating that number, no waiting to see. Coat half-buttoned over pajamas in the ER parking lot, the resident asks the two questions that decide everything — last feed, last wet diaper — and Priya, who twenty minutes earlier couldn't have told you with confidence what day it was, answers both without hesitating, because they're sitting on a card in her coat pocket in Marcus's increasingly bad handwriting, and she doesn't have to trust the inside of her own skull to know them.</p>
+
+      <p>It isn't a triumphant feeling. It's closer to a checklist doing the small, unglamorous thing checklists are actually for — not making her smarter, not undoing what 4 a.m. does to anyone's brain, just making sure the thing that mattered didn't depend on her being smarter than she had any right to be that night.</p>
+
+      <p>Zara has a virus. She's fine by Thursday.</p>
+
+      <h2 class="section-title">The Fork</h2>
+
+      <p>First shift back, four months later, training a new grad nineteen years younger than her and just as terrified as Priya was, she draws the same fork on the whiteboard she's drawn every August for a decade. Omission. Repetition. The new grad writes it down like it's new information. For her, it is.</p>
+
+      <p>Priya doesn't mention the card taped to her own headboard. It doesn't belong in this room — a room where checking is a job with rules and a witness and a signature at the bottom, not one woman deciding, alone, in the dark, what she's still allowed to trust about her own mind.</p>
+
+      <p>But walking to the next bed, she thinks: <em>it's the same fork it always was. I just didn't know, until eleven days into being someone's mother, that I was standing on the wrong side of it too.</em></p>
+    </article>
+
+    <p class="disclaimer">This story is a work of fiction. Its character, hospital, and events are invented; the psychological and clinical research referenced within it — on habitual prospective memory, postpartum cognitive change, and checklist-based error prevention — reflects real published findings, used here as the factual scaffolding for an imagined life.</p>
+
+    <p class="disclaimer" style="background:#E6EBEF; color:#24405C;">This story was inspired by real, published research on memory, sleep deprivation, and checklist-based error prevention. <!-- FLAGGED: this link's target, "why-i-cant-remember-if-i-fed-the-baby", does not exist anywhere in the supplied project. Left as plain text below rather than a broken link or a fabricated page. --> Read the research behind it here.</p>
+
+    <div class="faq">
+      <h2>Parents Also Wonder</h2>
+
+      <div class="faq-card">
+        <div class="faq-q">Why can't I remember if I already fed my baby?</div>
+        <div class="faq-a">It's a documented phenomenon called habitual prospective memory failure — feeding a newborn every two to three hours creates the exact repetitive structure psychologists have found causes this specific kind of confusion, even in alert adults.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">What's the difference between an "omission" and "repetition" error — the fork Priya draws in the story?</div>
+        <div class="faq-a">An omission error is skipping a step entirely — forgetting to feed at all. A repetition error is doing an already-completed step again, believing it hasn't happened yet — feeding a baby a second time within a short window. Checklist and safety research (including the aviation and surgical-checklist literature Priya's training draws on) treats these as two distinct failure modes, because a good safeguard has to catch both, not just one.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">Is "mommy brain" real, or is it just sleep deprivation?</div>
+        <div class="faq-a">The evidence is genuinely mixed. One 2018 brain-imaging study found measurable changes tied specifically to nighttime waking. Other research found postpartum women report more forgetfulness than they actually demonstrate on objective memory tests.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">How often should a newborn eat overnight?</div>
+        <div class="faq-a">Most newborns feed every two to three hours around the clock in the early weeks — the same repetitive structure that makes it so hard to hold onto which feed was "last."</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">Should I keep a baby feeding log, like Priya and Marcus do in this story?</div>
+        <div class="faq-a">Research on cognitive offloading suggests a log genuinely reduces the moment-to-moment burden of remembering — but may also reduce how much you rely on your own internal sense of your baby's patterns over time. Both effects are real; this story doesn't pretend the tool is a clean fix. It's a smaller version of the same trade-off <a href="../the-morning-nothing-went-wrong.html" style="color:var(--ink-blue);">a different Nestly household discovers</a>, when writing something down turns out to be the only way it stops living in one person's head alone.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">Is it dangerous if a newborn accidentally gets fed twice in a short window?</div>
+        <div class="faq-a">A single accidental extra feed in a healthy, full-term newborn is not usually a medical emergency — the more common result is spit-up, fussiness, or a loose stool, not lasting harm. It can matter more for a baby who is premature, has reflux, or has a diagnosed feeding or medical condition, where volume and timing are managed more precisely. If you're ever unsure after a possible double feed, call your pediatrician or an after-hours nurse line rather than guessing — this isn't a substitute for that call.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">What is cluster feeding, and is it different from forgetting a feed?</div>
+        <div class="faq-a">Cluster feeding — frequent, closely spaced feeds, often in the evening — is a normal newborn pattern, not a memory problem. It can look like confusion from the outside simply because the feeds come so close together.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">Are baby feeding tracker apps worth it?</div>
+        <div class="faq-a">Many parents find them useful during the hardest stretch of repetitive, sleep-fragmented routine, according to interview-based research — though researchers caution it isn't yet clear whether the log is replacing memory, easing coordination between caregivers, or doing something harder to isolate. That coordination piece is its own real issue for couples splitting overnight care, one <a href="../how-to-split-baby-duties-without-building-resentment.html" style="color:var(--ink-blue);">worth reading about on its own</a>. The honest trade-off, documented separately, is that leaning on a tool can quietly reduce trust in your own recall over time.</div>
+      </div>
+    </div>
+
+    <div class="social-note">
+      SOCIAL SHARING ASSET (not used on this page): the-fourth-check-social-stopscroll.jpg —
+      text-overlay graphic for Pinterest / Instagram / X only. Never referenced in og:image
+      or schema markup above.
+    </div>
+
+    <aside class="author-bio" aria-label="About the author">
+      <div class="bio-avatar"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+      <div>
+        <span class="bio-label">About the Author</span>
+        <div class="bio-name">Attaullah</div>
+        <p>Attaullah writes fiction and reported essays about early parenthood for Nestly, drawing on peer-reviewed psychology research. Attaullah is not a medical professional; the clinical and psychological claims referenced in this story's closing note are drawn from named, published studies, not personal expertise.</p>
+      </div>
+    </aside>
+
+    <!-- Comments — styled inline to match this page's paper/ink aesthetic -->
+    <div style="margin-top:56px; padding-top:32px; border-top:1px solid var(--paper-border);">
+      <h3 style="font-family:'Fraunces',serif; font-weight:500; font-size:1.4rem; color:#201C15; margin-bottom:8px;">Join the Conversation</h3>
+      <p style="font-family:'Literata',serif; font-size:0.92rem; color:var(--muted); margin-bottom:24px;">Does this story ring true for you? Share your own experience below.</p>
+      <script src="https://giscus.app/client.js"
+        data-repo="Attaullahsmit/nestly"
+        data-repo-id="R_kgDOSGz4Tw"
+        data-category="General"
+        data-category-id="DIC_kwDOSGz4T84C7NJh"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="footer-brand-name"><img src="/assets/branding/footer-logo-90px.png" alt="Nestly Parenting" width="90" height="27" /></div>
+        <p class="footer-tagline">Your trusted companion through every beautiful, messy, and unforgettable chapter of parenthood.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>
+          <a href="https://www.instagram.com/attaullah41215" target="_blank">📸 Instagram</a>
+          <a href="https://www.linkedin.com/in/muhammad-attaullah-509820403" target="_blank">💼 LinkedIn</a>
+          <a href="mailto:attaullah41215@gmail.com">✉️ attaullah41215@gmail.com</a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-heading">Explore</div>
+        <ul class="footer-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../articles.html">All Articles</a></li>
+          <li><a href="../feeding-tracker.html">Feeding Tracker</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Legal</div>
+        <ul class="footer-links">
+          <li><a href="../privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="../disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">About the Author</div>
+        <p style="font-family:var(--font-ui);font-size:0.84rem;color:rgba(255,255,255,0.55);line-height:1.7;">
+          Built by <strong style="color:rgba(255,255,255,0.8);">Attaullah</strong> — a passionate advocate for honest, practical parenting education for first-time parents everywhere.
+        </p>
+      </div>
+    </div>
+    <hr class="footer-divider" />
+    <div class="footer-bottom">
+      <span>© 2026 Nestly Parenting. All rights reserved.</span>
+      <span><a href="../privacy-policy.html">Privacy Policy</a> · <a href="../disclaimer.html">Disclaimer</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="../main.js"></script>
+</body>
+</html>

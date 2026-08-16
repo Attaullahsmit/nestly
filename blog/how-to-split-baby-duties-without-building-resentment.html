@@ -12,6 +12,11 @@
 <meta name="author" content="Attaullah" />
 <link rel="canonical" href="https://nestlyparenting.com/blog/how-to-split-baby-duties-without-building-resentment" />
 
+  <link rel="icon" type="image/x-icon" href="/assets/branding/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/branding/icon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/icon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/icon-192.png" />
 <!-- Open Graph -->
 <meta property="og:title" content="How to Split Baby Duties Without Building Resentment" />
 <meta property="og:description" content="Why couples who are both trying still end up with one partner carrying everything — and how domain ownership, not task delegation, is what finally changes it." />
@@ -143,14 +148,14 @@
   .article-hero {
     position: relative;
     width: 100%;
-    min-height: 92vh;
+    min-height: 600px;
     display: flex;
     align-items: flex-end;
     overflow: hidden;
     padding-top: 72px;
   }
 
-  .article-hero img {
+  .article-hero > img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -174,24 +179,30 @@
   .article-hero-content {
     position: relative;
     z-index: 2;
-    max-width: 860px;
-    padding: 0 6vw 64px;
+    width: 100%;
+    padding: 60px 0 56px;
     animation: fadeUp 1.1s ease forwards;
     opacity: 0;
     transform: translateY(28px);
   }
 
+  /* Inner content is centered and gutter-padded via Bootstrap's .container,
+     the same wrapper the navbar and article body already use — this is what
+     keeps the hero title's left edge aligned with the body text below it
+     instead of pinned at a raw 6vw from the browser edge. */
+  .article-hero-inner { max-width: 860px; }
+
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-  .hero-eyebrow {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--article-gold);
-    margin-bottom: 14px;
-    display: block;
+  /* Breadcrumb — copied from the-morning-nothing-went-wrong.html, this
+     article had none at all. */
+  .bc {
+    font-family: var(--font-ui); font-size: 0.75rem; color: rgba(255,255,255,0.50);
+    display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 18px;
   }
+  .bc a { color: rgba(255,255,255,0.50); text-decoration: none; }
+  .bc a:hover { color: var(--rose); }
+  .bc span { color: rgba(255,255,255,0.82); }
 
   .article-hero h1 {
     font-family: 'Cormorant Garamond', serif;
@@ -208,7 +219,12 @@
     color: #f5d9c8;
   }
 
-  .hero-sub {
+  /* Renamed from .hero-sub — that name already exists globally (for the
+     homepage hero) with different font-size/margin-bottom/color values.
+     Same page loads both stylesheets, so properties this local rule didn't
+     redeclare (margin-bottom, in this case) were silently leaking in from
+     the global version. Unique name = zero leakage, guaranteed. */
+  .article-hero-sub {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
     font-weight: 300;
@@ -217,47 +233,33 @@
     line-height: 1.7;
   }
 
+  /* Meta strip + avatar — copied from the-morning-nothing-went-wrong.html.
+     This article previously had a plain text "By Attaullah" line with no
+     avatar photo at all. */
+  .meta-strip {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    font-family: 'Lato', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.60); margin-top: 18px;
+  }
+  .meta-avi {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose), var(--amber));
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; color: #fff; font-family: var(--font-ui); flex-shrink: 0;
+    overflow: hidden;
+  }
+  .meta-avi img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+  .meta-sep { opacity: 0.40; }
+
+  @media (max-width: 768px) {
+    .article-hero { min-height: 440px; }
+    .article-hero-content { padding: 36px 0 40px; }
+  }
+
   /* ARTICLE BODY */
   .article-body {
-    max-width: 720px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 80px 5vw 120px;
-  }
-
-  /* META ROW */
-  .meta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    align-items: center;
-    margin-bottom: 56px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--article-line);
-  }
-
-  .meta-tag {
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--article-rose);
-    background: rgba(196,131,122,0.1);
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
-
-  .meta-date {
-    font-size: 0.8rem;
-    color: var(--article-muted);
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-  }
-
-  .meta-read {
-    font-size: 0.8rem;
-    color: var(--article-muted);
-    margin-left: auto;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
   }
 
   /* PROSE */
@@ -514,41 +516,11 @@
     padding-bottom: 20px;
   }
 
-  /* AUTHOR BIO */
-  .author-bio {
-    margin: 60px 0 40px;
-    padding: 32px 36px;
-    background: var(--article-soft);
-    border-radius: 12px;
-    border-left: 3px solid var(--article-gold);
-  }
-
-  .bio-label {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--article-gold);
-    font-weight: 700;
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .bio-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--article-deep);
-    margin-bottom: 8px;
-  }
-
-  .author-bio p {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.9rem;
-    color: var(--article-muted);
-    line-height: 1.75;
-    margin: 0 !important;
-  }
+  /* .author-bio / .bio-label / .bio-name removed — these were local
+     overrides colliding with the avatar-including .author-bio component
+     already defined once, globally, in style.css. This is the same bug
+     found and fixed in the-fourth-check.html: the local version had no
+     .bio-avatar at all, so the author photo never rendered here either. */
 
   /* SOURCES */
   .sources-section {
@@ -675,7 +647,6 @@
     .callout-quote { padding: 24px 20px; }
     .author-bio { padding: 24px 20px; }
     .warning-box { padding: 24px 20px; }
-    .meta-read { display: none; }
   }
 </style>
 </head>
@@ -693,7 +664,7 @@
         <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" aria-label="Search Nestly articles" />
       </div>
     </div>
-    <a class="nav-brand" href="../index.html">🌿 Nestly <span>Parenting</span></a>
+    <a class="nav-brand" href="../index.html"><img src="/assets/branding/header-logo-desktop-186x56.png" alt="Nestly Parenting" class="nav-logo" width="186" height="56" /></a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu" aria-expanded="false">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -732,25 +703,39 @@
       itemprop="image" />
     <div class="article-hero-overlay"></div>
     <div class="article-hero-content">
-      <span class="hero-eyebrow">Mental Load · Default Parent · Invisible Labor</span>
-      <h1 itemprop="headline">How to Split Baby Duties <em>Without Building Resentment</em></h1>
-      <p class="hero-sub">Why the task-splitting conversation never quite works — and what actually moves the weight.</p>
+      <div class="container">
+        <div class="article-hero-inner">
+          <nav class="bc" aria-label="Breadcrumb">
+            <a href="../index.html">Home</a>
+            <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            <a href="../articles.html">Blogs</a>
+            <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            <span>How to Split Baby Duties Without Building Resentment</span>
+          </nav>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+            <span class="blog-tag tag-rose">Mental Load</span>
+            <span class="blog-tag tag-amber">Default Parent</span>
+            <span class="blog-tag tag-rose">Invisible Labor</span>
+          </div>
+          <h1 itemprop="headline">How to Split Baby Duties <em>Without Building Resentment</em></h1>
+          <p class="article-hero-sub">Why the task-splitting conversation never quite works — and what actually moves the weight.</p>
+          <div class="meta-strip">
+            <div style="display:flex;align-items:center;gap:9px;">
+              <div class="meta-avi"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+              <strong style="color:#fff;">Attaullah</strong>
+            </div>
+            <span class="meta-sep">|</span>
+            <span>June 24, 2026</span>
+            <span class="meta-sep">|</span>
+            <span>16 min read</span>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- ARTICLE BODY -->
   <div class="article-body">
-
-    <!-- Meta -->
-    <div class="meta-row">
-      <span class="meta-tag">First-Time Parenting</span>
-      <span class="meta-tag">Mental Load</span>
-      <span class="meta-date">
-        <time datetime="2026-06-24" itemprop="datePublished">June 24, 2026</time>
-        · By <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Attaullah</span></span>, Nestly Parenting
-      </span>
-      <span class="meta-read">16 min read</span>
-    </div>
 
     <div class="prose">
 
@@ -1325,9 +1310,12 @@
 
       <!-- ═══ AUTHOR BIO ═══ -->
       <aside class="author-bio reveal" aria-label="About the author">
-        <span class="bio-label">About the Author</span>
-        <div class="bio-name">Attaullah</div>
-        <p>Attaullah is a parenting and family-content writer for Nestly, where he focuses on pregnancy, parenthood, emotional wellbeing, and pregnancy loss. His work combines careful research with real stories and lived experiences shared by parents, helping readers find practical guidance, reassurance, and support during major life transitions.</p>
+        <div class="bio-avatar"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+        <div>
+          <span class="bio-label">About the Author</span>
+          <div class="bio-name">Attaullah</div>
+          <p>Attaullah is a parenting and family-content writer for Nestly, where he focuses on pregnancy, parenthood, emotional wellbeing, and pregnancy loss. His work combines careful research with real stories and lived experiences shared by parents, helping readers find practical guidance, reassurance, and support during major life transitions.</p>
+        </div>
       </aside>
 
       <!-- ═══ SOURCES ═══ -->
@@ -1411,7 +1399,7 @@
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-4">
-        <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+        <div class="footer-brand-name"><img src="/assets/branding/footer-logo-90px.png" alt="Nestly Parenting" width="90" height="27" /></div>
         <p class="footer-tagline">Your trusted companion through every beautiful, messy, and unforgettable chapter of parenthood.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank" rel="noopener">📘 Facebook</a>

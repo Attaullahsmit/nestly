@@ -10,6 +10,11 @@
 <meta name="author" content="Attaullah" />
 <link rel="canonical" href="https://nestlyparenting.com/blog/the-work-that-disappears-when-its-done-right" />
 
+  <link rel="icon" type="image/x-icon" href="/assets/branding/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/branding/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/branding/icon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/branding/icon-180.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/assets/branding/icon-192.png" />
 <!-- Open Graph -->
 <meta property="og:type" content="article" />
 <meta property="og:title" content="The Work That Disappears When It's Done Right — Invisible Labor" />
@@ -117,6 +122,8 @@
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../style.css" />
 
 <style>
   :root {
@@ -154,29 +161,39 @@
     transition: width 0.1s linear;
   }
 
-  /* HERO */
-  .hero {
+  /* HERO — renamed from .hero/.hero-content/.hero-overlay/.hero-eyebrow/
+     .hero-sub/.hero-scroll to the collision-free .article-hero pattern used
+     sitewide. Even though this file already loads style.css before its own
+     <style> block (unlike some other articles), these names still exist
+     globally for the homepage hero — renaming removes the collision risk
+     entirely rather than depending on load order staying correct forever. */
+  .article-hero {
     position: relative;
     width: 100%;
-    height: 100vh;
     min-height: 600px;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
     padding-top: 72px;
+    /* Previously also had `height: 100vh` alongside min-height: 600px.
+       Unlike min-height, a fixed height does NOT grow for extra content —
+       so once a breadcrumb, tag pills, and an avatar meta-strip are added
+       below, taller content could get clipped by overflow:hidden instead
+       of the hero simply growing to fit it. Removed the fixed height. */
   }
 
-  .hero img {
+  .article-hero > img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center 30%;
-    filter: brightness(0.62);
+    /* Removed filter: brightness(0.62) — double-darkening on top of the
+       gradient overlay below, same bug as the other articles. */
   }
 
-  .hero-overlay {
+  .article-hero-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -188,28 +205,32 @@
     );
   }
 
-  .hero-content {
+  .article-hero-content {
     position: relative;
     z-index: 2;
     width: 100%;
-    padding: 0 6vw 60px;
-    max-width: 900px;
+    padding: 60px 0 56px;
     animation: fadeUp 1.2s ease forwards;
     opacity: 0;
     transform: translateY(30px);
   }
 
+  /* Inner content centered via Bootstrap's .container, the same wrapper
+     the navbar and article body already use — keeps the hero title's left
+     edge aligned with the body text below instead of pinned at a raw 6vw
+     from the browser edge. */
+  .article-hero-inner { max-width: 860px; }
+
   @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
 
-  .hero-eyebrow {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: block;
+  /* Breadcrumb — this article had none at all. */
+  .bc {
+    font-family: 'Lato', sans-serif; font-size: 0.75rem; color: rgba(255,255,255,0.50);
+    display: flex; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 18px;
   }
+  .bc a { color: rgba(255,255,255,0.50); text-decoration: none; }
+  .bc a:hover { color: var(--gold); }
+  .bc span { color: rgba(255,255,255,0.82); }
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
@@ -223,17 +244,38 @@
 
   .hero-title em { font-style: italic; color: #f5d9c8; }
 
-  .hero-sub {
+  /* Renamed from .hero-sub — that name already exists globally (for the
+     homepage hero) with different values, so anything this rule didn't
+     redeclare could silently leak in from the global version. */
+  .article-hero-sub {
     font-family: 'Lato', sans-serif;
     font-size: 1rem;
     font-weight: 300;
     color: rgba(255,255,255,0.75);
     max-width: 560px;
-    margin-bottom: 32px;
+    margin-bottom: 8px;
     line-height: 1.7;
   }
 
-  .hero-scroll {
+  /* Meta strip + avatar — this hero previously had no byline at all
+     (no date, no author, no read time, no avatar). The only place that
+     information existed was a separate, redundant block further down the
+     page, between the hero and the opening line. */
+  .meta-strip {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+    font-family: 'Lato', sans-serif; font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: 24px;
+  }
+  .meta-avi {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #c4837a);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; color: #fff; flex-shrink: 0;
+    overflow: hidden;
+  }
+  .meta-avi img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+  .meta-sep { opacity: 0.40; }
+
+  .article-hero-scroll {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -244,7 +286,7 @@
     animation: bounce 2s infinite;
   }
 
-  .hero-scroll svg { width: 18px; height: 18px; }
+  .article-hero-scroll svg { width: 18px; height: 18px; }
 
   @keyframes bounce {
     0%, 100% { transform: translateY(0); }
@@ -253,34 +295,10 @@
 
   /* ARTICLE WRAPPER */
   .article-wrap {
-    max-width: 720px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 80px 5vw 120px;
   }
-
-  /* META ROW */
-  .meta-row {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 60px;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--line);
-    flex-wrap: wrap;
-  }
-
-  .meta-tag {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--article-rose);
-    background: rgba(196,131,122,0.1);
-    padding: 5px 14px;
-    border-radius: 20px;
-  }
-
-  .meta-date { font-size: 0.8rem; color: var(--article-muted); font-weight: 300; }
-  .meta-read { font-size: 0.8rem; color: var(--article-muted); margin-left: auto; font-weight: 300; }
 
   /* BODY TEXT */
   .prose p { margin-bottom: 28px; color: #2d2220; }
@@ -713,13 +731,9 @@
     .grace-note { padding: 28px 22px; }
     .author-bio { padding: 24px 22px; }
     .research-note { padding: 20px 22px; }
-    .meta-read { display: none; }
     .section-img.square-img img { max-width: 100%; }
   }
 </style>
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
@@ -735,7 +749,7 @@
         <input type="text" placeholder="Search articles…" id="navSearch" onkeydown="handleNavSearch(event)" aria-label="Search" />
       </div>
     </div>
-    <a class="nav-brand" href="../index.html">🌿 Nestly <span>Parenting</span></a>
+    <a class="nav-brand" href="../index.html"><img src="/assets/branding/header-logo-desktop-186x56.png" alt="Nestly Parenting" class="nav-logo" width="186" height="56" /></a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Open menu">
       <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -759,7 +773,7 @@
           and blinking
      Priority: CRITICAL — preload, fetchpriority high
      ============================================================ -->
-<header class="hero">
+<header class="article-hero">
   <img
     src="../assets/images/hero-invisible-labor-kitchen-morning.webp"
     alt="A South Asian woman stands alone at a kitchen counter watching coffee brew, a clock above her reading 12:00 and blinking"
@@ -772,31 +786,44 @@
             ../assets/images/hero-invisible-labor-kitchen-morning-800.webp 800w,
             ../assets/images/hero-invisible-labor-kitchen-morning-400.webp 400w"
     sizes="100vw" />
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">Relationships &amp; Mental Load · Invisible Labor</span>
-    <h1 class="hero-title" itemprop="headline">The Work That Disappears <em>When It's Done Right</em></h1>
-    <p class="hero-sub">Why the most important labor in a home leaves no evidence of itself — and what it costs when nobody notices.</p>
-    <span class="hero-scroll">
-      <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-      Read the story
-    </span>
+  <div class="article-hero-overlay"></div>
+  <div class="article-hero-content">
+    <div class="container">
+      <div class="article-hero-inner">
+        <nav class="bc" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a>
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          <a href="../articles.html">Blogs</a>
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          <span>The Work That Disappears When It's Done Right</span>
+        </nav>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;">
+          <span class="blog-tag tag-rose">Relationships &amp; Mental Load</span>
+          <span class="blog-tag tag-amber">Invisible Labor</span>
+        </div>
+        <h1 class="hero-title" itemprop="headline">The Work That Disappears <em>When It's Done Right</em></h1>
+        <p class="article-hero-sub">Why the most important labor in a home leaves no evidence of itself — and what it costs when nobody notices.</p>
+        <div class="meta-strip">
+          <div style="display:flex;align-items:center;gap:9px;">
+            <div class="meta-avi"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+            <strong style="color:#fff;">Attaullah</strong>
+          </div>
+          <span class="meta-sep">|</span>
+          <span>June 29, 2026</span>
+          <span class="meta-sep">|</span>
+          <span>15 min read</span>
+        </div>
+        <span class="article-hero-scroll">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          Read the story
+        </span>
+      </div>
+    </div>
   </div>
 </header>
 
 <!-- ARTICLE BODY -->
 <div class="article-wrap">
-
-  <!-- META ROW -->
-  <div class="meta-row">
-    <span class="meta-tag">Relationships</span>
-    <span class="meta-tag">Mental Load</span>
-    <span class="meta-date">
-      <time datetime="2026-06-29" itemprop="datePublished">June 29, 2026</time>
-      · By <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Attaullah</span></span>, Nestly Parenting
-    </span>
-    <span class="meta-read">15 min read</span>
-  </div>
 
   <!-- ARTICLE BODY PROSE -->
   <div class="prose">
@@ -1633,9 +1660,12 @@
 
     <!-- ═══ AUTHOR BIO ═══ -->
     <aside class="author-bio reveal" aria-label="About the author">
-      <span class="bio-label">About the Author</span>
-      <div class="bio-name">Attaullah</div>
-      <p>Attaullah is a parenting and family-content writer for Nestly, where he focuses on pregnancy, parenthood, emotional wellbeing, and pregnancy loss. His work combines careful research with real stories and lived experiences shared by parents, helping readers find practical guidance, reassurance, and support during major life transitions.</p>
+      <div class="bio-avatar"><img src="../assets/images/nestly-author-avatar.webp" alt="Attaullah, founder of Nestly Parenting" loading="lazy"></div>
+      <div>
+        <span class="bio-label">About the Author</span>
+        <div class="bio-name">Attaullah</div>
+        <p>Attaullah is a parenting and family-content writer for Nestly, where he focuses on pregnancy, parenthood, emotional wellbeing, and pregnancy loss. His work combines careful research with real stories and lived experiences shared by parents, helping readers find practical guidance, reassurance, and support during major life transitions.</p>
+      </div>
     </aside>
 
     <!-- ═══ SOURCES ═══ -->
@@ -1734,7 +1764,7 @@
   <div class="container">
     <div class="row g-5">
       <div class="col-lg-4">
-        <div class="footer-brand-name">🌿 Nestly <span>Parenting</span></div>
+        <div class="footer-brand-name"><img src="/assets/branding/footer-logo-90px.png" alt="Nestly Parenting" width="90" height="27" /></div>
         <p class="footer-tagline">Your trusted companion through every beautiful, messy, and unforgettable chapter of parenthood.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/profile.php?id=61572059528261" target="_blank">📘 Facebook</a>

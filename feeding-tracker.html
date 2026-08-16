@@ -100,6 +100,35 @@
         <button type="button" class="type-chip" data-type="solid" aria-pressed="false">🥄 Solid</button>
       </div>
 
+      <!-- Optional detail fields — all skippable. Shown only for the selected
+           type, so a parent who just wants to log "fed, now" never sees them. -->
+      <div id="bottleFields" class="optional-detail-fields" hidden>
+        <label for="amountInput" class="font-ui optional-field-label">Amount (optional)</label>
+        <div class="d-flex gap-2">
+          <input id="amountInput" type="number" inputmode="decimal" min="0" step="0.5" class="form-control" placeholder="e.g. 4" style="flex:1;" />
+          <select id="amountUnit" class="form-control" style="flex:0 0 90px;" aria-label="Amount unit">
+            <option value="oz">oz</option>
+            <option value="ml">ml</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="breastFields" class="optional-detail-fields" hidden>
+        <label for="durationInput" class="font-ui optional-field-label">Duration in minutes (optional)</label>
+        <input id="durationInput" type="number" inputmode="numeric" min="0" step="1" class="form-control mb-2" placeholder="e.g. 15" />
+        <span class="font-ui optional-field-label" id="sideLabel">Side (optional)</span>
+        <div class="side-toggle-row" role="group" aria-labelledby="sideLabel">
+          <button type="button" class="side-chip" data-side="left" aria-pressed="false">Left</button>
+          <button type="button" class="side-chip" data-side="right" aria-pressed="false">Right</button>
+        </div>
+        <p id="lastSideHint" class="font-ui optional-field-hint" hidden></p>
+      </div>
+
+      <div id="solidFields" class="optional-detail-fields" hidden>
+        <label for="noteInput" class="font-ui optional-field-label">Note (optional)</label>
+        <input id="noteInput" type="text" class="form-control" placeholder="e.g. sweet potato, 2 tbsp" maxlength="80" />
+      </div>
+
       <div class="d-flex gap-2" style="margin-top:14px;">
         <button id="btnCurrentTime" class="btn-outline-sage w-50" type="button">🕐 Current Time</button>
         <button id="btnAddEntry" class="btn-sage w-50" type="button">➕ Add Entry</button>
@@ -114,6 +143,10 @@
 
     <!-- Log List -->
     <div id="logs" role="log" aria-live="polite" aria-relevant="additions removals"></div>
+
+    <!-- Weekly pattern view — passive insight, placed below the log so it never
+         adds friction to the primary 3 AM logging action above -->
+    <div id="weeklyTrend" class="weekly-trend" hidden></div>
 
     <!-- Screen-reader-only status announcer for actions (add/remove/errors) -->
     <div id="srAnnounce" class="sr-only" role="status" aria-live="polite"></div>

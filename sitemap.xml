@@ -61,7 +61,20 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 11 — The Morning Nothing Went Wrong — NEWEST -->
+  <!-- Blog 12 — The Fourth Check — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/the-fourth-check</loc>
+    <lastmod>2026-07-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/the-fourth-check-hero-crib-bottle.webp</image:loc>
+      <image:title>The Fourth Check — Habitual Prospective Memory, Postpartum Cognitive Change, Feeding Logs</image:title>
+      <image:caption>A parent's hand holding an empty bottle beside a dark crib rail at night, city lights through the window — the split-second uncertainty of not knowing if the baby was already fed</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 11 — The Morning Nothing Went Wrong -->
   <url>
     <loc>https://nestlyparenting.com/blog/the-morning-nothing-went-wrong</loc>
     <lastmod>2026-07-22</lastmod>
