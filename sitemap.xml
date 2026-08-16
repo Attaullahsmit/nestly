@@ -61,7 +61,20 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 12 — The Fourth Check — NEWEST -->
+  <!-- Blog 13 — Prepared for What? — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/prepared-for-what</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/mother-nursery-doorway-night-discharge-folder.webp</image:loc>
+      <image:title>Prepared for What? — The Hidden Gap in Hospital Discharge Teaching</image:title>
+      <image:caption>A mother stands at a kitchen counter at night, looking toward a nursery doorway where her infant is crying in a crib, with a hospital discharge folder and baby monitor on the counter beside her</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 12 — The Fourth Check -->
   <url>
     <loc>https://nestlyparenting.com/blog/the-fourth-check</loc>
     <lastmod>2026-07-30</lastmod>
