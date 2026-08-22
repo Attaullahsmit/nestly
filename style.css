@@ -619,11 +619,52 @@ p { color: var(--slate); }
   font-family: var(--font-ui);
   color: var(--muted);
   font-size: 0.88rem;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
+
+/* Tabbed toggle: GitHub (Giscus) vs Facebook comments — modern segmented-pill style */
+.comments-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: #efe7de;
+  border-radius: 999px;
+  margin-bottom: 26px;
+}
+.comments-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #8c8177;
+  background: transparent;
+  border: none;
+  padding: 9px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+.comments-tab svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.comments-tab:hover { color: var(--navy); }
+.comments-tab.active {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 3px 10px rgba(44,54,74,0.28);
+}
+.comments-panel { display: none; }
+.comments-panel.active { display: block; }
 
 @media (max-width: 576px) {
   .comments-wrapper { padding: 24px 18px; }
+  .comments-tabs { width: 100%; }
+  .comments-tab { flex: 1; justify-content: center; padding: 9px 10px; font-size: 0.78rem; }
 }
 
 /* ──────────────────────────────────────────
@@ -697,6 +738,7 @@ p { color: var(--slate); }
   transition: color var(--transition);
 }
 .footer-social a:hover { color: var(--rose); }
+.footer-social svg { width: 16px; height: 16px; flex-shrink: 0; }
 
 .footer-divider {
   border-color: rgba(255,255,255,0.1);
@@ -1164,4 +1206,134 @@ p { color: var(--slate); }
 }
 @media (max-width: 600px) {
   .author-bio { flex-direction: column; }
+}
+/* ============================================================
+   Weekly Feeding Pattern — passive insight view (added)
+   Shows feed count per day for the last 7 days. Purely additive:
+   no new required input, no change to the primary logging flow.
+   Visual bars are decorative (aria-hidden); the container's own
+   aria-label carries the full text data for screen readers.
+   ============================================================ */
+.weekly-trend {
+  margin-top: 28px;
+  padding: 22px 20px 16px;
+  background: var(--warm-white, #fff);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm, 14px);
+}
+.weekly-trend-heading {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.weekly-trend-bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+  height: 96px;
+}
+.weekly-trend-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+.weekly-trend-count {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--navy);
+  min-height: 14px;
+  margin-bottom: 2px;
+}
+.weekly-trend-bar-track {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.weekly-trend-bar {
+  width: 60%;
+  min-width: 10px;
+  background: var(--sage);
+  border-radius: 4px 4px 2px 2px;
+  transition: height 0.3s ease;
+}
+.weekly-trend-bar-today {
+  background: var(--rose);
+}
+.weekly-trend-label {
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .weekly-trend-bar { transition: none; }
+}
+
+
+/* ============================================================
+   Optional feed detail fields (Phase 1 — amount/duration/side/note)
+   Hidden by default, shown only for the matching selected type, so
+   the original 1-tap "just log it" flow is completely unaffected.
+   ============================================================ */
+.optional-detail-fields {
+  margin: 14px 0 4px;
+  padding: 14px 16px;
+  background: var(--cream, #faf7f2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm, 14px);
+}
+.optional-field-label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.optional-field-hint {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin: 8px 0 0;
+  font-style: italic;
+}
+.side-toggle-row { display: flex; gap: 8px; }
+.side-chip {
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--slate);
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 16px;
+  min-height: 40px;
+  flex: 1;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.side-chip:hover { border-color: var(--sage); }
+.side-chip.active {
+  background: var(--sage);
+  border-color: var(--sage);
+  color: #fff;
+}
+
+/* Optional detail text shown inline in each log entry */
+.log-detail-label {
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  color: var(--muted);
+  display: block;
+  margin-top: 2px;
 }
