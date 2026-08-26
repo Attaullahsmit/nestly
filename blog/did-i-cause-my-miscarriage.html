@@ -715,6 +715,39 @@
     .mindful-box { padding: 24px 22px; }
     .closing-card { padding: 40px 24px; }
   }
+
+  /* Guest Comments — local to this article (Family B: inline-styled card) */
+  .comments-tablist { display: inline-flex; gap: 4px; padding: 4px; background: var(--blush, #f7ece6); border-radius: 999px; margin-bottom: 22px; }
+  .comments-tab { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700; color: var(--muted); background: transparent; border: none; padding: 9px 18px; min-height: 44px; border-radius: 999px; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
+  .comments-tab svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .comments-tab:hover { color: var(--navy); }
+  .comments-tab[aria-selected="true"] { background: var(--navy); color: #fff; }
+  .comments-tab-hint { font-family: var(--font-ui); font-size: 0.84rem; color: var(--muted); margin-bottom: 20px; }
+  .comments-panel[hidden] { display: none; }
+  .netlify-comment-form label { display: block; font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 16px 0 6px; }
+  .netlify-comment-form input[type="text"], .netlify-comment-form input[type="email"], .netlify-comment-form input[type="tel"], .netlify-comment-form textarea { width: 100%; font-family: var(--font-body, var(--font-ui)); font-size: 0.95rem; padding: 11px 14px; border: 1px solid var(--border, #e8e4df); border-radius: 6px; background: #fff; color: var(--slate, #333); }
+  .netlify-optional-context { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--border, #e8e4df); }
+  .netlify-optional-tag { text-transform: none; font-weight: 400; letter-spacing: normal; color: var(--muted); opacity: 0.75; }
+  .netlify-consent-block { margin-top: 18px; }
+  .netlify-consent-label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-family: var(--font-body, var(--font-ui)); font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+  .netlify-consent-label input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; width: 16px; height: 16px; accent-color: var(--navy); cursor: pointer; }
+  .netlify-contact-fields { margin-top: 14px; margin-left: 26px; padding-left: 16px; border-left: 2px solid var(--border, #e8e4df); }
+  .netlify-contact-fields label { margin: 12px 0 6px; }
+  .netlify-contact-note { font-family: var(--font-ui); font-style: italic; font-size: 0.78rem; color: var(--muted); margin: 10px 0 0; }
+  .netlify-comment-form button { margin-top: 20px; font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600; color: #fff; background: var(--navy); border: none; border-radius: 999px; padding: 13px 26px; min-height: 46px; cursor: pointer; transition: background 0.15s ease; }
+  .netlify-comment-form button:hover:not(:disabled) { background: var(--rose); }
+  .netlify-comment-form button:disabled { opacity: 0.6; cursor: default; }
+  .netlify-form-note { font-family: var(--font-ui); font-style: italic; font-size: 0.8rem; color: var(--muted); margin: 10px 0 0; }
+  .netlify-form-success, .netlify-form-error { font-family: var(--font-ui); font-size: 0.9rem; margin-top: 16px; }
+  .netlify-form-success { color: var(--sage, #6b9080); }
+  .netlify-form-error { color: var(--rose); }
+  .netlify-comment-list { margin-top: 24px; }
+  .netlify-comment-item { padding: 16px 0; border-top: 1px solid var(--border, #e8e4df); }
+  .netlify-comment-item strong { font-family: var(--font-display); color: var(--navy); font-size: 0.95rem; }
+  .netlify-comment-date { font-family: var(--font-ui); font-size: 0.75rem; color: var(--muted); margin-left: 8px; }
+  .netlify-comment-item p { font-family: var(--font-body, var(--font-ui)); color: var(--slate, #333); font-size: 0.92rem; margin: 6px 0 0; }
+  .netlify-comment-empty { font-family: var(--font-ui); font-style: italic; color: var(--muted); font-size: 0.88rem; }
+  @media (max-width: 576px) { .comments-tablist { width: 100%; } .comments-tab { flex: 1; justify-content: center; padding: 9px 10px; font-size: 0.78rem; } }
 </style>
 </head>
 <body>
@@ -1222,6 +1255,21 @@
       <p style="font-family:var(--font-ui,sans-serif);font-size:0.95rem;color:var(--muted,#7a7070);">If this article resonated — your experience matters too. Share it below. 🤍</p>
     </div>
     <div style="max-width:820px;margin:0 auto;background:#fff;border:1px solid var(--border,#e8e4df);border-radius:12px;padding:34px 36px;">
+      <div class="comments-tablist" role="tablist" aria-label="Ways to comment">
+        <button type="button" class="comments-tab" id="tab-github" role="tab" aria-selected="true" aria-controls="panel-github" tabindex="0">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <span>GitHub Comments</span>
+        </button>
+        <button type="button" class="comments-tab" id="tab-netlify" role="tab" aria-selected="false" aria-controls="panel-netlify" tabindex="-1">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>Guest Comments</span>
+        </button>
+      </div>
+
+      <p class="comments-tab-hint" id="hint-github">Sign in with GitHub to comment. Your voice matters in this community.</p>
+      <p class="comments-tab-hint" id="hint-netlify" hidden>🙌 No account needed — just share your thoughts below.</p>
+
+      <div id="panel-github" class="comments-panel" role="tabpanel" aria-labelledby="tab-github">
       <script src="https://giscus.app/client.js"
         data-repo="Attaullahsmit/nestly"
         data-repo-id="R_kgDOSGz4Tw"
@@ -1237,7 +1285,54 @@
         crossorigin="anonymous"
         async>
       </script>
+      </div>
+
+      <div id="panel-netlify" class="comments-panel" role="tabpanel" aria-labelledby="tab-netlify" hidden>
+        <form name="comment-did-i-cause-my-miscarriage" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="netlifyCommentForm" class="netlify-comment-form">
+          <input type="hidden" name="form-name" value="comment-did-i-cause-my-miscarriage">
+          <input type="hidden" name="article" value="did-i-cause-my-miscarriage">
+          <p style="position:absolute; left:-9999px;" aria-hidden="true">
+            <label>Leave this field blank: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+          <label for="commentName">Name</label>
+          <input type="text" id="commentName" name="name" maxlength="60" required>
+          <label for="commentText">Comment</label>
+          <textarea id="commentText" name="comment" maxlength="1000" rows="4" required></textarea>
+
+          <div class="netlify-optional-context">
+            <label for="commentRole">Your work or role <span class="netlify-optional-tag">(optional)</span></label>
+            <input type="text" id="commentRole" name="role" maxlength="80" placeholder="e.g. nurse, parent, grandparent">
+          </div>
+
+          <div class="netlify-consent-block">
+            <label class="netlify-consent-label">
+              <input type="checkbox" id="commentConsent" name="marketing-consent" value="yes">
+              <span>I'd like occasional updates from Nestly Parenting about new stories — by email and/or WhatsApp.</span>
+            </label>
+
+            <div id="contactFields" class="netlify-contact-fields" hidden>
+              <label for="commentEmail">Your email</label>
+              <input type="email" id="commentEmail" name="email" maxlength="120" disabled>
+              <label for="commentWhatsapp">Your WhatsApp number <span class="netlify-optional-tag">(optional)</span></label>
+              <input type="tel" id="commentWhatsapp" name="whatsapp" maxlength="20" disabled>
+              <p class="netlify-contact-note">We'll only use this to reach out occasionally — never shared, never public.</p>
+            </div>
+          </div>
+
+          <button type="submit" id="netlifySubmitBtn">Submit for review</button>
+          <p class="netlify-form-note">Every comment gets a quick read by our team before it goes live.</p>
+        </form>
+        <p id="netlifyFormSuccess" class="netlify-form-success" hidden>Thanks — your comment has been submitted and will appear here once reviewed.</p>
+        <p id="netlifyFormError" class="netlify-form-error" hidden>Something went wrong submitting your comment. Please try again in a moment.</p>
+
+        <div id="approvedComments" class="netlify-comment-list" aria-live="polite"></div>
+      </div>
     </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  initGuestComments({ postPath: '/blog/did-i-cause-my-miscarriage.html', jsonPath: '/comments/did-i-cause-my-miscarriage.json' });
+});
+</script>
   </div>
 </section>
 
