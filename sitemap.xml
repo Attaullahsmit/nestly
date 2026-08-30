@@ -61,6 +61,19 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
+  <!-- Blog 15 — Why Does My Baby Do That? — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/why-does-my-baby-do-that-strange-newborn-behaviors</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/parent-listening-newborn-monitor-at-night.webp</image:loc>
+      <image:title>Why Does My Baby Do That? — Newborn Sounds and Behaviors, What's Normal and When to Call the Doctor</image:title>
+      <image:caption>A parent sits up in a dim bedroom at night, listening toward a baby monitor on the nightstand — a guide to eight ordinary newborn behaviors that sound alarming at 3 a.m., what's normal, and when to actually call the pediatrician</image:caption>
+    </image:image>
+  </url>
+
   <!-- Blog 14 — The Transition Nobody Counts Twice — NEWEST -->
   <url>
     <loc>https://nestlyparenting.com/blog/the-transition-nobody-counts-twice</loc>
