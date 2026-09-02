@@ -3,6 +3,7 @@
 // Shared across all pages: navbar toggle + nav search
 // ============================================================
 
+
 /** Toggle mobile nav */
 function toggleNav() {
   const links = document.getElementById('navLinks');
