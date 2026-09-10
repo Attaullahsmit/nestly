@@ -61,7 +61,20 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 15 — Why Does My Baby Do That? — NEWEST -->
+  <!-- Blog 16 — Why I Can't Remember If I Already Fed the Baby — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/why-i-cant-remember-if-i-fed-the-baby</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/why-i-cant-remember-fed-baby-hero-phone-glow.webp</image:loc>
+      <image:title>Why I Can't Remember If I Already Fed the Baby — Newborn Feeding Memory, Sleep Deprivation, First-Time Parenting</image:title>
+      <image:caption>A mother stands beside her baby's crib at night holding a bottle, looking uncertain — the real psychology behind newborn feeding memory lapses and what actually helps</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 15 — Why Does My Baby Do That? -->
   <url>
     <loc>https://nestlyparenting.com/blog/why-does-my-baby-do-that-strange-newborn-behaviors</loc>
     <lastmod>2026-08-31</lastmod>
