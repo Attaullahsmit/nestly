@@ -61,7 +61,20 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 16 — Why I Can't Remember If I Already Fed the Baby — NEWEST -->
+  <!-- Blog 17 — Is My Baby Safe in This House Tonight? — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/is-my-baby-safe-tonight</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/quiet-evening-before-the-sound.jpg</image:loc>
+      <image:title>Is My Baby Safe in This House Tonight? — Mouse in the House With a Newborn, First-Time Parenting</image:title>
+      <image:caption>A couple seen from behind at a small dining table in a warmly lit apartment at night, champagne glasses between them, faces not visible — a San Francisco mother's night, and the question that followed</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 16 — Why I Can't Remember If I Already Fed the Baby -->
   <url>
     <loc>https://nestlyparenting.com/blog/why-i-cant-remember-if-i-fed-the-baby</loc>
     <lastmod>2026-09-11</lastmod>
