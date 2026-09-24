@@ -194,7 +194,8 @@ p { color: var(--slate); }
 /* Mobile Nav */
 @media (max-width: 768px) {
   .nav-toggle { display: block; }
-  .nav-logo { height: 48px; }
+  .nav-inner { gap: 10px; }
+  .nav-logo { height: 40px; }
   .nav-links {
     display: none;
     flex-direction: column;
@@ -207,7 +208,16 @@ p { color: var(--slate); }
     gap: 4px;
   }
   .nav-links.open { display: flex; }
-  .search-wrap input { width: 110px; }
+  .search-wrap { padding: 6px 10px; gap: 6px; }
+  .search-wrap input { width: 90px; }
+}
+
+/* Narrow phones (≤360px): the search bar + logo + hamburger no longer fit
+   at the 768px-breakpoint sizing above without overflowing the viewport. */
+@media (max-width: 360px) {
+  .nav-inner { gap: 6px; }
+  .nav-logo { height: 34px; }
+  .search-wrap input { width: 56px; }
 }
 
 /* ──────────────────────────────────────────
@@ -808,6 +818,11 @@ p { color: var(--slate); }
   background: var(--navy);
   color: rgba(255,255,255,0.75);
   padding: 64px 0 28px;
+  /* .row.g-5 inside here uses a 48px gutter (-24px row margins), which
+     exceeds .container's 12px side padding by 12px per side — bleeding
+     the row past the viewport on narrow screens. This clips that bleed
+     without changing the g-5 gutter spacing itself. */
+  overflow-x: hidden;
 }
 
 .footer-brand-name {

@@ -61,7 +61,20 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 17 — Is My Baby Safe in This House Tonight? — NEWEST -->
+  <!-- Blog 18 — When Family Love Starts Sounding Like a Demand — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/when-family-love-starts-sounding-like-a-demand</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/couple-kitchen-table-notebook-quiet-conversation.webp</image:loc>
+      <image:title>When Family Love Starts Sounding Like a Demand — Family Pressure, Baby Naming, Boundaries</image:title>
+      <image:caption>A couple sitting at a kitchen table at night, looking at a notebook, one resting her head on her hand looking tired — fictional illustration, not a depiction of any real family</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 17 — Is My Baby Safe in This House Tonight? -->
   <url>
     <loc>https://nestlyparenting.com/blog/is-my-baby-safe-tonight</loc>
     <lastmod>2026-09-14</lastmod>
