@@ -138,12 +138,10 @@
 
     <!-- Category Filters -->
     <div class="category-filters">
-      <button class="filter-btn active" data-cat="all"     onclick="setFilter(this, 'all')">All</button>
-      <button class="filter-btn"        data-cat="sleep"   onclick="setFilter(this, 'sleep')">Sleep</button>
-      <button class="filter-btn"        data-cat="feeding" onclick="setFilter(this, 'feeding')">Feeding</button>
-      <button class="filter-btn"        data-cat="development" onclick="setFilter(this, 'development')">Development</button>
+      <button class="filter-btn active" data-cat="all"      onclick="setFilter(this, 'all')">All</button>
+      <button class="filter-btn"        data-cat="family"   onclick="setFilter(this, 'family')">Parenting &amp; Family</button>
       <button class="filter-btn"        data-cat="wellness" onclick="setFilter(this, 'wellness')">Wellness</button>
-      <button class="filter-btn"        data-cat="health"  onclick="setFilter(this, 'health')">Health</button>
+      <button class="filter-btn"        data-cat="health"   onclick="setFilter(this, 'health')">Health</button>
     </div>
   </div>
 </section>
@@ -156,7 +154,7 @@
 
     <!-- Result count -->
     <div class="font-ui mb-4" style="font-size:0.82rem; color:var(--muted);">
-      Showing <span id="resultCount">18</span> articles
+      Showing <span id="resultCount">19</span> articles
     </div>
 
     <!-- No results -->
@@ -168,8 +166,31 @@
     <!-- Grid -->
     <div class="row g-4" id="articlesGrid">
 
+      <!-- Blog 19 — NEW: Why Does My Child React Differently to Each Parent? -->
+      <div class="col-md-6 col-lg-4 article-item" data-title="Why Does My Child React Differently to Each Parent Attachment Research Toddler Separation Anxiety" data-cat="family">
+        <div class="blog-card h-100" style="border: 2px solid var(--rose); position:relative;">
+          <div style="position:absolute;top:12px;left:12px;z-index:2;">
+            <span class="blog-tag tag-rose" style="font-size:0.68rem;">🤍 New</span>
+          </div>
+          <div class="blog-card-img">
+            <img src="assets/images/why-child-reacts-differently-to-each-parent-hero.webp"
+              alt="A mother kneels forehead-to-forehead with her laughing toddler at an open front door, cupping the toddler's cheek in one hand while the toddler holds her wrist, with coat hooks, a child's drawing and a console table behind them and a sunlit porch and garden visible outside."
+              loading="lazy"
+              decoding="async"
+              width="400" height="209" />
+          </div>
+          <div class="blog-card-body">
+            <span class="blog-tag tag-rose">Parenting &amp; Family</span>
+            <div class="blog-card-title">Why Does My Child React Differently to Each Parent?</div>
+            <div class="blog-card-meta"><span>September 28, 2026</span><span>~7 min read</span></div>
+            <p class="blog-card-excerpt">Some children cry hard for one parent and stay calm with the other. Here's what attachment research can, and can't, tell you about what that means.</p>
+            <a href="blog/why-child-reacts-differently-to-each-parent" class="btn-read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+
       <!-- Blog 18 — NEW: When Family Love Starts Sounding Like a Demand -->
-      <div class="col-md-6 col-lg-4 article-item" data-title="When Family Love Starts Sounding Like a Demand Baby Naming Family Pressure Boundaries Grandparents In-Laws" data-cat="wellness">
+      <div class="col-md-6 col-lg-4 article-item" data-title="When Family Love Starts Sounding Like a Demand Baby Naming Family Pressure Boundaries Grandparents In-Laws" data-cat="family">
         <div class="blog-card h-100" style="border: 2px solid var(--rose); position:relative;">
           <div style="position:absolute;top:12px;left:12px;z-index:2;">
             <span class="blog-tag tag-rose" style="font-size:0.68rem;">🤍 New</span>
@@ -192,7 +213,7 @@
       </div>
 
       <!-- Blog 17 — Is My Baby Safe in This House Tonight? -->
-      <div class="col-md-6 col-lg-4 article-item" data-title="Is My Baby Safe in This House Tonight Mouse Rodent Newborn Safety First-Time Parenting" data-cat="wellness">
+      <div class="col-md-6 col-lg-4 article-item" data-title="Is My Baby Safe in This House Tonight Mouse Rodent Newborn Safety First-Time Parenting" data-cat="family">
         <div class="blog-card h-100" style="border: 2px solid var(--rose); position:relative;">
           <div style="position:absolute;top:12px;left:12px;z-index:2;">
             <span class="blog-tag tag-rose" style="font-size:0.68rem;">🤍 New</span>
@@ -238,7 +259,7 @@
       </div>
 
       <!-- Blog 15 — Why Does My Baby Do That? -->
-      <div class="col-md-6 col-lg-4 article-item" data-title="Why Does My Baby Do That Newborn Behavior Breathing Reflux Newborn Health" data-cat="wellness">
+      <div class="col-md-6 col-lg-4 article-item" data-title="Why Does My Baby Do That Newborn Behavior Breathing Reflux Newborn Health" data-cat="health">
         <div class="blog-card h-100" style="border: 2px solid var(--rose); position:relative;">
           <div style="position:absolute;top:12px;left:12px;z-index:2;">
             <span class="blog-tag tag-rose" style="font-size:0.68rem;">🤍 New</span>
@@ -306,12 +327,9 @@
         </div>
       </div>
 
-      <!-- Blog 12 — NEW: The Fourth Check -->
+      <!-- Blog 12 — The Fourth Check -->
       <div class="col-md-6 col-lg-4 article-item" data-title="The Fourth Check Prospective Memory Failure Sleep Deprivation Feeding Log Checklist Fiction First-Time Parenting" data-cat="wellness">
-        <div class="blog-card h-100" style="border: 2px solid var(--rose); position:relative;">
-          <div style="position:absolute;top:12px;left:12px;z-index:2;">
-            <span class="blog-tag tag-rose" style="font-size:0.68rem;">🤍 New</span>
-          </div>
+        <div class="blog-card h-100">
           <div class="blog-card-img">
             <img src="assets/images/the-fourth-check-hero-crib-bottle.webp"
               alt="A parent's hand holding an empty bottle beside a dark crib rail at night"
@@ -506,7 +524,7 @@
       </div>
 
       <!-- Blog 2 — What to Avoid Before Pregnancy -->
-      <div class="col-md-6 col-lg-4 article-item" data-title="What to Avoid Before Pregnancy Preconception Health Risks" data-cat="wellness">
+      <div class="col-md-6 col-lg-4 article-item" data-title="What to Avoid Before Pregnancy Preconception Health Risks" data-cat="health">
         <div class="blog-card h-100">
           <div class="blog-card-img">
             <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=600&q=75"
