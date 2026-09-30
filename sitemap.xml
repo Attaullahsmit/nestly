@@ -61,9 +61,23 @@
        BLOG POSTS
   ══════════════════════════════════════ -->
 
-  <!-- Blog 19 — Why Does My Child React Differently to Each Parent? — NEWEST -->
+  <!-- Blog 20 — The Trip We Kept Postponing — NEWEST -->
+  <url>
+    <loc>https://nestlyparenting.com/blog/the-trip-we-kept-postponing</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://nestlyparenting.com/assets/images/the-trip-we-kept-postponing-south-rim-late-afternoon.jpg</image:loc>
+      <image:title>The Trip We Kept Postponing — Grand Canyon, Child Supervision, Personal Essay</image:title>
+      <image:caption>Illustration of a dirt path edged with pale stones running along a canyon rim in late-afternoon light, with layered red canyon walls below and a low sun on the horizon — a personal essay about a long-postponed trip with a four-year-old, and who is responsible for watching a young child</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Blog 19 — Why Does My Child React Differently to Each Parent? -->
   <url>
     <loc>https://nestlyparenting.com/blog/why-child-reacts-differently-to-each-parent</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -125,7 +139,7 @@
     </image:image>
   </url>
 
-  <!-- Blog 14 — The Transition Nobody Counts Twice — NEWEST -->
+  <!-- Blog 14 — The Transition Nobody Counts Twice -->
   <url>
     <loc>https://nestlyparenting.com/blog/the-transition-nobody-counts-twice</loc>
     <lastmod>2026-08-25</lastmod>
